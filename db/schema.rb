@@ -10,9 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_161313) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_27_172130) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assets", force: :cascade do |t|
+    t.string "name"
+    t.string "abbreviation"
+    t.float "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "channels", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_channels_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "channel_id", null: false
+    t.bigint "user_id", null: false
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_comments_on_channel_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "histories", force: :cascade do |t|
+    t.bigint "asset_id", null: false
+    t.date "date"
+    t.float "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_histories_on_asset_id"
+  end
+
+  create_table "holdings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "asset_id", null: false
+    t.float "purchased_price"
+    t.integer "shares_amount"
+    t.date "purchased_date"
+    t.float "sold_price"
+    t.date "sold_date"
+    t.float "gain_loss"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["asset_id"], name: "index_holdings_on_asset_id"
+    t.index ["user_id"], name: "index_holdings_on_user_id"
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +80,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_161313) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.float "balance"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "channels", "users"
+  add_foreign_key "comments", "channels"
+  add_foreign_key "comments", "users"
+  add_foreign_key "histories", "assets"
+  add_foreign_key "holdings", "assets"
+  add_foreign_key "holdings", "users"
 end
