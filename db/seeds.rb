@@ -24,7 +24,7 @@ leo = User.new(email: "leokreutz@gmail.com", first_name: "Leonard", last_name: "
 leo.save
 puts "Users created"
 
-james_asset = Asset.new(name: "Reece James", abbreviation: "REJS", rating: rand(0..10), category: "player", description: "The best RB in the premier league")
+james_asset = Asset.new(name: "Reece James", abbreviation: "REJS", rating: rand(0..10), category: "player", description: "The best RB in the premier league", image: "assets/reece_james_icon.png")
 james_asset.save
 
 trent_asset = Asset.new(name: "Trent Alexander-Arnold", abbreviation: "TRAA", rating: rand(0..10), category: "player", description: "The 2nd best RB in the premier league")

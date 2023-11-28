@@ -8,6 +8,7 @@
       <div class="card h-100">
         <%= link_to asset_path(asset), class: 'text-decoration-none text-dark' do %>
           <div class="card-body">
+            <%# <%= image_tag asset.image %>
             <h5 class="card-title"><%= asset.name %></h5>
             <p class="card-text">Current Value: <%= asset.histories.last.price %></p>
             <p class="card-text">24hr Change: <%= number_to_percentage(asset.calculate_24hr_change, precision: 2) %></p>
