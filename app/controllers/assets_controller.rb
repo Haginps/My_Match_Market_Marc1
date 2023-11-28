@@ -1,2 +1,2 @@
-class AssetController < ApplicationController
+class AssetsController < ApplicationController
 end
