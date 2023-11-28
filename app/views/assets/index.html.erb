@@ -1,0 +1,17 @@
+<h1>Assets</h1>
+
+<div class="row">
+  <% @assets.each do |asset| %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <%= link_to asset_path(asset), class: 'text-decoration-none text-dark' do %>
+          <div class="card-body">
+            <h5 class="card-title"><%= asset.name %></h5>
+            <p class="card-text">Current Value: <%= asset.current_value %></p>
+            <p class="card-text">24hr Change: <%= number_to_percentage(asset.previousdaypercentagechange, precision: 2) %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
