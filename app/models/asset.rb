@@ -1,6 +1,7 @@
 class Asset < ApplicationRecord
   has_many :histories
   has_many :holdings
+  has_one :player
 
   def calculate_24hr_change
     today_history = histories.find_by(date: Date.today)
