@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_27_172130) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_151727) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -32,12 +32,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_172130) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "channel_id", null: false
     t.bigint "user_id", null: false
     t.string "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["channel_id"], name: "index_comments_on_channel_id"
+    t.bigint "post_id", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
@@ -72,6 +72,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_172130) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "channel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["channel_id"], name: "index_posts_on_channel_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -88,9 +99,11 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_27_172130) do
   end
 
   add_foreign_key "channels", "users"
-  add_foreign_key "comments", "channels"
+  add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "histories", "assets"
   add_foreign_key "holdings", "assets"
   add_foreign_key "holdings", "users"
+  add_foreign_key "posts", "channels"
+  add_foreign_key "posts", "users"
 end

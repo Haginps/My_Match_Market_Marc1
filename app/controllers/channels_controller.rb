@@ -7,7 +7,7 @@ class ChannelsController < ApplicationController
   def show
     @channel = Channel.find(params[:id])
     @comment = Comment.new
-
+    @post = Post.new
   end
 
   def new
