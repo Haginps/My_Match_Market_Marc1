@@ -1,0 +1,3 @@
+$("#post-form-container").html("<%= j(render 'post_form') %>");
+
+$("#posts-container").append("<%= j(render 'posts/post', post: @post) %>");

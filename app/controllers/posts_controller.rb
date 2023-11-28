@@ -13,6 +13,19 @@ class PostsController < ApplicationController
     else
       render "channel/show", status: :unprocessable_entity
     end
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to channel_path(@channel), notice: 'Post was successfully created.' }
+        format.json { render :show, status: :created, location: @post }
+        format.js   # Add this line for AJAX response
+      else
+        format.html { render :new }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+        format.js   # Add this line for AJAX response
+      end
+    end
+
   end
 
   private
