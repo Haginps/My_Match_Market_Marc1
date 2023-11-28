@@ -1,0 +1,10 @@
+<div class="post-form">
+  <h2>Create a Post</h2>
+  <%= simple_form_for [@channel, @post] do |f| %>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <%= f.submit "Create Post", class: "btn btn-primary" %>
+  <% end %>
+</div>
