@@ -1,19 +1,14 @@
 class CommentsController < ApplicationController
   before_action :set_channels, only: %i[new create]
 
-  def new
-    @channels = Channels.find(params[:channels_id])
-    @comments = Comments.new
-  end
-
   def create
     @comment = Comment.new(comment_params)
-    @comment.channels = @channels
-    @comment.user_id = current_user.id
+    @comment.channel = @channel
+    @comment.user = current_user
 
     if @comment.save
-      # update this
-      # redirect_to goat_path(@channels.goat)
+      # get this checked
+      redirect_to channel_path(@channel)
     else
       render :new, status: :unprocessable_entity
     end
@@ -22,9 +17,21 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
-    # update this
-    # redirect_to dashboard_path, status: :see_other
+    # get this checked
+    redirect_to channel_path, status: :see_other
   end
+
+  private
+
+  def set_channels
+    @channel = Channel.find(params[:channel_id])
+  end
+
+  def comment_params
+    # get this checked
+    params.require(:comment).permit(:content)
+  end
+
 
 
 end
