@@ -1,0 +1,20 @@
+/* This is the CSS for the container that holds your title */
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+/* This is the CSS for the title itself */
+.title {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 36%; /* Takes full height of the viewport */
+  text-align: center; /* Centers the text inside the h1 */
+  font-weight: 700;
+  font-size: 96px;
+}
+
+.title h1 {
+  margin: 0; /* Removes default margin from h1 */
+}
