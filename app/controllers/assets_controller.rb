@@ -4,7 +4,7 @@ class AssetsController < ApplicationController
     # @assets.each do |asset|
     #   asset.calculate_24hr_change
     # end
-    @assets = Assets.all
+    @assets = Asset.all
   end
 
   def show
