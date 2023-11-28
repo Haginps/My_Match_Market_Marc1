@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :holdings
   has_many :assets, through: :holdings
   has_many :channels
+  has_many :posts
   has_many :comments
 end

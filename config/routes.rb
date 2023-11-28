@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :channels, only: [:index, :show, :new, :create, :destroy] do
-    resources :comments, only: [:new, :create, :destroy]
+    resources :posts, only: [:create, :destroy] do
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   resources :news, only: [:index, :show] do
