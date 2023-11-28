@@ -1,18 +1,20 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: %i[show buy sell]
-
-  def show
+  def dashboard
   end
+#   before_action :find_user, only: %i[show buy sell]
 
-  def buy
-  end
+#   def show
+#   end
 
-  def sell
-  end
+#   def buy
+#   end
 
-  private
+#   def sell
+#   end
 
-  def find_user
-    @user = current_user
-  end
+#   private
+
+#   def find_user
+#     @user = current_user
+#   end
 end
