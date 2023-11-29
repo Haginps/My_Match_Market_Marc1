@@ -1,5 +1,26 @@
+.chart-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 1350px !important;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.chart-container {
+  // padding: 35px;
+}
+
+.chart-container canvas {
+  display: block;
+  background-color: #393939;
+  width: 100%;
+  width: 1350px !important;
+  border-radius: 28px;
+}
+
 body {
- background-color: #2E2E2E;
+  background-color: #2e2e2e;
 }
 
 h3 {
@@ -18,7 +39,7 @@ h3 {
 }
 
 .btn {
-  background-color: #98F899;
+  background-color: #98f899;
   color: #393939;
   width: 118px;
   height: 50px;
