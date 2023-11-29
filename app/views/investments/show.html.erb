@@ -1,6 +1,6 @@
 <div class="transaction-actions">
   <h3>Trade Asset</h3>
-
+  
   <div class="chart-wrapper" data-controller="performance-chart">
     <div class="chart-container">
       <canvas id="bar-chart" data-performance-chart-target="myChart" data-labels="<%= Investment.last.histories.map { |history| history.created_at.strftime('%Y-%m-%d') }.to_json %>" data-prices="<%= Investment.last.histories.map(&:price).to_json %>" width="4" height="1"></canvas>
@@ -8,32 +8,21 @@
   </div>
 
   <!-- Buy Form -->
-  <div class="trade form-column">
+      <div class="buy form-column">
         <%= simple_form_for [@investment, @holding] do |f| %>
         <%= f.input :shares_amount %>
-      <div class="buy form-column">
         <%= f.hidden_field :trade, value: "buy" %>
-        <%= f.submit "Buy     +", class: 'btn btn-default' %>
-      </div>
-
-      <div class="sell form-column">
-        <%= f.hidden_field :trade, value: "sell" %>
-        <%= f.submit "Sell      -", class: 'btn btn-sell' %>
+        <%= f.submit "Buy     +", class: 'btn btn-buy' %>
         <% end %>
       </div>
-  </div>
 
-  <!-- Exit Form -->
-  <!-- Ensure the user has holdings to sell -->
-  <div class="exit form-column">
-  <% if user_signed_in? %>
-    <% if current_user.holdings.where(investment_id: @investment.id).any? %>
-      <%= simple_form_for [@investment, @holding] do |f| %>
-      <%= f.submit "Exit", class: 'btn btn-default' %>
+      <% if @on_hold %>
+        <div class="sell form-column">
+          <%= simple_form_for [@investment, @current_holding] do |f| %>
+          <%= f.input :shares_amount %>
+          <%= f.hidden_field :trade, value: "sell" %>
+          <%= f.submit "Sell      -", class: 'btn btn-sell' %>
+          <% end %>
+        </div>
       <% end %>
-    <% else %>
-      <p>You do not have any holdings to sell.</p>
-    <% end %>
-  <% end %>
   </div>
-</div>
