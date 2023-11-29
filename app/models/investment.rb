@@ -1,4 +1,4 @@
-class Asset < ApplicationRecord
+class Investment < ApplicationRecord
   has_many :histories
   has_many :holdings
   has_one :player
@@ -10,9 +10,9 @@ class Asset < ApplicationRecord
     if today_history && yesterday_history && yesterday_history.price != 0
       price_today = today_history.price
       price_yesterday = yesterday_history.price
-      self.previousdaypercentagechange = ((price_today - price_yesterday) / price_yesterday) * 100
+      self.previousdaypercentchange = ((price_today - price_yesterday) / price_yesterday) * 100
     else
-      self.previousdaypercentagechange = 0
+      self.previousdaypercentchange = 0
     end
   end
 end

@@ -6,22 +6,17 @@
 
   <!-- Buy Form -->
   <div class="buy">
-  <%= simple_form_for [@asset, @holding] do |f| %>
+  <%= simple_form_for [@investment, @holding] do |f| %>
     <%= f.input :shares_amount %>
-    <%# f.hidden_field :trade, value: "buy" %>
+    <%= f.hidden_field :trade, value: "buy" %>
     <%= f.submit "Buy", class: 'btn btn-default' %>
   <% end %>
 
-  <%= form_with model: [@asset, @holding] do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
   </div>
 
   <!-- Sell Form -->
   <div class="sell">
-  <%# simple_form_for [@asset, @holding] do |f| %>
+  <%# simple_form_for [@investment, @holding] do |f| %>
     <%# f.input :shares_amount %>
     <%# f.hidden_field :trade, value: "sell" %>
     <%# f.submit "Sell", class: 'btn btn-default' %>
@@ -32,8 +27,8 @@
   <!-- Ensure the user has holdings to sell -->
   <div class="exit">
   <% if user_signed_in? %>
-    <% if current_user.holdings.where(asset_id: @asset.id).any? %>
-      <%= simple_form_for [@asset, @holding] do |f| %>
+    <% if current_user.holdings.where(investment_id: @investment.id).any? %>
+      <%= simple_form_for [@investment, @holding] do |f| %>
       <%= form.submit "Exit", class: 'btn btn-default' %>
       <% end %>
     <% else %>
