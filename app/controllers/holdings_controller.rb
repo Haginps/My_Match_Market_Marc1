@@ -5,6 +5,7 @@ class HoldingsController < ApplicationController
 
     @holding.user = current_user
     @holding.investment = @investment
+
     @holding.save
   end
 
