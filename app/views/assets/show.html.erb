@@ -5,27 +5,40 @@
   <h3>Trade Asset</h3>
 
   <!-- Buy Form -->
-  <%= form_with(model: Holding.new, url: holdings_path, method: :post) do |form| %>
-    <%= form.hidden_field :asset_id, value: @asset.id %>
-    <div class="form-group">
-      <%= form.label :quantity, "Buy Quantity" %>
-      <%= form.number_field :quantity, min: 1, class: 'form-control' %>
-    </div>
-    <%= form.submit "Buy", class: 'btn btn-success' %>
+  <div class="buy">
+  <%= simple_form_for [@asset, @holding] do |f| %>
+    <%= f.input :shares_amount %>
+    <%# f.hidden_field :trade, value: "buy" %>
+    <%= f.submit "Buy", class: 'btn btn-default' %>
   <% end %>
 
+  <%= form_with model: [@asset, @holding] do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+  </div>
+
   <!-- Sell Form -->
+  <div class="sell">
+  <%# simple_form_for [@asset, @holding] do |f| %>
+    <%# f.input :shares_amount %>
+    <%# f.hidden_field :trade, value: "sell" %>
+    <%# f.submit "Sell", class: 'btn btn-default' %>
+  <%# end %>
+  </div>
+
+  <!-- Exit Form -->
   <!-- Ensure the user has holdings to sell -->
-  <% if current_user.holdings.where(asset_id: @asset.id).any? %>
-    <%= form_with(model: Holding.new, url: sell_holdings_path(@asset), method: :post) do |form| %>
-      <%= form.hidden_field :asset_id, value: @asset.id %>
-      <div class="form-group">
-        <%= form.label :quantity, "Sell Quantity" %>
-        <%= form.number_field :quantity, min: 1, class: 'form-control' %>
-      </div>
-      <%= form.submit "Sell", class: 'btn btn-danger' %>
+  <div class="exit">
+  <% if user_signed_in? %>
+    <% if current_user.holdings.where(asset_id: @asset.id).any? %>
+      <%= simple_form_for [@asset, @holding] do |f| %>
+      <%= form.submit "Exit", class: 'btn btn-default' %>
+      <% end %>
+    <% else %>
+      <p>You do not have any holdings to sell.</p>
     <% end %>
-  <% else %>
-    <p>You do not have any holdings to sell.</p>
   <% end %>
+  </div>
 </div>

@@ -1,11 +1,13 @@
 class HoldingsController < ApplicationController
-
   def create
     @asset = Asset.find(params[:asset_id])
     @holding = Holding.new(holding_params)
 
     @holding.user = current_user
     @holding.asset = @asset
+
+    raise
+
     @holding.save
   end
 
