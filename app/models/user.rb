@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :holdings
-  has_many :assets, through: :holdings
+  has_many :investment, through: :holdings
   has_many :channels
   has_many :posts
   has_many :comments

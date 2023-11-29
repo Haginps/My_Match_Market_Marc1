@@ -10,21 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_175152) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_29_122738) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "assets", force: :cascade do |t|
-    t.string "name"
-    t.string "abbreviation"
-    t.float "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "previousdaypercentagechange"
-    t.string "category"
-    t.string "description"
-    t.string "image"
-  end
 
   create_table "channels", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -46,17 +34,17 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_175152) do
   end
 
   create_table "histories", force: :cascade do |t|
-    t.bigint "asset_id", null: false
+    t.bigint "investment_id", null: false
     t.date "date"
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asset_id"], name: "index_histories_on_asset_id"
+    t.index ["investment_id"], name: "index_histories_on_investment_id"
   end
 
   create_table "holdings", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "asset_id", null: false
+    t.bigint "investment_id", null: false
     t.float "purchased_price"
     t.integer "shares_amount"
     t.date "purchased_date"
@@ -65,8 +53,21 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_175152) do
     t.float "gain_loss"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asset_id"], name: "index_holdings_on_asset_id"
+    t.string "trade"
+    t.index ["investment_id"], name: "index_holdings_on_investment_id"
     t.index ["user_id"], name: "index_holdings_on_user_id"
+  end
+
+  create_table "investments", force: :cascade do |t|
+    t.string "name"
+    t.string "abbreviation"
+    t.float "rating"
+    t.string "category"
+    t.string "description"
+    t.string "image"
+    t.float "previousdaypercentchange"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "news", force: :cascade do |t|
@@ -86,10 +87,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_175152) do
     t.integer "games_played"
     t.integer "goals"
     t.integer "assists"
-    t.bigint "asset_id", null: false
+    t.bigint "investment_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["asset_id"], name: "index_players_on_asset_id"
+    t.index ["investment_id"], name: "index_players_on_investment_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -121,10 +122,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_175152) do
   add_foreign_key "channels", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "histories", "assets"
-  add_foreign_key "holdings", "assets"
+  add_foreign_key "histories", "investments"
+  add_foreign_key "holdings", "investments"
   add_foreign_key "holdings", "users"
-  add_foreign_key "players", "assets"
+  add_foreign_key "players", "investments"
   add_foreign_key "posts", "channels"
   add_foreign_key "posts", "users"
 end

@@ -1,1 +1,127 @@
-// Specific CSS for your home-page
+#hero {
+  background-color: #2E2E2E;
+  color: white;
+  padding: 200px ;
+  background: linear-gradient(to bottom, #1E1E1E, #262626, #323232, #354935, #597659, #86C487, #98F899); /* Dark color at the top, lighter color at the bottom */
+
+  .navbar {
+    background-color:#1E1E1E ;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: 96px;
+    width: 50%;
+  }
+
+  p {
+    font-weight: 300;
+    font-size: 26px;
+  }
+
+  span {
+    background-color: #4C4C4C;
+    color: white ;
+    padding: 16px;
+    border-radius: 86px;
+    margin-right: 10px;
+  }
+
+  #stock-ticker {
+    margin-top: 40px;
+  }
+
+  img {
+    height: 700px;
+    margin-left: 522px;
+    margin-top: -510px;
+    overflow: hidden;
+    background-size: contain;
+    margin-bottom: -232px;
+
+  }
+}
+
+#search-bar input {
+  border-radius: 86px;
+  padding: 20px;
+  width: 20%;
+  margin-top: 20px;
+}
+
+#mobile-app {
+  background-color: #1F1F1F;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px;
+
+  align-items: center;
+
+  .text {
+    // margin-left: 950px;
+    // margin-bottom: 500px;
+    margin-left: 80px;
+  }
+
+
+  h2 {
+    color: white;
+    font-weight: 700;
+    font-size: 64px;
+    margin-bottom: 50px;
+  }
+
+  p {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    width: 80%;
+  }
+
+  img {
+    // margin-top: 180px;
+    width: 690px;
+    height: 607px;
+    // margin-left: 80px;
+  }
+}
+
+@media (max-width: 575px) {
+  #hero img, #mobile-app img {
+    width: 100%; /* Full width on small screens */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0; /* Reset margins */
+  }
+
+  #hero h1, #mobile-app .text h2 {
+    font-size: 36px; /* Smaller font size for small screens */
+  }
+
+  #hero p, #mobile-app .text p {
+    font-size: 16px; /* Smaller font size for small screens */
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  /* Similar adjustments as above, or specific changes for this range */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #mobile-app {
+    flex-direction: row; /* Side-by-side layout on larger screens */
+    justify-content: space-evenly;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Adjustments for larger screens */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Adjustments for extra large screens */
+}

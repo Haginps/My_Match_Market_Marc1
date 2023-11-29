@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/dashboard', to: 'users#dashboard'
 
-  resources :assets, only: [:index, :show] do
+  resources :investments, only: [:index, :show] do
     resources :holdings, only: [:new, :create, :update]
     resources :histories
   end
