@@ -1,0 +1,49 @@
+
+.dashboard-container {
+
+  padding: 45px;
+
+  h2 {
+    color: white;
+  }
+
+  span {
+    color: white;
+  }
+
+  .balance-amount {
+    font-size: 160px;
+    font-weight: 700;
+  }
+
+  .balance-change {
+    color: #98F899;
+    // margin-top: 45px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .balance-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .balance-actions {
+    button {
+      border-radius: 50%;
+      padding-left: 35px;
+      padding-right: 34px;
+      padding-bottom: 5px;
+      padding-top: 0px;
+      background-color: transparent;
+    }
+
+    #refill {
+      border: 3px solid #C7C9CC;
+      font-size: 26px;
+      color: #C7C9CC;
+    }
+
+  }
+
+}
