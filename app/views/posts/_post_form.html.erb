@@ -1,6 +1,7 @@
-<div data-create-post-target="formDiv" class="post-form <%='d-none' unless @post.errors.any? %>">
+
+<div data-create-post-target="formDiv" class="post-form <%='d-none' unless post.errors.any? %>">
   <h2>Create a Post</h2>
-  <%= simple_form_for [@channel, @post], html: {data:  {create_post_target: "form"}} do |f| %>
+  <%= simple_form_for [channel, post], html: {data:  {create_post_target: "form"}} do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">

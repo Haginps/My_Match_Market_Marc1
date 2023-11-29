@@ -7,7 +7,7 @@ class HoldingsController < ApplicationController
     @holding.investment = @investment
     @holding.trade = params[:trade]
 
-    raise
+
 
     @holding.save
   end
