@@ -10,7 +10,7 @@ class CreatePlayers < ActiveRecord::Migration[7.1]
       t.integer :games_played
       t.integer :goals
       t.integer :assists
-      t.references :asset, null: false, foreign_key: true
+      t.references :investment, null: false, foreign_key: true
 
       t.timestamps
     end

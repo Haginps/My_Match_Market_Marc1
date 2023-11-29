@@ -1,3 +1,3 @@
 class History < ApplicationRecord
-  belongs_to :asset
+  belongs_to :investment
 end
