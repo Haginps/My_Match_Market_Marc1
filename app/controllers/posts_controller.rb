@@ -7,25 +7,22 @@ class PostsController < ApplicationController
     @post.channel = @channel
     @post.user = current_user
 
-    if @post.save
-      # get this checked
-      redirect_to channel_path(@channel)
-    else
-      render "channel/show", status: :unprocessable_entity
-    end
+    # if @post.save
+    #   # get this checked
+    #   redirect_to channel_path(@channel)
+    # else
+    #   render "channels/show", status: :unprocessable_entity
+    # end
 
     respond_to do |format|
       if @post.save
         format.html { redirect_to channel_path(@channel), notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-        format.js   # Add this line for AJAX response
+        # format.json { render json: { success: true, post_html: render_to_string(partial: 'posts/post', locals: { post: @post }) } }
       else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-        format.js   # Add this line for AJAX response
+        format.html { render "channels/show", status: :unprocessable_entity  }
+        # format.json { render json: { success: false, errors: @post.errors.full_messages } }
       end
     end
-
   end
 
   private

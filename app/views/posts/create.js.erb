@@ -1,3 +1,31 @@
-$("#post-form-container").html("<%= j(render 'post_form') %>");
+// app/views/posts/create.js.erb
+revealForm() {
+  if (this.titleTarget.value.trim() === '' || this.descriptionTarget.value.trim() === '') {
+    alert('Title and/or description cannot be empty. Please fill in the required fields.');
+  } else {
+    // If not empty, submit the form via AJAX
+    const form = new FormData(this.formTarget);
 
-$("#posts-container").append("<%= j(render 'posts/post', post: @post) %>");
+    fetch(this.formTarget.action, {
+      method: this.formTarget.method,
+      body: form,
+      headers: {
+        'X-CSRF-Token': document.head.querySelector('[name=csrf-token]').content,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Handle the case where the post is successfully created
+          $("#posts-container").prepend(data.post_html);
+          alert('Post was successfully created.');
+        } else {
+          // Handle the case where the form has errors
+          alert('Failed to create post. Please check the form for errors.');
+        }
+      })
+      .catch(error => console.error('Error:', error));
+  }
+}
