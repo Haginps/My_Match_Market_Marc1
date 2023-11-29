@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  def dashboard
-  end
-#   before_action :find_user, only: %i[show buy sell]
-
-#   def show
+#   def dashboard
 #   end
+# #   before_action :find_user, only: %i[show buy sell]
+
+  # def show
+  # end
 
 #   def buy
 #   end
