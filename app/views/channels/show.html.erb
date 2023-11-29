@@ -2,7 +2,7 @@
 <div data-controller="create-post">
   <button data-action="click->create-post#revealForm">Add Post</button>
 
-  <%= render "posts/post_form", locals: {channel: @channel, post: @post} %>
+  <%= render "posts/post_form", channel: @channel, post: @post %>
 </div>
 
 <div class="posts-info">
@@ -13,6 +13,8 @@
     </div>
   <% end %>
 </div>
+
+
 <%#
 <div id="post-form-container">
   < render "posts/post_form" >

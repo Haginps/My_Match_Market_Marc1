@@ -1,0 +1,14 @@
+<div data-create-channel-target="formDiv" class="channel-form <%='d-none' if channel.errors.any? %>">
+  <h2>Create a Channel</h2>
+  <%= simple_form_for [channel], html: {data:  {create_channel_target: "form"}} do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :title, required: true, class: 'form-control' %>
+      <%= f.input :description, required: true, class: "form-control" %>
+    </div>
+
+
+    <%= f.submit "Create Channel", class: "btn btn-primary" %>
+  <% end %>
+</div>
