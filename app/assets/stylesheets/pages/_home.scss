@@ -86,3 +86,42 @@
     // margin-left: 80px;
   }
 }
+
+@media (max-width: 575px) {
+  #hero img, #mobile-app img {
+    width: 100%; /* Full width on small screens */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0; /* Reset margins */
+  }
+
+  #hero h1, #mobile-app .text h2 {
+    font-size: 36px; /* Smaller font size for small screens */
+  }
+
+  #hero p, #mobile-app .text p {
+    font-size: 16px; /* Smaller font size for small screens */
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  /* Similar adjustments as above, or specific changes for this range */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #mobile-app {
+    flex-direction: row; /* Side-by-side layout on larger screens */
+    justify-content: space-evenly;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Adjustments for larger screens */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Adjustments for extra large screens */
+}
