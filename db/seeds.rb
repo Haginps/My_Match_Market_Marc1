@@ -14,8 +14,8 @@ Comment.destroy_all
 Channel.destroy_all
 History.destroy_all
 Player.destroy_all
-Investment.destroy_all
 Holding.destroy_all
+Investment.destroy_all
 User.destroy_all
 
 marc = User.new(email: "marchage1@gmail.com", first_name: "Marc", last_name: "Hage", password: "123456789", balance: 10000)

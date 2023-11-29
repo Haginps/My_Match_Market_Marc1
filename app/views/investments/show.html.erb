@@ -1,14 +1,10 @@
 <div class="transaction-actions">
   <h3>Trade Asset</h3>
 
-  <div data-controller="performance-chart">
-    <%# <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="[12, 19, 3, 5, 2, 3]"  width="800" height="450"></canvas> %>
-    <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="<%= Investment.last.histories.map(&:price) %>"  width="400" height="250"></canvas>
-  </div>
-
   <!-- Buy Form -->
   <div class="trade form-column">
         <%= simple_form_for [@investment, @holding] do |f| %>
+        <p>Shares </p>
         <%= f.input :shares_amount %>
       <div class="buy form-column">
         <%= f.hidden_field :trade, value: "buy" %>
