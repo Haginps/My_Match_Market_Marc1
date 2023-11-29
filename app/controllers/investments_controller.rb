@@ -10,5 +10,13 @@ class InvestmentsController < ApplicationController
   def show
     @investment = Investment.find(params[:id])
     @holding = Holding.new
+
+    @on_hold = false
+    current_user.holdings.each do |holding|
+      if holding.investment == @investment
+        @on_hold = true
+        @current_holding = holding
+      end
+    end
   end
 end

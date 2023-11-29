@@ -1,34 +1,27 @@
 <div class="transaction-actions">
   <h3>Trade Asset</h3>
 
-  <!-- Buy Form -->
-  <div class="trade form-column">
-        <%= simple_form_for [@investment, @holding] do |f| %>
-        <p>Shares </p>
-        <%= f.input :shares_amount %>
-      <div class="buy form-column">
-        <%= f.hidden_field :trade, value: "buy" %>
-        <%= f.submit "Buy     +", class: 'btn btn-default' %>
-      </div>
+    <div data-controller="performance-chart">
+      <%# <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="[12, 19, 3, 5, 2, 3]"  width="800" height="450"></canvas> %>
+     <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="<%= Investment.last.histories.map(&:price) %>"  width="400" height="250"></canvas>
+    </div>
 
-      <div class="sell form-column">
-        <%= f.hidden_field :trade, value: "sell" %>
-        <%= f.submit "Sell      -", class: 'btn btn-sell' %>
+  <!-- Buy Form -->
+      <div class="buy form-column">
+        <%= simple_form_for [@investment, @holding] do |f| %>
+        <%= f.input :shares_amount %>
+        <%= f.hidden_field :trade, value: "buy" %>
+        <%= f.submit "Buy     +", class: 'btn btn-buy' %>
         <% end %>
       </div>
-  </div>
 
-  <!-- Exit Form -->
-  <!-- Ensure the user has holdings to sell -->
-  <div class="exit form-column">
-  <% if user_signed_in? %>
-    <% if current_user.holdings.where(investment_id: @investment.id).any? %>
-      <%= simple_form_for [@investment, @holding] do |f| %>
-      <%= f.submit "Exit", class: 'btn btn-default' %>
+      <% if @on_hold %>
+        <div class="sell form-column">
+          <%= simple_form_for [@investment, @current_holding] do |f| %>
+          <%= f.input :shares_amount %>
+          <%= f.hidden_field :trade, value: "sell" %>
+          <%= f.submit "Sell      -", class: 'btn btn-sell' %>
+          <% end %>
+        </div>
       <% end %>
-    <% else %>
-      <p>You do not have any holdings to sell.</p>
-    <% end %>
-  <% end %>
   </div>
-</div>

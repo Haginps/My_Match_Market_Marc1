@@ -8,12 +8,12 @@ body {
 }
 
 .form-column {
-  width: 16%;
+  width: 8%;
   display: inline-block;
   box-sizing: border-box;
 }
 
-.btn {
+.btn-buy {
   background-color: #98F899;
   color: #393939;
   width: 118px;
@@ -22,14 +22,18 @@ body {
   font-style: bold;
 }
 
-.btn:hover {
+.btn-buy:hover {
   background-color: #3C633D;
   color: #393939;
 }
 
 .btn-sell {
   background-color: #E83838;
-  margin-left: 110px;
+  color: #393939;
+  width: 118px;
+  height: 50px;
+  font-size: 25px;
+  font-style: bold;
 }
 
 .btn-sell:hover {
