@@ -3,6 +3,10 @@
   background: #2E2E2E;
 }
 
+.home-color {
+  background: #1E1E1E !important;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -31,7 +35,6 @@
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  padding-right: 597px;
 }
 
 /* Ensure list items are displayed inline */
@@ -40,6 +43,10 @@
 }
 
 .nav-link:hover {
+  color: #98F899;
+}
+
+.navbar-brand:hover {
   color: #98F899;
 }
 
@@ -61,4 +68,8 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+}
+
+.avatar {
+  text-decoration: none;
 }
