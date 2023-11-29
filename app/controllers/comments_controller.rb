@@ -36,7 +36,4 @@ class CommentsController < ApplicationController
     # get this checked
     params.require(:comment).permit(:content)
   end
-
-
-
 end
