@@ -4,9 +4,10 @@
 <div class="transaction-actions">
   <h3>Trade Asset</h3>
 
-  <div data-controller="performance-chart">
-    <%# <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="[12, 19, 3, 5, 2, 3]"  width="800" height="450"></canvas> %>
-    <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="<%= Investment.last.histories.map(&:price) %>"  width="400" height="250"></canvas>
+  <div class="chart-wrapper" data-controller="performance-chart">
+    <div class="chart-container">
+      <canvas id="bar-chart" data-performance-chart-target="myChart" data-labels="<%= Investment.last.histories.map { |history| history.created_at.strftime('%Y-%m-%d') }.to_json %>" data-prices="<%= Investment.last.histories.map(&:price).to_json %>" width="4" height="1"></canvas>
+    </div>
   </div>
 
   <!-- Buy Form -->
