@@ -23,16 +23,41 @@ body {
   background-color: #2e2e2e;
 }
 
+h3 {
+  text-align: center;
+}
+
 .transaction-actions {
-  color: #ffffff;
+  color: #ffff;
+  margin-left: 20px;
+}
+
+.form-column {
+  width: 16%;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 .btn {
   background-color: #98f899;
   color: #393939;
+  width: 118px;
+  height: 50px;
+  font-size: 25px;
+  font-style: bold;
 }
 
 .btn:hover {
-  background-color: #6aad6b;
+  background-color: #3C633D;
+  color: #393939;
+}
+
+.btn-sell {
+  background-color: #E83838;
+  margin-left: 110px;
+}
+
+.btn-sell:hover {
+  background-color: #901111;
   color: #393939;
 }

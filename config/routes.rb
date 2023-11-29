@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   devise_for :users
-  get '/dashboard', to: 'users#dashboard'
+  get '/dashboard', to: 'pages#dashboard'
 
   resources :investments, only: [:index, :show] do
     resources :holdings, only: [:new, :create, :update]
