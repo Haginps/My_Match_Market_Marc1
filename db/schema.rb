@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_175556) do
     t.float "previousdaypercentagechange"
     t.string "category"
     t.string "description"
+    t.string "image"
   end
 
   create_table "channels", force: :cascade do |t|
