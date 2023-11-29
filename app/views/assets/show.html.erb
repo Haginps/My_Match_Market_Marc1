@@ -4,6 +4,12 @@
 <div class="transaction-actions">
   <h3>Trade Asset</h3>
 
+  <div data-controller="performance-chart">
+  <%# <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="[12, 19, 3, 5, 2, 3]"  width="800" height="450"></canvas> %>
+
+  <canvas id="bar-chart" data-performance-chart-target="myChart" data-prices="<%= Investment.last.histories.map(&:price) %>"  width="400" height="250"></canvas>
+  </div>
+
   <!-- Buy Form -->
   <%= form_with(model: Holding.new, url: holdings_path, method: :post) do |form| %>
     <%= form.hidden_field :asset_id, value: @asset.id %>

@@ -1,7 +1,6 @@
 class ChannelsController < ApplicationController
   def index
     @channels = Channel.all.order(created_at: :desc)
-
   end
 
   def show
