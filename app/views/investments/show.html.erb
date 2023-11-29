@@ -1,6 +1,3 @@
-
-<!-- ... [other parts of the show page] ... -->
-
 <div class="transaction-actions">
   <h3>Trade Asset</h3>
 
@@ -10,31 +7,28 @@
   </div>
 
   <!-- Buy Form -->
-  <div class="buy">
-  <%= simple_form_for [@investment, @holding] do |f| %>
-    <%= f.input :shares_amount %>
-    <%= f.hidden_field :trade, value: "buy" %>
-    <%= f.submit "Buy", class: 'btn btn-default' %>
-  <% end %>
+  <div class="trade form-column">
+        <%= simple_form_for [@investment, @holding] do |f| %>
+        <%= f.input :shares_amount %>
+      <div class="buy form-column">
+        <%= f.hidden_field :trade, value: "buy" %>
+        <%= f.submit "Buy     +", class: 'btn btn-default' %>
+      </div>
 
-  </div>
-
-  <!-- Sell Form -->
-  <div class="sell">
-  <%# simple_form_for [@investment, @holding] do |f| %>
-    <%# f.input :shares_amount %>
-    <%# f.hidden_field :trade, value: "sell" %>
-    <%# f.submit "Sell", class: 'btn btn-default' %>
-  <%# end %>
+      <div class="sell form-column">
+        <%= f.hidden_field :trade, value: "sell" %>
+        <%= f.submit "Sell      -", class: 'btn btn-sell' %>
+        <% end %>
+      </div>
   </div>
 
   <!-- Exit Form -->
   <!-- Ensure the user has holdings to sell -->
-  <div class="exit">
+  <div class="exit form-column">
   <% if user_signed_in? %>
     <% if current_user.holdings.where(investment_id: @investment.id).any? %>
       <%= simple_form_for [@investment, @holding] do |f| %>
-      <%= form.submit "Exit", class: 'btn btn-default' %>
+      <%= f.submit "Exit", class: 'btn btn-default' %>
       <% end %>
     <% else %>
       <p>You do not have any holdings to sell.</p>

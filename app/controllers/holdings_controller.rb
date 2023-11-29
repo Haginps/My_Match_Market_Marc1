@@ -5,10 +5,6 @@ class HoldingsController < ApplicationController
 
     @holding.user = current_user
     @holding.investment = @investment
-    @holding.trade = params[:trade]
-
-    raise
-
     @holding.save
   end
 
