@@ -1,26 +1,70 @@
 <div class="index-container">
 
   <div class="headings-channels">
-    <h1>Community</h1>
     <h1>All Channels</h1>
-  </div>
 
-  <div id="new-channel-form" style="display: none;">
-    <%= render 'new_channel_form', channel: @channel %>
-  </div>
+    <%# <div id="new-channel-form" style="display: none;"> %>
+      <%# render 'new_channel_form', channel: @channel %>
+    <%# </div> %>
 
-    <h1><%= @channel.title %></h1>
-  <div data-controller="create-channel">
-    <button data-action="click->create-channel#revealForm">Add Channel</button>
-    <%= render "channels/new_channel_form", channel: @channel%>
-  </div>
+    <%# <div data-controller="create-channel" class="form-and-button"> %>
+      <h1><%# @channel.title</h1> %>
+      <%# <button data-action="click->create-channel#revealForm">Create Channel +</button> %>
 
-    <% @channels.reverse.each do |channel| %>
-  <div class="channels-info">
-      <div>
-        <%= channel.title %>
-        <%= channel.description %>
+      <%# <div class="form-channel"> %>
+        <%# render "channels/new_channel_form", channel: @channel %>
+      <%# </div> %>
+    <%# </div> %>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="form-and-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Create channel +
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <%# <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> %>
+            <button type="button" class="x-channel-form btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render "channels/new_channel_form", channel: @channel %>
+          </div>
+          <%# <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> %>
+        </div>
       </div>
-    <% end %>
+    </div>
   </div>
+
+  <% @channels.reverse.each do |channel| %>
+    <div class="channels-info">
+      <div class="card-product">
+      <% if channel.photo&.key.present? %>
+        <%= cl_image_tag(channel.photo.key, height: 350, width: 450, crop: :fill) %>
+      <% else %>
+        <!-- Provide a fallback or placeholder image -->
+
+        <%= image_tag("/absolute/path/to/your/desktop/image.jpg", height: 350, width: 450, alt: "Placeholder") %>
+      <% end %>
+        <div class="card-product-infos">
+          <h2><%= channel.title %></h2>
+          <p><%= channel.description %></p>
+
+          <%# <button data-action="click->show-channel#revealForm">Chat</button> %>
+          <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
+          <%# <%= button_to "Chat Now", channel_path(@channel), class: "btn btn-primary", data: { turbo: false } %>
+
+          <%= button_to 'Delete', channel_path(channel), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
 </div>
