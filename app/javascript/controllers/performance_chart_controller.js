@@ -1,48 +1,61 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 import { Chart, registerables } from "chart.js";
 Chart.register(...registerables);
 
 export default class extends Controller {
-    static targets = ['myChart'];
+  static targets = ['myChart'];
 
-    canvasContext() {
-        return this.myChartTarget.getContext('2d');
-    }
+  canvasContext() {
+    return this.myChartTarget.getContext('2d');
+  }
 
-    connect() {
-        new Chart(this.canvasContext(), {
-            type: 'line',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: 'Price per day',
-                    data: JSON.parse(this.myChartTarget.dataset.prices),
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
+  connect() {
+    // console.log(this.myChartTarget.dataset.prices)
+    // console.log(this.myChartTarget.dataset.purchasedPrice)
+
+    const priceChart = new Chart(this.canvasContext(), {
+      type: 'line',
+      data: {
+        labels: JSON.parse(this.myChartTarget.dataset.labels),
+        datasets: [{
+          label: 'Price per day',
+          data: JSON.parse(this.myChartTarget.dataset.prices),
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: '#98F899',
+          borderWidth: 3,
+        },
+        {
+          label: 'Purchased History',
+          data: JSON.parse(this.myChartTarget.dataset.purchasedPrice),
+          borderColor: 'transparent',
+          borderWidth: 3,
+          pointStyle: 'rectRot',
+          pointRadius: 10,
+          pointBorderColor: 'rgb(0, 0, 0)'
+        }
+      ]
+      },
+      options: {
+        pointBackgroundColor: ["Red"],
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: {
+              display: true,
+              text: 'Price'
             }
-        });
-    }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Day'
+            },
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
+    });
+  }
 }

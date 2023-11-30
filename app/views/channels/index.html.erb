@@ -1,0 +1,26 @@
+<div class="index-container">
+
+  <div class="headings-channels">
+    <h1>Community</h1>
+    <h1>All Channels</h1>
+  </div>
+
+  <div id="new-channel-form" style="display: none;">
+    <%= render 'new_channel_form', channel: @channel %>
+  </div>
+
+    <h1><%= @channel.title %></h1>
+  <div data-controller="create-channel">
+    <button data-action="click->create-channel#revealForm">Add Channel</button>
+    <%= render "channels/new_channel_form", channel: @channel%>
+  </div>
+
+    <% @channels.reverse.each do |channel| %>
+  <div class="channels-info">
+      <div>
+        <%= channel.title %>
+        <%= channel.description %>
+      </div>
+    <% end %>
+  </div>
+</div>

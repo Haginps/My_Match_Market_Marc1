@@ -1,0 +1,82 @@
+
+.user-title {
+  h1 {
+    color: white;
+    font-weight: 700;
+    font-size: 80px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    // padding-left: 60px;
+    // padding-right: 60px;
+    // padding-top: 60px;
+    background-color: #393939;
+    width: 714px;
+    margin-left: 45px;
+    padding: 33px;
+    box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
+    border-radius: 28px;
+
+  }
+}
+.dashboard-container {
+  padding: 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: space-between;
+  // background-color: #393939;
+  // box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
+  // border-radius: 28px;
+  // margin: 50px;
+
+  .investments-container {
+    margin-top: 50px;
+  }
+
+  .news-container {
+    margin-top: 50px;
+  }
+
+  h2 {
+    color: white;
+  }
+
+  span {
+    color: white;
+  }
+
+  .balance-amount {
+    font-size: 160px;
+    font-weight: 700;
+  }
+
+  .balance-change {
+    color: #98F899;
+    // margin-top: 45px;
+    font-size: 40px;
+    font-weight: 700;
+  }
+
+  .balance-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  // .balance-actions {
+  //   button {
+  //     border-radius: 50%;
+  //     padding-left: 35px;
+  //     padding-right: 34px;
+  //     padding-bottom: 5px;
+  //     padding-top: 0px;
+  //     background-color: transparent;
+  //   }
+
+  //   #refill {
+  //     border: 3px solid #C7C9CC;
+  //     font-size: 26px;
+  //     color: #C7C9CC;
+  //   }
+
+  // }
+
+}
