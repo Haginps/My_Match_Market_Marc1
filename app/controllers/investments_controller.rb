@@ -12,11 +12,22 @@ class InvestmentsController < ApplicationController
 
     current_user.holdings.each do |holding|
       if holding.investment == @investment
-        @on_hold = true
         @current_holding = holding
+
+        unless @current_holding.purchased_price.nil?
+          @on_hold = true
+          @sold = false
+        end
+
+        unless @current_holding.sold_price.nil?
+          @on_hold = false
+          @sold = true
+        end
 
         @purchased_price[@current_holding.purchased_date.strftime('%Y-%m-%d')] = @current_holding.purchased_price
       end
     end
+
+    # raise
   end
 end
