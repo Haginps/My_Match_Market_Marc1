@@ -33,7 +33,7 @@ trent_investment.save
 palmer_investment = Investment.new(name: "Cole Palmer", abbreviation: "CPLM", rating: rand(0..10), category: "player", description: "Breakthrough Chelsea player", image:"https://imagecache.365scores.com/image/upload/f_png,w_250,h_250,c_limit,q_auto:eco,d_Athletes:default.png,r_max,c_thumb,g_face,z_0.65/Athletes/78535")
 palmer_investment.save
 
-messi_investment = Investment.new(name: "Lionel Messi", abbreviation: "LOME", rating: rand(0..10), category: "player", description: "The goat", image:"https://images.mlssoccer.com/image/private/t_q-best/prd-league/uosdxblld5jntccybgcp.jpg")
+messi_investment = Investment.new(name: "Lionel Messi", abbreviation: "LOME", rating: rand(0..10), category: "player", description: "The goat", image:"https://images.mlssoccer.com/image/private/t_editorial_squared_6_desktop/f_png/mls-mia-prd/urj5ghqpk8k151t5oj9g.png")
 messi_investment.save
 
 gordon_investment = Investment.new(name: "Anthony Gordon", abbreviation: "ANGR", rating: rand(0..10), category: "player", description: "The everton boy who went to Newcastle", image:"https://www.nufc.co.uk/media/79576/anthony-gordon.png?anchor=center&mode=crop&width=350&height=460&quality=75")

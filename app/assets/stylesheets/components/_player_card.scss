@@ -4,11 +4,11 @@
   border-radius: 25px;
   img {
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    border: solid 2px white;
+    width: 70px;
+    height: 70px;
     background-color: aliceblue;
     object-fit: cover;
+    object-position: 50% top;
   }
 }
 
@@ -20,26 +20,31 @@
   margin: 0px auto;
 }
 
+.row h1{
+  font:40px inter,bold;
+  font-weight: bolder;
+}
+
 
 .index-container {
   background-color: #393939;
   min-height: 100vh;
 }
 
-/* This is the CSS for the title itself */
+
 .title {
   display: flex;
-  justify-content: center; /* Centers horizontally */
-  align-items: center; /* Centers vertically */
-  height: 200px; /* Takes full height of the viewport */
-  text-align: center; /* Centers the text inside the h1 */
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  text-align: center;
   font-weight: 700;
   font-size: 96px;
   color: aliceblue
 }
 
 .title h1 {
-  margin: 0; /* Removes default margin from h1 */
+  margin: 0;
 }
 
 .row h1{
