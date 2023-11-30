@@ -25,40 +25,40 @@ leo = User.new(email: "leokreutz@gmail.com", first_name: "Leonard", last_name: "
 leo.save
 puts "Users created"
 
-james_investment = Investment.new(name: "Reece James", abbreviation: "REJS", rating: rand(0..10), category: "player", description: "The best RB in the premier league", image: "assets/reece_james_icon.png")
+james_investment = Investment.new(name: "Reece James", abbreviation: "REJS", rating: rand(0..10), category: "player", description: "The best RB in the premier league", image:"https://img.chelseafc.com/image/upload/f_auto,h_390,q_90/editorial/people/first-team/2023-24/Reece_James_profile_23-24_with_sponsor_headshot-removebg.png")
 james_investment.save
 
-trent_investment = Investment.new(name: "Trent Alexander-Arnold", abbreviation: "TRAA", rating: rand(0..10), category: "player", description: "The 2nd best RB in the premier league")
+trent_investment = Investment.new(name: "Trent Alexander-Arnold", abbreviation: "TRAA", rating: rand(0..10), category: "player", description: "The 2nd best RB in the premier league", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p169187.png")
 trent_investment.save
 
-palmer_investment = Investment.new(name: "Cole Palmer", abbreviation: "CPLM", rating: rand(0..10), category: "player", description: "Breakthrough Chelsea player")
+palmer_investment = Investment.new(name: "Cole Palmer", abbreviation: "CPLM", rating: rand(0..10), category: "player", description: "Breakthrough Chelsea player", image:"https://imagecache.365scores.com/image/upload/f_png,w_250,h_250,c_limit,q_auto:eco,d_Athletes:default.png,r_max,c_thumb,g_face,z_0.65/Athletes/78535")
 palmer_investment.save
 
-messi_investment = Investment.new(name: "Lionel Messi", abbreviation: "LOME", rating: rand(0..10), category: "player", description: "The goat")
+messi_investment = Investment.new(name: "Lionel Messi", abbreviation: "LOME", rating: rand(0..10), category: "player", description: "The goat", image:"https://images.mlssoccer.com/image/private/t_editorial_squared_6_desktop/f_png/mls-mia-prd/urj5ghqpk8k151t5oj9g.png")
 messi_investment.save
 
-gordon_investment = Investment.new(name: "Anthony Gordon", abbreviation: "ANGR", rating: rand(0..10), category: "player", description: "The everton boy who went to Newcastle")
+gordon_investment = Investment.new(name: "Anthony Gordon", abbreviation: "ANGR", rating: rand(0..10), category: "player", description: "The everton boy who went to Newcastle", image:"https://www.nufc.co.uk/media/79576/anthony-gordon.png?anchor=center&mode=crop&width=350&height=460&quality=75")
 gordon_investment.save
 
-bowen_investment = Investment.new(name: "Jarrod Bowen", abbreviation: "JRBW", rating: rand(0..10), category: "player", description: "England forward with rapid pace")
+bowen_investment = Investment.new(name: "Jarrod Bowen", abbreviation: "JRBW", rating: rand(0..10), category: "player", description: "England forward with rapid pace", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p178186.png")
 bowen_investment.save
 
-cunha_investment = Investment.new(name: "Matheus Cunha", abbreviation: "MTCH", rating: rand(0..10), category: "player", description: "Brazialin who plays at wolves")
+cunha_investment = Investment.new(name: "Matheus Cunha", abbreviation: "MTCH", rating: rand(0..10), category: "player", description: "Brazialin who plays at wolves", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p430871.png")
 cunha_investment.save
 
-olise_investment = Investment.new(name: "Michael Olise", abbreviation: "MHOL", rating: rand(0..10), category: "player", description: "French talent")
+olise_investment = Investment.new(name: "Michael Olise", abbreviation: "MHOL", rating: rand(0..10), category: "player", description: "French talent", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p443661.png")
 olise_investment.save
 
-willian_investment = Investment.new(name: "Willian", abbreviation: "WILL", rating: rand(0..10), category: "player", description: "Ex chelsea giant")
+willian_investment = Investment.new(name: "Willian", abbreviation: "WILL", rating: rand(0..10), category: "player", description: "Ex chelsea giant", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p47431.png")
 willian_investment.save
 
-elanga_investment = Investment.new(name: "Anthony Elanga", abbreviation: "ANEL", rating: rand(0..10), category: "player", description: "Manchest united talent on loan")
+elanga_investment = Investment.new(name: "Anthony Elanga", abbreviation: "ANEL", rating: rand(0..10), category: "player", description: "Manchest united talent on loan", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p449434.png")
 elanga_investment.save
 
-nunez_investment = Investment.new(name: "Darwin Nunez", abbreviation: "DRNZ", rating: rand(0..10), category: "player", description: "Uruguay stricker for liverpool")
+nunez_investment = Investment.new(name: "Darwin Nunez", abbreviation: "DRNZ", rating: rand(0..10), category: "player", description: "Uruguay stricker for liverpool", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p447203.png")
 nunez_investment.save
 
-haaland_investment = Investment.new(name: "Erling Haaland", abbreviation: "ERHL", rating: rand(0..10), category: "player", description: "The norweigian beast")
+haaland_investment = Investment.new(name: "Erling Haaland", abbreviation: "ERHL", rating: rand(0..10), category: "player", description: "The norweigian beast", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p223094.png")
 haaland_investment.save
 
 james_history1 = History.create(date: Date.parse("2023-11-27"), price: 45.6, investment: james_investment)
