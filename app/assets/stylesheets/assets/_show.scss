@@ -40,15 +40,16 @@ body {
 .transaction-actions {
   color: #ffff;
   // margin-left: 20px;
+  .form-control {
+    width: 118px !important;
+  }
 }
 
 .form-column {
   margin: 10px;
 }
 
-.form-control {
-  width: 118px;
-}
+
 
 .btn-buy {
   background-color: #98F899;
