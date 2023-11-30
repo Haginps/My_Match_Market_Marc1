@@ -34,9 +34,9 @@
 
         <div class="investments-container">
           <section class="investments">
-              <h2>INVESTMENTS</h2>
+              <h2>INVESTMENTS:</h2>
               <table>
-                  <thead>
+                  <%# <thead>
                       <tr>
                           <th>Name</th>
                           <th>Type</th>
@@ -44,8 +44,38 @@
                           <th>Trade Time Frame</th>
                           <th>Gain/Loss</th>
                       </tr>
-                  </thead>
-                  <tbody>
+                  </thead> %>
+                  <div class="investment-titles d-flex justify-content-between ">
+                    <div class="investment-name">
+                    <p>Name</p>
+                    </div>
+                    <div class="investment-price">
+                    <p>Purchase Price</p>
+                    </div>
+                    <div class="investment-price">
+                    <p>Current Price</p>
+                    </div>
+
+
+                  </div>
+                  <% current_user.investments.each do |investment|%>
+                  <div class="investments-card d-flex justify-content-between ">
+                  <div class="investment-name">
+                    <p><%= investment.name %></p>
+                  </div>
+                  <%# <hr> %>
+                  <div class="investment-price">
+                   <p><%= investment.histories.first.price %></p>
+                  </div>
+                  <%# <hr> %>
+                  <div class="investment-price">
+                    <p><%= investment.histories.last.price %></p>
+                  </div>
+                  <%# <hr> %>
+                  </div>
+                  <% end %>
+
+                  <%# <tbody>
                       <!-- Investment items should be repeated for each entry -->
                       <tr>
                           <td>La Liga</td>
@@ -55,7 +85,7 @@
                           <td class="positive">+2.33%</td>
                       </tr>
                       <!-- Repeat for each investment -->
-                  </tbody>
+                  </tbody> %>
               </table>
           </section>
         </div>
