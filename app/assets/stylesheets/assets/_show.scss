@@ -1,21 +1,21 @@
 .chart-wrapper {
-  border-radius: 8px;
+  border-radius: 28px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 1350px !important;
+  width: 100% !important;
   margin: auto;
   display: flex;
   justify-content: center;
 }
 
 .chart-container {
-  // padding: 35px;
+  width: 100% !important;
 }
 
 .chart-container canvas {
   display: block;
   background-color: #393939;
-  width: 100%;
-  width: 1350px !important;
+  width: 100% !important;
+  // width: 1350px !important;
   border-radius: 28px;
 }
 
@@ -23,15 +23,31 @@ body {
   background-color: #2e2e2e;
 }
 
+.trade-column {
+  border-radius: 28px;
+  background: #393939;
+  box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
+  margin-top: 20px;
+  padding: 10px;
+  float: right;
+  // margin-right: 181px;
+  // display: block;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+
 .transaction-actions {
   color: #ffff;
-  margin-left: 20px;
+  // margin-left: 20px;
 }
 
 .form-column {
-  width: 8%;
-  display: inline-block;
-  box-sizing: border-box;
+  margin: 10px;
+}
+
+.form-control {
+  width: 118px;
 }
 
 .btn-buy {
@@ -40,7 +56,10 @@ body {
   width: 118px;
   height: 50px;
   font-size: 25px;
-  font-style: bold;
+  // font-style: bold;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
 }
 
 .btn-buy:hover {
@@ -54,7 +73,10 @@ body {
   width: 118px;
   height: 50px;
   font-size: 25px;
-  font-style: bold;
+  // font-style: bold;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
 }
 
 .btn-sell:hover {

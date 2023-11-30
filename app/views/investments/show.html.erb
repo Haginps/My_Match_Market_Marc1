@@ -1,28 +1,36 @@
-<div class="transaction-actions">
+<div class="container transaction-actions">
   <h3>Trade Asset</h3>
-  
+
   <div class="chart-wrapper" data-controller="performance-chart">
     <div class="chart-container">
       <canvas id="bar-chart" data-performance-chart-target="myChart" data-labels="<%= Investment.last.histories.map { |history| history.created_at.strftime('%Y-%m-%d') }.to_json %>" data-prices="<%= Investment.last.histories.map(&:price).to_json %>" width="4" height="1"></canvas>
     </div>
   </div>
 
+<div class="trade-column">
   <!-- Buy Form -->
       <div class="buy form-column">
         <%= simple_form_for [@investment, @holding] do |f| %>
         <%= f.input :shares_amount %>
         <%= f.hidden_field :trade, value: "buy" %>
-        <%= f.submit "Buy     +", class: 'btn btn-buy' %>
+        <%= f.submit "Buy     +", class: 'btn-buy' %>
         <% end %>
       </div>
 
+  <!-- Sell Form -->
       <% if @on_hold %>
         <div class="sell form-column">
           <%= simple_form_for [@investment, @current_holding] do |f| %>
           <%= f.input :shares_amount %>
           <%= f.hidden_field :trade, value: "sell" %>
-          <%= f.submit "Sell      -", class: 'btn btn-sell' %>
+          <%= f.submit "Sell      -", class: 'btn-sell' %>
           <% end %>
         </div>
       <% end %>
+
+      <div class="">
+
+      </div>
+
   </div>
+</div>
