@@ -1,5 +1,5 @@
 <div class="container transaction-actions">
-  <h3>Trade Asset</h3>
+  <h2>Trade Asset</h2>
 
   <div class="chart-wrapper" data-controller="performance-chart">
     <div class="chart-container">
@@ -13,12 +13,16 @@
   </div>
 
 <div class="trade-column">
+
+      <h3>Today's price: <%= @investment.histories.last.price %>€</h3>
+
   <!-- Buy Form -->
-      <div class="buy form-column">
+    <div class="trade-form">
+      <div class="buy form-column" data-controller="buying-investment">
         <%= simple_form_for [@investment, @holding] do |f| %>
-        <%= f.input :shares_amount %>
+        <%= f.input :shares_amount, input_html: { data: { buying_investment_target: "buyPrice", action: "change->buying-investment#activeButton" } } %>
         <%= f.hidden_field :trade, value: "buy" %>
-        <%= f.submit "Buy     +", class: 'btn-buy' %>
+        <%= f.submit "Buy     +", class: 'btn-buy-disabled', disabled: 'true', data: { buying_investment_target: "btn" } %>
         <% end %>
       </div>
 
@@ -31,11 +35,16 @@
           <%= f.submit "Sell      -", class: 'btn-sell' %>
           <% end %>
         </div>
-      <% end %>
+    </div>
 
-      <div class="">
-
+      <div class="holding-info">
+        <h3>Your holding:</h3>
+        <h6>Inventory: <%= @current_holding.shares_amount %> Qty.</h6>
+        <h6>Purchase Value: <%= (@current_holding.shares_amount * @current_holding.purchased_price).round(2) %> €</h6>
+        <h6>Last transcation: <%= @current_holding.purchased_date %></h6>
+        <h6>Purchased Price: <%= @current_holding.purchased_price %> €</h6>
+        <h6>Change: <%= ((@investment.histories.last.price - @current_holding.purchased_price) * @current_holding.shares_amount).round(2) %> € (<%= (@investment.histories.last.price - @current_holding.purchased_price) / @current_holding.purchased_price * 100 %> %) </h6>
       </div>
-
+      <% end %>
   </div>
 </div>
