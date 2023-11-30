@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-    <!-- Stylesheets and scripts here -->
-</head>
-<body>
-
+<h1>Welcome, <%= current_user.first_name %></h1>
     <div class="dashboard-container">
-
-
-      <h1>Welcome, <%= current_user.first_name %></h1>
-
         <!-- Account Balance Section -->
+        <div class="balance-container">
         <section class="account-balance">
             <h2>ACCOUNT BALANCE:</h2>
             <div class="balance-info">
@@ -21,71 +9,67 @@
 
                 <span class="balance-change">+37.0% ($3,456.23)</span>
             </div>
-            <div class="balance-actions">
+            </div>
+            <%# <div class="balance-actions">
                 <button id="withdraw">Withdraw</button>
                 <button id="send">Send</button>
                 <button id="refill">+</button>
-            </div>
+            </div> %>
         </section>
 
         <!-- Performance Section -->
-        <section class="performance">
-            <h2>PERFORMANCE</h2>
-            <!-- Performance chart would be implemented here -->
-            <div class="performance-chart">
-                <!-- Chart Placeholder -->
-            </div>
-            <a href="#" class="see-more">See More</a>
-        </section>
-
+        <div class="performance-container">
+          <section class="performance">
+              <h2>PERFORMANCE</h2>
+              <!-- Performance chart would be implemented here -->
+              <div class="performance-chart">
+                  <!-- Chart Placeholder -->
+              </div>
+              <a href="#" class="see-more">See More</a>
+          </section>
+        </div>
         <!-- Investments Section -->
-        <section class="investments">
-            <h2>INVESTMENTS</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Price/Amount</th>
-                        <th>Trade Time Frame</th>
-                        <th>Gain/Loss</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Investment items should be repeated for each entry -->
-                    <tr>
-                        <td>La Liga</td>
-                        <td>BUY</td>
-                        <td>1069.32 USD 43 Shares</td>
-                        <td>Entry: 14/11/23</td>
-                        <td class="positive">+2.33%</td>
-                    </tr>
-                    <!-- Repeat for each investment -->
-                </tbody>
-            </table>
-        </section>
+
+        <div class="investments-container">
+          <section class="investments">
+              <h2>INVESTMENTS</h2>
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Name</th>
+                          <th>Type</th>
+                          <th>Price/Amount</th>
+                          <th>Trade Time Frame</th>
+                          <th>Gain/Loss</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <!-- Investment items should be repeated for each entry -->
+                      <tr>
+                          <td>La Liga</td>
+                          <td>BUY</td>
+                          <td>1069.32 USD 43 Shares</td>
+                          <td>Entry: 14/11/23</td>
+                          <td class="positive">+2.33%</td>
+                      </tr>
+                      <!-- Repeat for each investment -->
+                  </tbody>
+              </table>
+          </section>
+        </div>
 
         <!-- Latest News Section -->
-        <aside class="latest-news">
-            <h2>LATEST NEWS</h2>
-            <article>
-                <img src="path-to-eze-image.png" alt="Eberechi Eze">
-                <div>
-                    <h3>Eberechi Eze signs a new 3.5 year contract at Crystal Palace</h3>
-                    <time datetime="2023-11-29T16:36:10+00:00">3 hr ago</time>
-                </div>
-            </article>
-            <!-- Additional news articles here -->
-        </aside>
-
-        <!-- Footer with branding -->
-        <footer>
-            <span>MMM</span>
-            <span>My Match Market</span>
-            <span>3 hr ago</span>
-        </footer>
-
-    </div>
-
-</body>
-</html>
+        <div class="news-container">
+          <aside class="latest-news">
+              <h2>LATEST NEWS</h2>
+              <article>
+                  <img src="path-to-eze-image.png" alt="Eberechi Eze">
+                  <div>
+                      <h3>Eberechi Eze signs a new 3.5 year contract at Crystal Palace</h3>
+                      <time datetime="2023-11-29T16:36:10+00:00">3 hr ago</time>
+                  </div>
+              </article>
+              <!-- Additional news articles here -->
+          </aside>
+        </div>
+      </div>
