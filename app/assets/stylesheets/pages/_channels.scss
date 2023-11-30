@@ -1,17 +1,77 @@
 .index-container {
   color: white;
+  margin: 30px 100px;
 
+  .x-channel-form {
+    background-color: #2e2e2e00 !important;
+  }
+
+  .channels-info {
+    border-radius: 28px;
+    background: #393939;
+    box-shadow: 0px 0px 108.5px -13px rgba(0, 0, 0, 0.25);
+    // margin-right: 100px;
+    // margin-left: 100px;
+    margin-top: 30px;
+    // width: 1353px;
+    // height: 486px;
+    flex-shrink: 0;
+
+    .btn {
+      width: 90px;
+      align-items: center !important;
+    }
+  }
+  .headings-channels {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // width: 751px;
+    // height: 143px;
+    // padding: 0px 17.246px 77.313px 0px;
+    // flex-shrink: 0;
+    // flex-direction: column;
+    // align-content: flex-start;
+    // justify-content: center;
+  }
+  button {
+    border-radius: 13px;
+    display: flex;
+    background: var(--third-colour, #E67447);
+    justify-content: center;
+  }
+  .form-and-button {
+    // margin: 100px;
+    padding: 12px;
+    font-size: 20px;
+
+    button {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .channels-info {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+  }
 }
-.channels-info {
-  border-radius: 28px;
-  background: #393939;
-  box-shadow: 0px 0px 108.5px -13px rgba(0, 0, 0, 0.25);
-}
-.headings-channels {
+
+.card-product {
   display: flex;
-  // width: 751px;
-  justify-content: center;
-  // height: 143px;
-  padding: 0px 17.246px 77.313px 0px;
-  flex-shrink: 0;
+  width: 100%;
+  justify-content: space-between;
+  img {
+    border-radius: 20px;
+    box-shadow: 0px 0px 108.5px -13px rgba(0, 0, 0, 0.25);
+
+  }
+}
+.card-product-infos {
+  width: 675px;
+}
+.modal-content   {
+  background-color: #2E2E2E;
+  color: white;
+  font-size: 20px;
 }
