@@ -1,9 +1,14 @@
 <div class="transaction-actions">
   <h3>Trade Asset</h3>
-  
+
   <div class="chart-wrapper" data-controller="performance-chart">
     <div class="chart-container">
-      <canvas id="bar-chart" data-performance-chart-target="myChart" data-labels="<%= Investment.last.histories.map { |history| history.created_at.strftime('%Y-%m-%d') }.to_json %>" data-prices="<%= Investment.last.histories.map(&:price).to_json %>" width="4" height="1"></canvas>
+      <canvas id="bar-chart"
+              data-performance-chart-target="myChart"
+              data-labels="<%= @investment.histories.map { |history| history.date.strftime('%Y-%m-%d') }.to_json %>"
+              data-prices="<%= @investment.histories.map(&:price).to_json %>" width="4" height="1"
+              data-purchased-price="<%= @purchased_price.to_json %>">
+      </canvas>
     </div>
   </div>
 
