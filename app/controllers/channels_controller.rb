@@ -3,6 +3,7 @@ class ChannelsController < ApplicationController
     @channels = Channel.all.order(created_at: :desc)
 
     @channel = Channel.new
+  end
 
 
   def show
