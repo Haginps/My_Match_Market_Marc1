@@ -3,6 +3,13 @@ class Investment < ApplicationRecord
   has_many :holdings
   has_one :player
 
+  include PgSearch::Model
+  pg_search_scope :global_search,
+  against: [ :name],
+  using: {
+    tsearch: { prefix: true }
+  }
+
   def calculate_24hr_change
     today_history = histories.find_by(date: Date.today)
     yesterday_history = histories.find_by(date: Date.yesterday)

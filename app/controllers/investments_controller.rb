@@ -1,6 +1,10 @@
 class InvestmentsController < ApplicationController
   def index
-    @investments = Investment.all.try(:includes, :histories)
+    if params[:query].present?
+      @investments = Investment.global_search(params[:query]).try(:includes, :histories)
+    else
+      @investments = Investment.all.try(:includes, :histories)
+    end
   end
 
   def show
