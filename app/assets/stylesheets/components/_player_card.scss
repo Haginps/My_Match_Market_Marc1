@@ -77,3 +77,23 @@
   grid-gap: 16px;
   margin: 35px auto;
 }
+
+
+.search-container input {
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 58px;
+  width: 100%
+}
+
+.search-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  border: none;
+}
