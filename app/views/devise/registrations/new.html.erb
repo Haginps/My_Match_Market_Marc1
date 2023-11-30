@@ -2,10 +2,19 @@
 <div class="login">
 <h2>Sign up</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { id: 'signup-form' })  do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first_name" }%>
+    <%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "last_name" }%>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -26,3 +35,14 @@
 
 <%= render "devise/shared/links" %>
 </div>
+
+<%# <script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function() {
+    var signupForm = document.getElementById("signup-form");
+    if (signupForm) {
+      signupForm.addEventListener("submit", function() {
+        alert('MMM has offered you £5000 to get started!');
+      });
+    }
+  });
+</script> %>

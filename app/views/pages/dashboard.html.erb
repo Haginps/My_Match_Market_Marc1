@@ -10,11 +10,14 @@
 
     <div class="dashboard-container">
 
+
+      <h1>Welcome, <%= current_user.first_name %></h1>
+
         <!-- Account Balance Section -->
         <section class="account-balance">
-            <h2>ACCOUNT BALANCE</h2>
+            <h2>ACCOUNT BALANCE:</h2>
             <div class="balance-info">
-                <span class="balance-amount">$14,349.91</span>
+                <span class="balance-amount">£<%= current_user.tokens %></span>
 
                 <span class="balance-change">+37.0% ($3,456.23)</span>
             </div>
