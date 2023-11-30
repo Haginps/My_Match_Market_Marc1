@@ -22,14 +22,28 @@
         <!-- Performance Section -->
         <div class="performance-container">
           <section class="performance">
-              <h2>PERFORMANCE</h2>
-              <!-- Performance chart would be implemented here -->
-              <div class="performance-chart">
-                  <!-- Chart Placeholder -->
-              </div>
-              <a href="#" class="see-more">See More</a>
-          </section>
+            <h2>PERFORMANCE</h2>
+            <!-- Performance chart would be implemented here -->
+            <div class="performance-chart">
+              <!-- Chart Placeholder -->
+            </div>
+            <a href="#" class="see-more">See More</a>
+
+        <!-- Holdings Chart Section -->
+        <div class="holdings-chart" data-controller="holding-chart">
+          <h2>YOUR HOLDINGS</h2>
+          <div class="chart-container">
+            <canvas id="holding-chart"
+                    data-holding-chart-target="myChart"
+                    data-labels="<%= @holdings_labels.to_json %>"
+                    data-purchased-price="<%= @holdings_prices.to_json %>">
+            </canvas>
+          </div>
         </div>
+      </section>
+    </div>
+
+
         <!-- Investments Section -->
 
         <div class="investments-container">
