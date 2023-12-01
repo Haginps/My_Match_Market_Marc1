@@ -33,6 +33,7 @@ body {
   // margin-right: 181px;
   // display: block;
   box-sizing: border-box;
+  width: 22%;
 }
 
 .trade-form {
@@ -45,6 +46,40 @@ body {
   // margin-left: 20px;
   .form-control {
     width: 118px !important;
+  }
+
+  .player-info {
+    border-radius: 28px;
+    background: #393939;
+    box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
+    margin-top: 20px;
+    padding: 20px;
+    // margin-right: 181px;
+    // display: block;
+    box-sizing: border-box;
+    // max-width: 981px;
+    width: 75%;
+    color: #C7C9CC;
+  }
+
+  .investment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+
+  .investment-image {
+    width: 70px; /* Adjust the width as needed */
+    height: 70px; /* Adjust the height as needed */
+    border-radius: 50%; /* Make it a circle by setting border-radius to 50% */
+    margin-right: 10px; /* Adjust the margin as needed */
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  #player-stats {
+    padding-bottom: 15px;
   }
 }
 
@@ -114,6 +149,7 @@ body {
 .holding-info {
 margin-top: 10px;
 padding: 10px;
+color: #C7C9CC;
 }
 
 #Today-price {
