@@ -40,7 +40,9 @@ class InvestmentsController < ApplicationController
       end
     end
 
-    # raise
+    if @investment.category == 'player'
+      @player = Player.find_by(investment: @investment)
+    end
   end
 
   private
