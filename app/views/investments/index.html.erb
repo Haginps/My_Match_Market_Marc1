@@ -1,12 +1,10 @@
-
-
 <div class="container-index">
 
   <div class="title">
-   <h1><strong>Markets, Everywhere</strong></h1>
+    <h1><strong>Markets, Everywhere</strong></h1>
   </div>
 
- <div class="row justify-content-center">
+  <div class="row justify-content-center">
     <div class="col-sm-4 my-3">
       <%= form_with url: investments_path, method: :get, class: "d-flex w-100" do %>
         <div class="search-container position-relative w-100">
@@ -21,28 +19,72 @@
         </div>
       <% end %>
     </div>
- </div>
-
-
-
-
-  <div class="row">
-    <h1>Top players:</h1>
-      <% @investments.each do |investment| %>
-        <div class="col-md-3 mb-4">
-          <div class="card h-100">
-            <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
-              <div class="card-body">
-                <%= image_tag investment.image%>
-                <h5 class="card-title"><%= investment.name %></h5>
-                <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
-                <p class="card-text">24hr Change: <%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %></p>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
   </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Top Players</h1>
+      <div class="row">
+        <% @top_players.each do |investment| %>
+          <div class="col-md-3 mb-4">
+            <div class="card h-100">
+              <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
+                <div class="card-body">
+                  <%= image_tag investment.image %>
+                  <h5 class="card-title"><%= investment.name %></h5>
+                  <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
+                  <p class="card-text">24hr Change: <%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-4">
+    <div class="col-md-12">
+      <h1>Emerging Players</h1>
+      <div class="row">
+        <% @emerging_players.each do |investment| %>
+          <div class="col-md-3 mb-4">
+            <div class="card h-100">
+              <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
+                <div class="card-body">
+                  <%= image_tag investment.image %>
+                  <h5 class="card-title"><%= investment.name %></h5>
+                  <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
+                  <p class="card-text">24hr Change: <%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-4">
+    <div class="col-md-12">
+      <h1>Trending Players</h1>
+      <div class="row">
+        <% @trending_players.each do |investment| %>
+          <div class="col-md-3 mb-4">
+            <div class="card h-100">
+              <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
+                <div class="card-body">
+                  <%= image_tag investment.image %>
+                  <h5 class="card-title"><%= investment.name %></h5>
+                  <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
+                  <p class="card-text">24hr Change: <%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 </div>
