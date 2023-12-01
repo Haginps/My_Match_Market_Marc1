@@ -40,6 +40,7 @@ class User < ApplicationRecord
 
   def set_default_tokens
     self.tokens ||= 5000  # Set tokens to 5000 if not already set
+    self.save
     TokenHistory.create(user: self, date: Date.today, total_token: self.tokens)
   end
 end
