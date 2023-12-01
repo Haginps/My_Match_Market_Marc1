@@ -127,4 +127,6 @@ james = Player.new(investment: james_investment, position: "right back", club: "
 james.save
 trent = Player.new(investment: trent_investment, position: "right back", club: "Liverpool", height: 190, weight: 70, dob: Date.parse("1998-06-19"), nationality: "English", games_played: 642, goals: 3, assists: 5)
 trent.save
+palmer = Player.new(investment: palmer_investment, position: "Attacking midfielder/winger", club: "Chealsea", height: 189, weight: 74, dob: Date.parse("2002-5-6"), nationality: "English", games_played: 117, goals: 52, assists: 25)
+palmer.save
 puts "Players created"
