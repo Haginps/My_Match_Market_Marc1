@@ -94,6 +94,8 @@ class HoldingsController < ApplicationController
         # @holding.gain_loss = (@holding.sold_price - @holding.purchased_price) * @holding.shares_amount
         @holding.save
 
+        current_user.tokens += new_purchased_price * new_shares_amount
+
         user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
         user_today_token_history.total_token = current_user.tokens
         user_today_token_history.save
