@@ -25,6 +25,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to channel_path(@post.channel), status: :see_other, notice: 'post and associated posts deleted successfully'
+  end
+
   private
 
 
@@ -33,7 +39,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :description, :photo)
   end
 
 end

@@ -2,20 +2,6 @@
 
   <div class="headings-channels">
     <h1>All Channels</h1>
-
-    <%# <div id="new-channel-form" style="display: none;"> %>
-      <%# render 'new_channel_form', channel: @channel %>
-    <%# </div> %>
-
-    <%# <div data-controller="create-channel" class="form-and-button"> %>
-      <h1><%# @channel.title</h1> %>
-      <%# <button data-action="click->create-channel#revealForm">Create Channel +</button> %>
-
-      <%# <div class="form-channel"> %>
-        <%# render "channels/new_channel_form", channel: @channel %>
-      <%# </div> %>
-    <%# </div> %>
-
     <!-- Button trigger modal -->
     <button type="button" class="form-and-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
       Create channel +
@@ -44,13 +30,13 @@
   <% @channels.reverse.each do |channel| %>
     <div class="channels-info">
       <div class="card-product">
-      <% if channel.photo&.key.present? %>
-        <%= cl_image_tag(channel.photo.key, height: 350, width: 450, crop: :fill) %>
-      <% else %>
-        <!-- Provide a fallback or placeholder image -->
+        <% if channel.photo&.key.present? %>
+          <%= cl_image_tag(channel.photo.key, height: 350, width: 450, crop: :fill) %>
+        <% else %>
+          <!-- Provide a fallback or placeholder image -->
 
-        <%= image_tag("/absolute/path/to/your/desktop/image.jpg", height: 350, width: 450, alt: "Placeholder") %>
-      <% end %>
+          <%= image_tag("/absolute/path/to/your/desktop/image.jpg", height: 350, width: 450, alt: "Placeholder") %>
+        <% end %>
         <div class="card-product-infos">
           <h2><%= channel.title %></h2>
           <p><%= channel.description %></p>
