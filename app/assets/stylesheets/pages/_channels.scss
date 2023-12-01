@@ -8,7 +8,7 @@
 
   .channels-info {
     border-radius: 28px;
-    background: #393939;
+    // background: #393939;
     box-shadow: 0px 0px 108.5px -13px rgba(0, 0, 0, 0.25);
     // margin-right: 100px;
     // margin-left: 100px;
@@ -55,23 +55,42 @@
     justify-content: center;
     padding: 30px;
   }
-}
+  .card-product {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    img {
+      border-radius: 20px;
+      box-shadow: 0px 0px 108.5px -13px rgba(0, 0, 0, 0.25);
 
-.card-product {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  img {
-    border-radius: 20px;
-    box-shadow: 0px 0px 108.5px -13px rgba(0, 0, 0, 0.25);
-
+    }
+  }
+  .card-product-infos {
+    width: 675px;
+  }
+  .modal-content   {
+    background-color: #2E2E2E;
+    color: white;
+    font-size: 20px;
+  }
+  .create-post {
+    color: white;
   }
 }
-.card-product-infos {
-  width: 675px;
-}
-.modal-content   {
-  background-color: #2E2E2E;
-  color: white;
-  font-size: 20px;
+.show-container {
+  h1 {
+    color: white;
+    margin: 30px 100px;
+
+  }
+  .posts-info {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+  }
+  .post-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }

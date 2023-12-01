@@ -1,29 +1,33 @@
+<div class="show-container">
+  <div class="post-heading">
   <h1><%= @channel.title %></h1>
-<div data-controller="create-post">
-  <button data-action="click->create-post#revealForm">Add Post</button>
+  </div>
+  <div data-controller="create-post">
+    <button data-action="click->create-post#revealForm">Add Post</button>
 
-  <%= render "posts/post_form", channel: @channel, post: @post %>
+    <%= render "posts/post_form", channel: @channel, post: @post %>
+  </div>
+
+  <div class="posts-info">
+    <% @channel.posts.reverse.each do |post| %>
+      <div>
+        <%= post.title %>
+        <%= post.description %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <%#
+  <div id="post-form-container">
+    < render "posts/post_form" >
+  </div> %>
+  <%#
+  <div id="posts-container">
+    < render "posts/post_form", collection: @channel.posts >
+  </div>
+
+  <h3> "@post.title"
+  </h3>
+  <p> @post.description</p> %>
 </div>
-
-<div class="posts-info">
-  <% @channel.posts.reverse.each do |post| %>
-    <div>
-      <%= post.title %>
-      <%= post.description %>
-    </div>
-  <% end %>
-</div>
-
-
-<%#
-<div id="post-form-container">
-  < render "posts/post_form" >
-</div> %>
-<%#
-<div id="posts-container">
-  < render "posts/post_form", collection: @channel.posts >
-</div>
-
-<h3> "@post.title"
-</h3>
-<p> @post.description</p> %>
