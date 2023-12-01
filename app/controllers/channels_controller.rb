@@ -18,17 +18,24 @@ class ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(channel_params)
-    @channel.user = current_user
-    @channel.save
-    @channels = current_user.channels
-    if @channel.save
-      redirect_to channel_path(@channel), notice: "Channel created successfully"
-    else
-      @channel = Channel.new
-      render :index, status: :unprocessable_entity
-    end
 
+    if current_user
+      @channel.user = current_user
+
+      if @channel.save
+        @channels = current_user.channels
+        redirect_to channel_path(@channel), notice: "Channel created successfully"
+      else
+        @channels = current_user.channels
+        render :index, status: :unprocessable_entity
+      end
+    else
+      # Handle the case where current_user is nil
+      redirect_to root_path, alert: "User not found."
+    end
   end
+
+
 
   def destroy
     @channel = Channel.find(params[:id])

@@ -17,11 +17,12 @@ History.destroy_all
 Player.destroy_all
 Holding.destroy_all
 Investment.destroy_all
+TokenHistory.destroy_all
 User.destroy_all
 
-marc = User.new(email: "marchage1@gmail.com", first_name: "Marc", last_name: "Hage", password: "123456789", balance: 10000)
+marc = User.new(email: "marchage1@gmail.com", first_name: "Marc", last_name: "Hage", password: "123456789", tokens: 10000)
 marc.save
-leo = User.new(email: "leokreutz@gmail.com", first_name: "Leonard", last_name: "Kreutzberg", password: "123456789", balance: 15000)
+leo = User.new(email: "leokreutz@gmail.com", first_name: "Leonard", last_name: "Kreutzberg", password: "123456789", tokens: 15000)
 leo.save
 puts "Users created"
 
@@ -65,61 +66,73 @@ james_history1 = History.create(date: Date.parse("2023-11-27"), price: 45.6, inv
 james_history2 = History.create(date: Date.parse("2023-11-28"), price: 55.6, investment: james_investment)
 james_history3 = History.create(date: Date.parse("2023-11-29"), price: 59.6, investment: james_investment)
 james_history4 = History.create(date: Date.parse("2023-11-30"), price: 60.0, investment: james_investment)
+james_history5 = History.create(date: Date.parse("2023-12-01"), price: 68.0, investment: james_investment)
 
 trent_history1 = History.create(date: Date.parse("2023-11-27"), price: 23.6, investment: trent_investment)
 trent_history2 = History.create(date: Date.parse("2023-11-28"), price: 25.6, investment: trent_investment)
 trent_history3 = History.create(date: Date.parse("2023-11-29"), price: 22.6, investment: trent_investment)
 trent_history4 = History.create(date: Date.parse("2023-11-30"), price: 23.0, investment: trent_investment)
+trent_history5 = History.create(date: Date.parse("2023-12-01"), price: 15.0, investment: trent_investment)
 
 palmer_history1 = History.create(date: Date.parse("2023-11-27"), price: 9.6, investment: palmer_investment)
 palmer_history2 = History.create(date: Date.parse("2023-11-28"), price: 10.6, investment: palmer_investment)
 palmer_history3 = History.create(date: Date.parse("2023-11-29"), price: 13.2, investment: palmer_investment)
 palmer_history4 = History.create(date: Date.parse("2023-11-30"), price: 13.5, investment: palmer_investment)
+palmer_history5 = History.create(date: Date.parse("2023-12-01"), price: 16.5, investment: palmer_investment)
 
 messi_history1 = History.create(date: Date.parse("2023-11-27"), price: 230.4, investment: messi_investment)
 messi_history2 = History.create(date: Date.parse("2023-11-28"), price: 235.3, investment: messi_investment)
 messi_history3 = History.create(date: Date.parse("2023-11-29"), price: 232.4, investment: messi_investment)
 messi_history4 = History.create(date: Date.parse("2023-11-30"), price: 234.0, investment: messi_investment)
+messi_history5 = History.create(date: Date.parse("2023-12-01"), price: 234.0, investment: messi_investment)
 
 gordon_history1 = History.create(date: Date.parse("2023-11-27"), price: 11.4, investment: gordon_investment)
 gordon_history2 = History.create(date: Date.parse("2023-11-28"), price: 12.3, investment: gordon_investment)
 gordon_history3 = History.create(date: Date.parse("2023-11-29"), price: 9.4, investment: gordon_investment)
 gordon_history4 = History.create(date: Date.parse("2023-11-30"), price: 10.5, investment: gordon_investment)
+gordon_history5 = History.create(date: Date.parse("2023-12-01"), price: 12.5, investment: gordon_investment)
 
 bowen_history1 = History.create(date: Date.parse("2023-11-27"), price: 15.4, investment: bowen_investment)
 bowen_history2 = History.create(date: Date.parse("2023-11-28"), price: 16.3, investment: bowen_investment)
 bowen_history3 = History.create(date: Date.parse("2023-11-29"), price: 14.4, investment: bowen_investment)
 bowen_history4 = History.create(date: Date.parse("2023-11-30"), price: 15.5, investment: bowen_investment)
+bowen_history5 = History.create(date: Date.parse("2023-12-01"), price: 17.5, investment: bowen_investment)
 
 cunha_history1 = History.create(date: Date.parse("2023-11-27"), price: 9.2, investment: cunha_investment)
 cunha_history2 = History.create(date: Date.parse("2023-11-28"), price: 9.8, investment: cunha_investment)
 cunha_history3 = History.create(date: Date.parse("2023-11-29"), price: 9.9, investment: cunha_investment)
 cunha_history4 = History.create(date: Date.parse("2023-11-30"), price: 10.0, investment: cunha_investment)
+cunha_history5 = History.create(date: Date.parse("2023-12-01"), price: 15.0, investment: cunha_investment)
 
 olise_history1 = History.create(date: Date.parse("2023-11-27"), price: 19.2, investment: olise_investment)
 olise_history2 = History.create(date: Date.parse("2023-11-28"), price: 19.8, investment: olise_investment)
 olise_history3 = History.create(date: Date.parse("2023-11-29"), price: 19.9, investment: olise_investment)
 olise_history4 = History.create(date: Date.parse("2023-11-30"), price: 19.5, investment: olise_investment)
+olise_history5 = History.create(date: Date.parse("2023-12-01"), price: 21.5, investment: olise_investment)
 
 willian_history1 = History.create(date: Date.parse("2023-11-27"), price: 12.2, investment: willian_investment)
 willian_history2 = History.create(date: Date.parse("2023-11-28"), price: 12.8, investment: willian_investment)
 willian_history3 = History.create(date: Date.parse("2023-11-29"), price: 13.9, investment: willian_investment)
 willian_history4 = History.create(date: Date.parse("2023-11-30"), price: 13.0, investment: willian_investment)
+willian_history5 = History.create(date: Date.parse("2023-12-01"), price: 14.0, investment: willian_investment)
 
 elanga_history1 = History.create(date: Date.parse("2023-11-27"), price: 5.2, investment: elanga_investment)
 elanga_history2 = History.create(date: Date.parse("2023-11-28"), price: 5.8, investment: elanga_investment)
 elanga_history3 = History.create(date: Date.parse("2023-11-29"), price: 5.9, investment: elanga_investment)
 elanga_history4 = History.create(date: Date.parse("2023-11-30"), price: 6.0, investment: elanga_investment)
+elanga_history5 = History.create(date: Date.parse("2023-12-01"), price: 4.0, investment: elanga_investment)
 
 nunez_history1 = History.create(date: Date.parse("2023-11-27"), price: 15.2, investment: nunez_investment)
 nunez_history2 = History.create(date: Date.parse("2023-11-28"), price: 15.8, investment: nunez_investment)
 nunez_history3 = History.create(date: Date.parse("2023-11-29"), price: 17.9, investment: nunez_investment)
 nunez_history4 = History.create(date: Date.parse("2023-11-30"), price: 18.0, investment: nunez_investment)
+nunez_history5 = History.create(date: Date.parse("2023-12-01"), price: 16.0, investment: nunez_investment)
 
 haaland_history1 = History.create(date: Date.parse("2023-11-27"), price: 85.2, investment: haaland_investment)
 haaland_history2 = History.create(date: Date.parse("2023-11-28"), price: 85.8, investment: haaland_investment)
 haaland_history3 = History.create(date: Date.parse("2023-11-29"), price: 87.9, investment: haaland_investment)
 haaland_history4 = History.create(date: Date.parse("2023-11-30"), price: 88.0, investment: haaland_investment)
+haaland_history5 = History.create(date: Date.parse("2023-12-01"), price: 100.4, investment: haaland_investment)
 
 puts "Investments created"
 
@@ -127,4 +140,14 @@ james = Player.new(investment: james_investment, position: "right back", club: "
 james.save
 trent = Player.new(investment: trent_investment, position: "right back", club: "Liverpool", height: 190, weight: 70, dob: Date.parse("1998-06-19"), nationality: "English", games_played: 642, goals: 3, assists: 5)
 trent.save
+palmer = Player.new(investment: palmer_investment, position: "Attacking midfielder/winger", club: "Chealsea", height: 189, weight: 74, dob: Date.parse("2002-5-6"), nationality: "English", games_played: 117, goals: 52, assists: 25)
+palmer.save
 puts "Players created"
+
+# Holding.new(user: User.first, investment: Investment.first, purchased_price: Investment.first.histories[Investment.first.histories.length - 1].price, purchased_date: Date.yesterday, shares_amount: 10, trade: "buy")
+# u -= User.first.tokens - Holding.first.purchased_price * Holding.first.shares_amount
+# u.save
+
+# th = TokenHistory.new(user: u, date: Date.yesterday)
+# th.total_tokens = u.tokens
+# th.save

@@ -1,29 +1,42 @@
-  <h1><%= @channel.title %></h1>
-<div data-controller="create-post">
-  <button data-action="click->create-post#revealForm">Add Post</button>
+<div class="show-container">
+  <div class="post-heading">
+    <h1><%= @channel.title %></h1>
+    <button type="button" class="form-and-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Create post +
+    </button>
 
-  <%= render "posts/post_form", channel: @channel, post: @post %>
-</div>
+      <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <%# <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> %>
+            <button type="button" class="x-channel-form btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render "posts/post_form", channel: @channel, post: @post %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<div class="posts-info">
   <% @channel.posts.reverse.each do |post| %>
-    <div>
-      <%= post.title %>
-      <%= post.description %>
+    <div class="posts-info">
+      <div class="card-product">
+        <% if post.photo&.key.present? %>
+          <%=cl_image_tag(post.photo.key, height: 350, width: 450, crop: :fill) %>
+        <% else %>
+          <!-- Provide a fallback or placeholder image -->
+        <% end %>
+        <div class="post-product-infos">
+          <h2><%= post.title %></h2>
+          <p><%= post.description %></p>
+          <%= button_to 'Delete', post_path(post), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-default'%>
+            <%# <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
+        </div>
+      </div>
     </div>
   <% end %>
+
 </div>
-
-
-<%#
-<div id="post-form-container">
-  < render "posts/post_form" >
-</div> %>
-<%#
-<div id="posts-container">
-  < render "posts/post_form", collection: @channel.posts >
-</div>
-
-<h3> "@post.title"
-</h3>
-<p> @post.description</p> %>

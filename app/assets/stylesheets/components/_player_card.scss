@@ -16,7 +16,7 @@
   max-width: 1790px;
 
   h1 {
-    margin-left: 55px;
+    margin-left: 30px;
   }
 }
 
@@ -91,7 +91,7 @@
 
 .search-container input {
   border: 2px solid #ccc;
-  border-radius: 20px;
+  border-radius: 28px;
   font-size: 16px;
   background-color: white;
   background-position: 10px 10px;
@@ -99,6 +99,7 @@
   padding: 12px 20px 12px 58px;
   width: 329px;
   margin-left: 67px;
+  // width: 100%;
 }
 
 .search-button {
