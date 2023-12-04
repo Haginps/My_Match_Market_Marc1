@@ -1,13 +1,13 @@
 class CommentsController < ApplicationController
-  before_action :set_channel, only: %i[create, :destroy]
-  before_action :set_post, only: %i[create]
+  before_action :set_channel, only: [:create]
+  before_action :set_post, only: [:create]
+
 
   def create
     @comment = Comment.new(comment_params)
     @comment.post = @post
     @comment.user = current_user
-
-    if @comment.save
+    if @comment.save!
       # get this checked
       redirect_to channel_path(@channel)
     else
@@ -17,9 +17,9 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
+    @comment.destroy!
     # get this checked
-    redirect_to channel_path(@channel), status: :see_other
+    redirect_to channel_path(@comment.post.channel), status: :see_other
   end
 
   private
@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   end
 
   def set_post
-    @post = Channel.find(params[:post_id])
+    @post = Post.find(params[:post_id])
   end
 
   def comment_params

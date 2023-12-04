@@ -32,11 +32,42 @@
         <div class="post-product-infos">
           <h2><%= post.title %></h2>
           <p><%= post.description %></p>
-          <%= button_to 'Delete', post_path(post), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-default'%>
             <%# <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                  <button class="accordion-button collapsed ps-0" type="button" data-bs-toggle="collapse" data-bs-target="#post_comments_<%= post.id%>" aria-expanded="false" aria-controls="collapseThree">
+                    Comments
+                  </button>
+                </h2>
+                <div id="post_comments_<%= post.id%>" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="comments">
+                      <% post.comments.each do |comment| %>
+                        <div class="comment">
+                          <div class="name_and_delete">
+                            <p><strong><%= comment.user.first_name %>:</strong> <%= comment.content %></p>
+                            <%= link_to comment_path(comment), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-link btn-sm text-danger' do %>
+                              <i class="fa-solid fa-xmark"></i>
+                            <% end %>
+                          </div>
+                        </div>
+                        <% end %>
+                    </div>
+
+                    <!-- Render comment form -->
+                    <%= render 'posts/comment_form', post: post, channel: @channel %>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <%= button_to post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default posts-d btn-sm', id: 'delete-btn', remote: true do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
         </div>
       </div>
     </div>
   <% end %>
+
 
 </div>
