@@ -40,11 +40,11 @@
             <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
           <%# </li> %>
           <div class="ml-auto">
-            <%= link_to 'Log In', new_user_session_path, class: 'btn btn-default' %>
+            <%= link_to 'Log In', new_user_session_path, class: 'btn btn-green' %>
           </div>
           <% else %>
             <div class="ml-auto">
-             <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: 'btn btn-default'%>
+            <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?"}, class: 'btn btn-orange' %>
             </div>
         <% end %>
       </ul>
