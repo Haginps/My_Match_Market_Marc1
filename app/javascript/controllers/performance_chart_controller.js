@@ -10,6 +10,7 @@ export default class extends Controller {
   }
 
   connect() {
+    // console.log(this.myChartTarget.dataset.labels)
 
     const priceChart = new Chart(this.canvasContext(), {
       type: 'line',
@@ -58,7 +59,7 @@ export default class extends Controller {
             },
             ticks: {
               color: 'white'
-            }
+            },
           }
         }
       }

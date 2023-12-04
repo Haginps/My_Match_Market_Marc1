@@ -18,6 +18,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :token_histories
+  has_many :user_histories
+  has_many :trade_histories
 
 
   def portfolio_24hr_change
