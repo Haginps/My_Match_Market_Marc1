@@ -131,6 +131,40 @@
   }
 }
 
+#women-football {
+  color: white;
+  background-color: #393939;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px;
+  align-items: center;
+
+  .text-women {
+    margin-left: 50px;
+    width: 58%;
+  }
+
+  h2 {
+    color: white;
+    font-weight: 700;
+    font-size: 64px;
+    margin-bottom: 50px;
+  }
+
+  p {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    width: 80%;
+  }
+
+  img {
+    width: 520px;
+    height: 870px;
+    margin-top: 87px;
+  }
+}
 
 @media (max-width: 575px) {
   #hero img, #mobile-app img {

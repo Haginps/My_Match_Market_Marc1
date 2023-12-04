@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
   get '/dashboard', to: 'pages#dashboard'
 
   resources :investments, only: [:index, :show] do
@@ -18,10 +22,12 @@ Rails.application.routes.draw do
 
   resources :channels, only: [:index, :show, :new, :create, :destroy] do
     resources :posts, only: [:create] do
-      resources :comments, only: [:create, :destroy]
+      resources :comments, only: [:create]
     end
   end
+  resources :comments, only: [:destroy]
   resources :posts, only: [:destroy]
+
 
   resources :news, only: [:index, :show] do
     # post '/like', to: 'news#like'

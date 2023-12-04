@@ -8,7 +8,7 @@
     <div class="chart-container">
       <canvas id="bar-chart"
               data-performance-chart-target="myChart"
-              data-labels="<%= @investment.histories.map { |history| history.date.strftime('%Y-%m-%d') }.to_json %>"
+              data-labels="<%= @investment.histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
               data-prices="<%= @investment.histories.map(&:price).to_json %>" width="4" height="1"
               data-purchased-price="<%= @purchased_price.to_json %>">
       </canvas>

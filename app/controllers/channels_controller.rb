@@ -7,9 +7,18 @@ class ChannelsController < ApplicationController
 
 
   def show
+    # @channel = Channel.find(params[:id])
+    # @comment = Comment.new
+    @post = Post.new
+
+    # @post = Post.find(params[:id])
+    # @comments = @post.comments.order(created_at: :desc)
+    # @comment = Comment.new
+
     @channel = Channel.find(params[:id])
     @comment = Comment.new
-    @post = Post.new
+
+
   end
 
   def new
@@ -35,6 +44,19 @@ class ChannelsController < ApplicationController
     end
   end
 
+  def create_comment
+    @post = Post.find(params[:id])
+    @comment = @post.comments.build(comment_params)
+    @comment.user = current_user
+
+    if @comment.save
+      redirect_to post_path(@post), notice: 'Comment added successfully.'
+    else
+      @comments = @post.comments.order(created_at: :desc)
+      render 'show'
+    end
+  end
+
 
 
   def destroy
@@ -48,6 +70,10 @@ class ChannelsController < ApplicationController
 
   def channel_params
     params.require(:channel).permit(:title, :description, :photo)
+  end
+
+  def comment_params
+    params.require(:comment).permit(:content)
   end
 
 end

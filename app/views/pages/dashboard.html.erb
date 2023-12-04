@@ -6,7 +6,7 @@
         <section class="account-balance">
             <h2>ACCOUNT BALANCE</h2>
             <div class="balance-info">
-                <span class="balance-amount">£<%= current_user.tokens %></span>
+                <span class="balance-amount">£<%= @today_tokens %></span>
                 <div class="portfolio-change">
                 <%# <%= current_user.token_histories.last.total_token %>
                 </div>
@@ -24,9 +24,9 @@
         <div class="performance-container">
           <section class="performance">
             <h2>PERFORMANCE</h2>
+            <%= @today_performance %>
             <!-- Performance chart would be implemented here -->
             <div class="performance-chart">
-              <!-- Chart Placeholder -->
             </div>
 
         <!-- Holdings Chart Section -->
@@ -34,8 +34,8 @@
           <div class="chart-container">
             <canvas id="holding-chart"
                     data-holding-chart-target="myChart"
-                    data-labels="<%= @holdings_labels.to_json %>"
-                    data-purchased-price="<%= @holdings_prices.to_json %>">
+                    data-labels="<%= current_user.user_histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
+                    data-performance="<%= current_user.user_histories.map(&:performance).to_json %>" width="600" height="300">
             </canvas>
           </div>
         </div>
@@ -69,23 +69,32 @@
                     <p>Current Price</p>
                     </div>
 
+                    <div class="invetment-percentage">
+                    <p>Percentage Change</p>
+                    </div>
+
 
                   </div>
                   <% current_user.holdings.each do |holding|%>
                     <% if holding.sold_price.nil? %>
                       <div class="investments-card d-flex justify-content-between ">
                       <div class="investment-name">
-                        <p><%= holding.investment.name %></p>
+                        <%# <p><%= holding.investment.name %>
+                        <p><%= link_to holding.investment.name, investment_path(holding.investment), class: 'your-link-class' %></p>
+
                       </div>
                       <%# <hr> %>
                       <div class="investment-price">
-                      <p><%= holding.investment.histories.first.price %></p>
+                      <p><%= holding.purchased_price %></p>
                       </div>
                       <%# <hr> %>
                       <div class="investment-price">
                         <p><%= holding.investment.histories.last.price %></p>
                       </div>
                       <%# <hr> %>
+                      <div class="investment-percentage">
+                       <p> <%= percentage_change = ((holding.investment.histories.last.price - holding.purchased_price) / holding.purchased_price) * 100 %></p>
+                      </div>
                       </div>
                     <% end %>
                   <% end %>

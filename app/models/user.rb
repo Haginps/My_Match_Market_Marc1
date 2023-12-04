@@ -1,7 +1,13 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  before_create :set_default_tokens
+  has_many :comments
+
+
   after_create :set_default_tokens
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -12,6 +18,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :comments
   has_many :token_histories
+  has_many :user_histories
+  has_many :trade_histories
 
 
   def portfolio_24hr_change

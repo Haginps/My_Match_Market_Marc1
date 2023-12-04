@@ -95,8 +95,7 @@
     flex-shrink: 0;
 
     .btn {
-      width: 90px;
-      align-items: center !important;
+      background: var(--third-colour, #E67447);
     }
   }
   .post-channels {
@@ -152,3 +151,97 @@
 
   }
 }
+
+
+
+// POST COMMENTS ACCORDION
+.accordion-button {
+  background: #2d2d2d !important;
+  color: white;
+  border-radius: 0 !important;
+}
+
+.accordion-item {
+  border: none;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: white;
+}
+
+.accordion-body {
+  background: #353535;
+  p {
+    color: white;
+  }
+}
+
+.accordion {
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFFFFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FFFFFF'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.posts-d {
+  margin-left: 640px;
+  margin-top: 50px;
+  color: white;
+  background-color: #2d2d2d;
+  posts-d.hover {
+    color: red;
+  }
+}
+
+.name_and_delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 17px;
+  a {
+    text-decoration: none;
+
+  }
+
+  .btn {
+    margin-top: 0;
+    margin-right: 0;
+    background-color: #e6744700 !important;
+
+  }
+  p {
+    margin: 0;
+  }
+  .fa-solid {
+    width: auto;
+    height: auto;
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
+}
+.button_to {
+  color:#e6744700;
+  &:hover {
+    color: red;
+  }
+
+}
+
+
+#delete-btn {
+  background-color: #ff000000;
+}
+.card-product-infos {
+  width: 675px;
+}
+.modal-content   {
+  // background-color: #2E2E2E;
+  color: white;
+  font-size: 20px;
+}
+

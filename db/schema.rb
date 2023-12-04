@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_12_04_155221) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -147,6 +148,27 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_155221) do
     t.index ["user_id"], name: "index_token_histories_on_user_id"
   end
 
+  create_table "trade_histories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "date"
+    t.integer "shares_amount"
+    t.bigint "holding_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["holding_id"], name: "index_trade_histories_on_holding_id"
+    t.index ["user_id"], name: "index_trade_histories_on_user_id"
+  end
+
+  create_table "user_histories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "date"
+    t.float "tokens"
+    t.float "performance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_histories_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -175,4 +197,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_155221) do
   add_foreign_key "posts", "channels"
   add_foreign_key "posts", "users"
   add_foreign_key "token_histories", "users"
+  add_foreign_key "trade_histories", "holdings"
+  add_foreign_key "trade_histories", "users"
+  add_foreign_key "user_histories", "users"
 end
