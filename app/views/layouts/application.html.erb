@@ -16,7 +16,9 @@
     <%= render "shared/flashes" %>
 
     <%= yield %>
-    <% unless controller_name == 'registrations' && action_name == 'new' || controller_name == 'sessions' && action_name == 'new' %>
+    <% unless controller_name == 'registrations' && action_name == 'new' || controller_name == 'sessions' && action_name == 'new' ||
+              (controller_name == 'sessions' && action_name == 'new') ||
+              (controller_name == 'pages' && action_name == 'dashboard') %>
       <footer class="site-footer">
     <footer class="site-footer">
       <div class="container">
