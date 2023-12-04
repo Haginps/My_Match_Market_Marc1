@@ -5,3 +5,6 @@ import "@popperjs/core"
 import "bootstrap"
 
 import "chart.js"
+
+// import Rails from '@rails/ujs';
+// Rails.start();
