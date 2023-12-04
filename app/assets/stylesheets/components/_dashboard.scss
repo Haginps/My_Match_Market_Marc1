@@ -26,6 +26,15 @@
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(171, 171, 171);
+}
+
 .dashboard-container {
 
   padding-left: 60px;
