@@ -1,6 +1,6 @@
 <div class="index-container">
 
-    <h1>Community</h1>
+    <strong><h1>Community</h1></strong>
 
   <div class="headings-channels">
 
@@ -55,15 +55,20 @@
           <%= image_tag("/absolute/path/to/your/desktop/image.jpg", height: 350, width: 450, alt: "Placeholder") %>
         <% end %>
         <div class="card-product-infos">
-          <h2><%= channel.title %></h2>
+          <div class="title_and_delete">
+            <h2><%= channel.title %></h2>
+            <%= button_to channel_path(channel), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default channel-d btn-sm', id: 'delete-btn', remote: true do %>
+            <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+
           <p><%= channel.description %></p>
 
           <%# <button data-action="click->show-channel#revealForm">Chat</button> %>
           <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
           <%# <%= button_to "Chat Now", channel_path(@channel), class: "btn btn-primary", data: { turbo: false } %>
 
-          <%= button_to 'Delete', channel_path(channel), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-default' %>
-
+          <%# <%= button_to 'Delete', channel_path(channel), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-default' %>
         </div>
       </div>
     </div>

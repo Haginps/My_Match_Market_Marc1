@@ -2,10 +2,12 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  after_create :set_default_tokens
 
   has_many :comments
 
+
+  # after_create :set_default_tokens
+  after_create :set_default_tokens
 
 
 
@@ -45,11 +47,9 @@ class User < ApplicationRecord
     end
   end
 
-  private
-
   def set_default_tokens
-    self.tokens ||= 5000  # Set tokens to 5000 if not already set
-    self.save
+    self.tokens ||= 5000.0  # Set tokens to 5000 if not already set
+    self.save!
     TokenHistory.create(user: self, date: Date.today, total_token: self.tokens)
   end
 end

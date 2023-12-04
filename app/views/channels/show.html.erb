@@ -30,7 +30,13 @@
           <!-- Provide a fallback or placeholder image -->
         <% end %>
         <div class="post-product-infos">
+        <div class="title_and_delete">
           <h2><%= post.title %></h2>
+             <%= button_to post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm', id: 'delete-btn', remote: true do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+        </div>
+
           <p><%= post.description %></p>
             <%# <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
             <div class="accordion" id="accordionExample">
@@ -61,9 +67,6 @@
                 </div>
               </div>
             </div>
-             <%= button_to post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default posts-d btn-sm', id: 'delete-btn', remote: true do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
         </div>
       </div>
     </div>
