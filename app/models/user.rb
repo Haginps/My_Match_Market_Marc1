@@ -3,10 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
   after_create :set_default_tokens
+
   has_many :comments
 
 
-  after_create :set_default_tokens
+
 
 
   devise :database_authenticatable, :registerable,
