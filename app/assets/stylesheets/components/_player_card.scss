@@ -12,6 +12,15 @@
   }
 }
 
+.container-index {
+  max-width: 1790px;
+
+  h1 {
+    margin-left: 30px;
+  }
+}
+
+
 .card-text:last-child {
   color: #00ff80ba;
 }
@@ -45,17 +54,18 @@
 
 .title h1 {
   margin: 0;
+  font-size: 96px;
 }
 
 .row h1{
   color: azure;
-
+  margin-bottom: 25px;
 }
 
 
 
 .h-100 {
-  border-radius: 25px;
+  border-radius: 28px;
   background: #393939;
   box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
   width: 310px;
@@ -76,4 +86,24 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   margin: 35px auto;
+}
+
+
+.search-container input {
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 58px;
+  width: 100%;
+}
+
+.search-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  border: none;
 }
