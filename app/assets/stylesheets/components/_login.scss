@@ -1,14 +1,59 @@
+@keyframes gradientBackground {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  background: linear-gradient(0deg,
+    #2E2E2E 0%,      /* Start of grey */
+    #4A5759 20%,     /* Start blending into grey-green */
+    #98F899 40%,     /* Middle color (green) */
+    #4A5759 60%,     /* Start blending back into grey-green */
+    #393939 80%,     /* Start of dark grey */
+    #393939 100%     /* End color (dark grey) */
+  );
+  background-size: 200% 200%;
+  animation: gradientBackground 10s ease infinite;
+  filter: blur(900px); /* Significantly increased blur effect */
+}
+
+body {
+  position: relative; /* Needed for correct positioning of the pseudo-element */
+}
+
+body {
+  position: relative; /* Needed for correct positioning of the pseudo-element */
+}
+
+body {
+  position: relative; /* Needed for correct positioning of the pseudo-element */
+}
 .login {
   width: 500px !important;
   margin: auto;
-  background-color: #9da7b1;
-  background-blend-mode: screen;
+  background-color: rgba(64, 64, 64, 0.8); /* Semi-transparent white */
   padding: 20px;
   border-radius: 20px;
-  margin-top: 200px;
-  margin-bottom: 50px;
-  border-radius: 28px;
-  background: #393939;
+  // margin-top: 200px;
+  // margin-bottom: 50px;
+  position: relative;
+  align-items: center;
+  z-index: 1; /* Ensures login box is above the animated background */
   box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
 
   .btn {
@@ -46,4 +91,5 @@
   input {
     border-radius: 28px;
   }
+
 }
