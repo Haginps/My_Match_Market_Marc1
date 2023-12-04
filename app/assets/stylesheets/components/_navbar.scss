@@ -49,7 +49,7 @@
   color: #98F899;
 }
 
-.btn {
+.btn-green {
   background-color: #98F899;
   border-radius: 13px;
   display: flex;
@@ -57,7 +57,30 @@
   align-items: flex-start;
   margin-top: 6px;
   margin-right: 45px;
+
 }
+
+.btn-green:hover {
+  background-color: #c4fac5;
+}
+
+.btn-orange {
+  background-color: #98F899;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 6px;
+  margin-right: 45px;
+  /* other styling */
+}
+
+.btn-orange:hover {
+  background-color: #c4fac5;
+
+}
+
+
 
 .fa-solid {
   display: flex;

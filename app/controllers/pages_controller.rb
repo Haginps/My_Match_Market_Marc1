@@ -13,6 +13,9 @@ class PagesController < ApplicationController
     else
       @token_change = 0 # Default value if one of the records is missing
     end
+
+    @today_tokens = current_user.user_histories.find_by(date: Date.today).tokens.round(2)
+    @today_performance = current_user.user_histories.find_by(date: Date.today).performance.round(2)
   end
 
   # if @yesterday_token_history && @yesterday_token_history.total_token > 0

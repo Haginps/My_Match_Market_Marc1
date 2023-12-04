@@ -9,13 +9,17 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
      <%= favicon_link_tag 'logoM.png' %> <!-- Link to your favicon.png -->
+
   </head>
 
   <body><%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
     <%= yield %>
-  </body>
+    <% unless controller_name == 'registrations' && action_name == 'new' || controller_name == 'sessions' && action_name == 'new' ||
+              (controller_name == 'sessions' && action_name == 'new') ||
+              (controller_name == 'pages' && action_name == 'dashboard') %>
+      <footer class="site-footer">
     <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -50,3 +54,7 @@
             </p>
 
 </html>
+        <!-- Your footer content -->
+      </footer>
+    <% end %>
+  </body>

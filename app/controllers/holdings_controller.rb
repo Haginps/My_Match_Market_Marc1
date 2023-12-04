@@ -10,12 +10,19 @@ class HoldingsController < ApplicationController
 
     @holding.save
 
-    current_user.tokens -= @holding.purchased_price * @holding.shares_amount
-    current_user.save
+    @trade_history = TradeHistory.create(user: current_user, holding: @holding, date: Date.today, shares_amount: @holding.shares_amount)
 
-    user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
-    user_today_token_history.total_token = current_user.tokens
-    user_today_token_history.save
+    user_history = UserHistory.find_by(user: current_user, date: Date.today)
+    user_history.performance += @holding.purchased_price * @holding.shares_amount
+    user_history.tokens -= @holding.purchased_price * @holding.shares_amount
+    user_history.save
+
+    # current_user.tokens -= @holding.purchased_price * @holding.shares_amount
+    # current_user.save
+
+    # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
+    # user_today_token_history.total_token = current_user.tokens
+    # user_today_token_history.save
 
     redirect_to investment_path(@investment)
 
@@ -40,13 +47,15 @@ class HoldingsController < ApplicationController
     @investment = Investment.find(params[:investment_id])
     @holding = Holding.find(params[:id])
 
-    # raise
     new_shares_amount = params[:holding][:shares_amount].to_i
+
+    @trade_history = TradeHistory.create(user: current_user, holding: @holding, date: Date.today, shares_amount: new_shares_amount)
 
     old_purchased_price = @holding.purchased_price
     old_shares_amount = @holding.shares_amount
     old_purchased_total_price = old_shares_amount * old_purchased_price
 
+    # When the user buy more shares
     if params[:holding][:trade] == 'buy'
       new_shares_amount = params[:holding][:shares_amount].to_i
       new_purchased_price = @investment.histories.last.price
@@ -58,15 +67,19 @@ class HoldingsController < ApplicationController
 
       @holding.shares_amount = final_shares_amount
       @holding.purchased_price = final_purchased_price
-      @holding.purchased_date = Date.today
-      # @holding.gain_loss = (@holding.sold_price - @holding.purchased_price) * @holding.shares_amount
+      # @holding.purchased_date = Date.today
       @holding.save
 
-      current_user.tokens -= new_purchased_price * new_shares_amount
+      user_history = UserHistory.find_by(user: current_user, date: Date.today)
+      user_history.performance += @investment.histories.last.price * @trade_history.shares_amount
+      user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
+      user_history.save
 
-      user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
-      user_today_token_history.total_token = current_user.tokens
-      user_today_token_history.save
+      # current_user.tokens -= new_purchased_price * new_shares_amount
+
+      # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
+      # user_today_token_history.total_token = current_user.tokens
+      # user_today_token_history.save
     else
       new_sold_price = @investment.histories.last.price
       new_sold_total_price = new_shares_amount * new_sold_price
@@ -78,36 +91,41 @@ class HoldingsController < ApplicationController
         @holding.gain_loss = (@holding.sold_price - @holding.purchased_price) * @holding.shares_amount
         @holding.save
 
-        current_user.tokens += @holding.sold_price * @holding.shares_amount
+        user_history = UserHistory.find_by(user: current_user, date: Date.today)
+        user_history.performance -= @investment.histories.last.price * @trade_history.shares_amount
+        user_history.tokens += @investment.histories.last.price * @trade_history.shares_amount
+        user_history.save
 
-        user_today_token_history = current_user.token_histories.find_by(date: @holding.sold_date)
-        user_today_token_history.total_token = current_user.tokens
-        user_today_token_history.save
+        # current_user.tokens += @holding.sold_price * @holding.shares_amount
 
-      else # Selling some the shares
+        # user_today_token_history = current_user.token_histories.find_by(date: @holding.sold_date)
+        # user_today_token_history.total_token = current_user.tokens
+        # user_today_token_history.save
+      else
+        # Selling some the shares
         final_purchased_total_price = old_purchased_total_price - new_sold_total_price
         final_shares_amount = old_shares_amount - new_shares_amount
         final_purchased_price = final_purchased_total_price / final_shares_amount
 
         @holding.shares_amount = final_shares_amount
         @holding.purchased_price = final_purchased_price
-        @holding.purchased_date = Date.today
-        # @holding.gain_loss = (@holding.sold_price - @holding.purchased_price) * @holding.shares_amount
+        # @holding.purchased_date = Date.today
         @holding.save
 
-        current_user.tokens += final_purchased_total_price
+        user_history = UserHistory.find_by(user: current_user, date: Date.today)
+        user_history.performance -= @investment.histories.last.price * @trade_history.shares_amount
+        user_history.tokens += @investment.histories.last.price * @trade_history.shares_amount
+        user_history.save
 
-        user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
-        user_today_token_history.total_token = current_user.tokens
-        user_today_token_history.save
+        # current_user.tokens += final_purchased_total_price
+
+        # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
+        # user_today_token_history.total_token = current_user.tokens
+        # user_today_token_history.save
       end
     end
 
-    current_user.save
-
     redirect_to investment_path(@investment)
-
-    # raise
 
     # if @holding.save
     #   current_user.update(balance: current_user.balance + @holding.gain_loss)
