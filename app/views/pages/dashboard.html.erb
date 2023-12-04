@@ -1,14 +1,17 @@
 <div class="user-title">
-<h1>Welcome, <%= current_user.first_name %></h1>
+<h1>Hello, <%= current_user.first_name %></h1>
 </div>
     <div class="dashboard-container">
         <div class="balance-container">
         <section class="account-balance">
-            <h2>ACCOUNT BALANCE:</h2>
+            <h2>ACCOUNT BALANCE</h2>
             <div class="balance-info">
                 <span class="balance-amount">£<%= current_user.tokens %></span>
+                <div class="portfolio-change">
+                <%# <%= current_user.token_histories.last.total_token %>
+                </div>
 
-                <span class="balance-change">+37.0% ($3,456.23)</span>
+                <%# <span class="balance-change">+37.0% (£3,456.23)</span> %>
             </div>
             </div>
             <%# <div class="balance-actions">
@@ -25,11 +28,9 @@
             <div class="performance-chart">
               <!-- Chart Placeholder -->
             </div>
-            <a href="#" class="see-more">See More</a>
 
         <!-- Holdings Chart Section -->
         <div class="holdings-chart" data-controller="holding-chart">
-          <h2>YOUR HOLDINGS</h2>
           <div class="chart-container">
             <canvas id="holding-chart"
                     data-holding-chart-target="myChart"
@@ -46,7 +47,7 @@
 
         <div class="investments-container">
           <section class="investments">
-              <h2>INVESTMENTS:</h2>
+              <h2>INVESTMENTS</h2>
               <table>
                   <%# <thead>
                       <tr>
@@ -68,24 +69,39 @@
                     <p>Current Price</p>
                     </div>
 
+                    <div class="invetment-percentage">
+                    <p>Percentage Change</p>
+                    </div>
+
 
                   </div>
-                  <% current_user.investments.each do |investment|%>
-                  <div class="investments-card d-flex justify-content-between ">
-                  <div class="investment-name">
-                    <p><%= investment.name %></p>
-                  </div>
-                  <%# <hr> %>
-                  <div class="investment-price">
-                   <p><%= investment.histories.first.price %></p>
-                  </div>
-                  <%# <hr> %>
-                  <div class="investment-price">
-                    <p><%= investment.histories.last.price %></p>
-                  </div>
-                  <%# <hr> %>
-                  </div>
+                  <% current_user.holdings.each do |holding|%>
+                    <% if holding.sold_price.nil? %>
+                      <div class="investments-card d-flex justify-content-between ">
+                      <div class="investment-name">
+                        <%# <p><%= holding.investment.name %>
+                        <p><%= link_to holding.investment.name, investment_path(holding.investment), class: 'your-link-class' %></p>
+
+                      </div>
+                      <%# <hr> %>
+                      <div class="investment-price">
+                      <p><%= holding.purchased_price %></p>
+                      </div>
+                      <%# <hr> %>
+                      <div class="investment-price">
+                        <p><%= holding.investment.histories.last.price %></p>
+                      </div>
+                      <%# <hr> %>
+                      <div class="investment-percentage">
+                       <p> <%= percentage_change = ((holding.investment.histories.last.price - holding.purchased_price) / holding.purchased_price) * 100 %></p>
+                      </div>
+                      </div>
+                    <% end %>
                   <% end %>
+
+                  <% if current_user.holdings.nil? %>
+                    <p>No Current Holdings</p>
+                  <% end  %>
 
                   <%# <tbody>
                       <!-- Investment items should be repeated for each entry -->
@@ -106,13 +122,13 @@
         <div class="news-container">
           <aside class="latest-news">
               <h2>LATEST NEWS</h2>
-              <article>
+              <%# <article>
                   <img src="path-to-eze-image.png" alt="Eberechi Eze">
                   <div>
                       <h3>Eberechi Eze signs a new 3.5 year contract at Crystal Palace</h3>
                       <time datetime="2023-11-29T16:36:10+00:00">3 hr ago</time>
                   </div>
-              </article>
+              </article> %>
               <!-- Additional news articles here -->
           </aside>
         </div>

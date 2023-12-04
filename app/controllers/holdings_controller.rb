@@ -13,6 +13,10 @@ class HoldingsController < ApplicationController
     current_user.tokens -= @holding.purchased_price * @holding.shares_amount
     current_user.save
 
+    user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
+    user_today_token_history.total_token = current_user.tokens
+    user_today_token_history.save
+
     redirect_to investment_path(@investment)
 
     # total_cost = @holding.purchased_price * @holding.shares_amount
@@ -59,6 +63,10 @@ class HoldingsController < ApplicationController
       @holding.save
 
       current_user.tokens -= new_purchased_price * new_shares_amount
+
+      user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
+      user_today_token_history.total_token = current_user.tokens
+      user_today_token_history.save
     else
       new_sold_price = @investment.histories.last.price
       new_sold_total_price = new_shares_amount * new_sold_price
@@ -71,6 +79,11 @@ class HoldingsController < ApplicationController
         @holding.save
 
         current_user.tokens += @holding.sold_price * @holding.shares_amount
+
+        user_today_token_history = current_user.token_histories.find_by(date: @holding.sold_date)
+        user_today_token_history.total_token = current_user.tokens
+        user_today_token_history.save
+
       else # Selling some the shares
         final_purchased_total_price = old_purchased_total_price - new_sold_total_price
         final_shares_amount = old_shares_amount - new_shares_amount
@@ -81,6 +94,12 @@ class HoldingsController < ApplicationController
         @holding.purchased_date = Date.today
         # @holding.gain_loss = (@holding.sold_price - @holding.purchased_price) * @holding.shares_amount
         @holding.save
+
+        current_user.tokens += final_purchased_total_price
+
+        user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
+        user_today_token_history.total_token = current_user.tokens
+        user_today_token_history.save
       end
     end
 

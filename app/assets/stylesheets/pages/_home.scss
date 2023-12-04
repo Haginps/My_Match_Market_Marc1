@@ -29,6 +29,7 @@
 
   #stock-ticker {
     margin-top: 40px;
+    margin-bottom: 45px;
   }
 
   img {
@@ -40,6 +41,47 @@
     margin-bottom: -232px;
 
   }
+
+  .home-searchbar {
+    border: 2px solid #ccc;
+    border-radius: 28px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 58px;
+    width: 329px;
+    height: 51.2px;
+    // margin-left: 67px;
+
+    .form-control {
+      background-color: white;
+      transform: translateY(-6px);
+      border: 0px;
+      width: 234px;
+    }
+  }
+
+
+  .home-search-button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    border: none;
+    // margin-left: 65px;
+  }
+
+  i {
+    display: flex;
+    width: 49.054px;
+    height: 46px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
 }
 
 #search-bar input {
@@ -47,7 +89,9 @@
   padding: 20px;
   width: 300px;
   margin-top: 20px;
+
 }
+
 
 #mobile-app {
   background-color: #1F1F1F;
@@ -84,6 +128,41 @@
     width: 690px;
     height: 607px;
     // margin-left: 80px;
+  }
+}
+
+#women-football {
+  color: white;
+  background-color: #393939;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 50px;
+  align-items: center;
+
+  .text-women {
+    margin-left: 50px;
+    width: 58%;
+  }
+
+  h2 {
+    color: white;
+    font-weight: 700;
+    font-size: 64px;
+    margin-bottom: 50px;
+  }
+
+  p {
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+    width: 80%;
+  }
+
+  img {
+    width: 520px;
+    height: 870px;
+    margin-top: 87px;
   }
 }
 

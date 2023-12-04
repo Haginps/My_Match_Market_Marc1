@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%# <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,40 +7,66 @@
     <title>MMM - Kick Off Investments</title>
 </head>
 
-<body>
+<body> %>
 
 
-    <header>
-
+ <header>
         <section id="hero">
             <h1>Kick Off Investments</h1>
-              <p>Empowering Your Investment Journey</p>
-            <div id="search-bar">
-                <input type="search" placeholder="Search markets here">
+            <p>Empowering Your Investment Journey</p>
+            <div id="home searchbar">
+              <%= form_with url: investments_path, method: :get, class: "d-flex w-50" do %>
+                <div class="home-searchbar position-relative">
+                  <%= text_field_tag :query,
+                    params[:query],
+                    class: "form-control",
+                     placeholder: "Search markets here..."
+                   %>
+                  <%= button_tag "Search", name: "", class: "home-search-button" do %>
+                   <i class="fa-solid fa-magnifying-glass"></i>
+                 <% end %>
+                </div>
+              <% end %>
             </div>
             <div id="stock-ticker">
                 <span>Watkins +1.67%</span>
                 <span>Nunez -2.41%</span>
                 <span>James +9.21%</span>
             </div>
-              <img src="assets/jude-bellingham-41_cropped.png" alt="Descriptive text about the image">
+              <%= image_tag "jude-bellingham-41_cropped.png" %>
+              <%# <img src="jude-bellingham-41_cropped.png" alt="Descriptive text about the image"> %>
         </section>
-    </header>
+ </header>
 
     <main>
         <section id="mobile-app">
-            <img src="assets/iPhone 14 Pro Mockup Space Black 1.png" alt="Mobile App Screenshot">
+            <%= image_tag "iPhone 14 Pro Mockup Space Black 1.png" %>
+            <%# <img src="iPhone 14 Pro Mockup Space Black 1.png" alt="Mobile App Screenshot"> %>
             <div class="text">
               <h2>More Than a Platform: A Community</h2>
-              <p>Welcome to More than a platform; where the love for football transcends mere investment. Here, we curate an immersive community where enthusiasts connect, invest, and share the thrill of football in a way that goes beyond the ordinary. Join us in this dynamic space where passion and investment converge for an extraordinary journey.</p>
+              <p>Welcome to a realm where football is more than just a game – it's a passion that goes beyond mere investment. At MMM, we've crafted a unique community for enthusiasts to connect, invest, and experience the excitement of football in a way that transcends the conventional. Dive into this dynamic space where your passion for the sport and savvy investment strategies unite, embarking on an extraordinary journey with us.</p>
             </div>
         </section>
     </main>
+
+
+    <section id="women-football">
+
+    <div class="text-women">
+    <h2>Women's Football Arriving on MMM!</h2>
+    <p>MMM is excited to announce the expansion of our platform to include women's football, a move that enriches our diverse offerings and brings the energy and passion of women's football to our community. This addition provides fans with the unique opportunity to engage with and support top female players and teams, aligning with our commitment to inclusivity and diversity in sports. Join us in embracing this new venture, where the dynamic world of women's football meets the innovative spirit of MMM.</p>
+    </div>
+
+        <%= image_tag "alexia_putella.png" %>
+
+
+    </section>
+
 
     <footer>
         <!-- Add footer content here -->
     </footer>
 
-</body>
+<%# </body>
 
-</html>
+</html> %>

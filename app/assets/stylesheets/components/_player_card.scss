@@ -2,6 +2,8 @@
   background-color: #393939;
   color: rgb(255, 255, 255);
   border-radius: 25px;
+  transition: transform 0.2s ease;
+
   img {
     border-radius: 50%;
     width: 70px;
@@ -9,21 +11,33 @@
     background-color: aliceblue;
     object-fit: cover;
     object-position: 50% top;
+    margin-bottom: 9px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
+
 .container-index {
   max-width: 1790px;
+  margin: 0 119px;
+  margin-bottom: 100px;
 
   h1 {
     margin-left: 30px;
   }
+  #query {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 
-.card-text:last-child {
-  color: #00ff80ba;
-}
+// .card-text:last-child {
+//   color: #ffffffba;
+// }
 
 .card {
   margin: 0px auto;
@@ -35,10 +49,10 @@
 }
 
 
-.index-container {
-  background-color: #393939;
-  min-height: 100vh;
-}
+// .index-container {
+//   background-color: #393939;
+//   min-height: 100vh;
+// }
 
 
 .title {
@@ -49,7 +63,9 @@
   text-align: center;
   font-weight: 700;
   font-size: 96px;
-  color: aliceblue
+  color: rgb(255, 255, 255);
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .title h1 {
@@ -58,11 +74,9 @@
 }
 
 .row h1{
-  color: azure;
+  color: rgb(255, 255, 255);
   margin-bottom: 25px;
 }
-
-
 
 .h-100 {
   border-radius: 28px;
@@ -90,14 +104,21 @@
 
 
 .search-container input {
+  display: flex;
+  justify-content: center;
   border: 2px solid #ccc;
-  border-radius: 20px;
+  border-radius: 28px;
   font-size: 16px;
   background-color: white;
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding: 12px 20px 12px 58px;
   width: 100%;
+  margin-bottom: 50px;
+
+  i{
+    margin-top: 50px;
+  }
 }
 
 .search-button {
@@ -106,4 +127,5 @@
   top: 0;
   background-color: transparent;
   border: none;
+  margin-left: 65px;
 }
