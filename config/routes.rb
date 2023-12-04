@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+
   get '/dashboard', to: 'pages#dashboard'
 
   resources :investments, only: [:index, :show] do
