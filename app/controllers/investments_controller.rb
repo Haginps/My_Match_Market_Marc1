@@ -36,7 +36,7 @@ class InvestmentsController < ApplicationController
           @sold = true
         end
 
-        @purchased_price[@current_holding.purchased_date.strftime('%Y-%m-%d')] = @current_holding.purchased_price
+        @purchased_price[@current_holding.purchased_date.strftime('%d %b')] = @current_holding.purchased_price
       end
     end
 
