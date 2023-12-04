@@ -44,6 +44,8 @@ body {
 .transaction-actions {
   color: #ffff;
   // margin-left: 20px;
+  min-height: 125%;
+
   .form-control {
     width: 118px !important;
   }
@@ -53,14 +55,49 @@ body {
     background: #393939;
     box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
     margin-top: 20px;
-    padding: 20px;
-    // margin-right: 181px;
-    // display: block;
+    padding: 35px;
     box-sizing: border-box;
-    // max-width: 981px;
-    width: 75%;
+    width: 100%;
     color: #C7C9CC;
+    text-align: left;
   }
+
+  .player-attributes-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 45%;
+  }
+
+  .player-detail {
+    width: 45%;
+  }
+
+    .attribute-bar {
+      width: 400px;
+      margin-top: 30px;
+    }
+
+    .bar-grid {
+      height: 40px;
+      background: #98F899;
+      border-radius: 30px;
+    }
+
+    .bar-border {
+      border-radius: 30px;
+      width: 400px;
+    }
+    .bar-grid p {
+      margin-top: 15px;
+      margin-left: 10px;
+      color: #393939;
+    }
+
+    .player-column {
+      width: 75%;
+    }
+
 
   .investment-header {
     display: flex;
@@ -82,6 +119,8 @@ body {
     padding-bottom: 15px;
   }
 }
+
+
 
 .form-column {
   margin: 10px;
