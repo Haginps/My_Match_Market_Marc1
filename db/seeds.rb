@@ -413,32 +413,37 @@ haaland_history27 = History.create(date: Date.parse("2023-12-04"), price: 194.01
 
 puts "Investments created"
 
-james = Player.new(investment: james_investment, position: "Right Back", club: "Chelsea", height: 180, weight: 80, dob: Date.parse("2000-02-20"), nationality: "England", games_played: 279, goals: 20, assists: 38)
+james = Player.new(investment: james_investment, position: "Right Back", club: "Chelsea", height: 180, weight: 80, dob: Date.parse("2000-02-20"), nationality: "England", games_played: 279, goals: 20, assists: 38, pace: 80, shooting: 72, passing: 83, dribbling: 82, defensive: 82, physics: 81)
 james.save
-trent = Player.new(investment: trent_investment, position: "Right Back", club: "Liverpool", height: 190, weight: 70, dob: Date.parse("1998-06-19"), nationality: "England", games_played: 309, goals: 22, assists: 80)
+trent = Player.new(investment: trent_investment, position: "Right Back", club: "Liverpool", height: 190, weight: 70, dob: Date.parse("1998-06-19"), nationality: "England", games_played: 309, goals: 22, assists: 80, pace: 76, shooting: 69, passing: 90, dribbling: 79, defensive: 80, physics: 73)
 trent.save
-palmer = Player.new(investment: palmer_investment, position: "Attacking Midfield", club: "Chealsea", height: 189, weight: 74, dob: Date.parse("2002-5-6"), nationality: "England", games_played: 118, goals: 52, assists: 25)
+palmer = Player.new(investment: palmer_investment, position: "Attacking Midfield", club: "Chealsea", height: 189, weight: 74, dob: Date.parse("2002-5-6"), nationality: "England", games_played: 118, goals: 52, assists: 25, pace: 74, shooting: 66, passing: 62, dribbling: 70, defensive: 46, physics: 57)
 palmer.save
-messi = Player.new(investment: messi_investment, position: "Right Winger", club: "Inter Miami", height: 170, weight: 72, dob: Date.parse("1987-06-24"), nationality: "Argentina", games_played: 889, goals: 721, assists: 344)
+messi = Player.new(investment: messi_investment, position: "Right Winger", club: "Inter Miami", height: 170, weight: 72, dob: Date.parse("1987-06-24"), nationality: "Argentina", games_played: 889, goals: 721, assists: 344, pace: 80, shooting: 87, passing: 90, dribbling: 94, defensive: 33, physics: 64)
 messi.save
-haaland = Player.new(investment: haaland_investment, position: "Centre-Forward", club: "Manchester City", height: 195, weight: 88, dob: Date.parse("2000-07-23"), nationality: "Norway", games_played: 257, goals: 206, assists: 50)
+haaland = Player.new(investment: haaland_investment, position: "Centre-Forward", club: "Manchester City", height: 195, weight: 88, dob: Date.parse("2000-07-23"), nationality: "Norway", games_played: 257, goals: 206, assists: 50, pace: 89, shooting: 93, passing: 66, dribbling: 80, defensive: 45, physics: 88)
 haaland.save
-gordon = Player.new(investment: gordon_investment, position: "Left Winger", club: "Newcastle United", height: 182, weight: 72, dob: Date.parse("2001-02-24"), nationality: "England", games_played: 185, goals: 38, assists: 23)
+gordon = Player.new(investment: gordon_investment, position: "Left Winger", club: "Newcastle United", height: 182, weight: 72, dob: Date.parse("2001-02-24"), nationality: "England", games_played: 185, goals: 38, assists: 23, pace: 88, shooting: 69, passing: 72, dribbling: 75, defensive: 37, physics: 62)
 gordon.save
-olise = Player.new(investment: olise_investment, position: "Right Winger", club: "Crytal Palace F.C.", height: 184, weight: 76, dob: Date.parse("2001-12-12"), nationality: "France", games_played: 182, goals: 22, assists: 38)
+olise = Player.new(investment: olise_investment, position: "Right Winger", club: "Crytal Palace F.C.", height: 184, weight: 76, dob: Date.parse("2001-12-12"), nationality: "France", games_played: 182, goals: 22, assists: 38, pace: 80, shooting: 70, passing: 77, dribbling: 83, defensive: 50, physics: 56)
 olise.save
-elanga = Player.new(investment: elanga_investment, position: "Left Winger", club: "Nottingham Forest", height: 178, weight: 70, dob: Date.parse("2002-04-27"), nationality: "Sweden", games_played: 139, goals: 33, assists: 23)
+elanga = Player.new(investment: elanga_investment, position: "Left Winger", club: "Nottingham Forest", height: 178, weight: 70, dob: Date.parse("2002-04-27"), nationality: "Sweden", games_played: 139, goals: 33, assists: 23, pace: 87, shooting: 66, passing: 64, dribbling: 73, defensive: 38, physics: 58)
 elanga.save
-bowen = Player.new(investment: bowen_investment, position: "Right Winger", club: "West Ham United", height: 182, weight: 70, dob: Date.parse("1996-12-20"), nationality: "England", games_played: 314, goals: 104, assists: 49)
+bowen = Player.new(investment: bowen_investment, position: "Right Winger", club: "West Ham United", height: 182, weight: 70, dob: Date.parse("1996-12-20"), nationality: "England", games_played: 314, goals: 104, assists: 49, pace: 77, shooting: 77, passing: 74, dribbling: 80, defensive: 44, physics: 66)
 bowen.save
-cunha = Player.new(investment: cunha_investment, position: "Centre-Forward", club: "Wolves", height: 183, weight: 76, dob: Date.parse("1999-05-27"), nationality: "Brazil", games_played: 214, goals: 45, assists: 32)
+cunha = Player.new(investment: cunha_investment, position: "Centre-Forward", club: "Wolves", height: 183, weight: 76, dob: Date.parse("1999-05-27"), nationality: "Brazil", games_played: 214, goals: 45, assists: 32, pace: 88, shooting: 78, passing: 75, dribbling: 82, defensive: 40, physics: 73 )
 cunha.save
-willian = Player.new(investment: willian_investment, position: "Left Winger", club: "Fulham", height: 175, weight: 77, dob: Date.parse("1988-08-09"), nationality: "Brazil", games_played: 723, goals: 113, assists: 152)
+willian = Player.new(investment: willian_investment, position: "Left Winger", club: "Fulham", height: 175, weight: 77, dob: Date.parse("1988-08-09"), nationality: "Brazil", games_played: 723, goals: 113, assists: 152, pace: 72, shooting: 77, passing: 77, dribbling: 81, defensive: 49, physics: 55)
 willian.save
-nunez = Player.new(investment: nunez_investment, position: "Centre-Forward", club: "FC Liverpool", height: 187, weight: 81, dob: Date.parse("1999-06-24"), nationality: "Uruguay", games_played: 201, goals: 90, assists: 30)
+nunez = Player.new(investment: nunez_investment, position: "Centre-Forward", club: "FC Liverpool", height: 187, weight: 81, dob: Date.parse("1999-06-24"), nationality: "Uruguay", games_played: 201, goals: 90, assists: 30, pace: 90, shooting: 81, passing: 71, dribbling: 76, defensive: 43, physics: 85)
 nunez.save
 puts "Players created"
 
+
+
+# Holding.new(user: User.first, investment: Investment.first, purchased_price: Investment.first.histories[Investment.first.histories.length - 1].price, purchased_date: Date.yesterday, shares_amount: 10, trade: "buy")
+# u -= User.first.tokens - Holding.first.purchased_price * Holding.first.shares_amount
+# u.save
 # Seed the user history for the first user with 2 purchases
 nov_30 = Investment.last.histories[Investment.first.histories.length - 5]
 dec_02 = Investment.first.histories[Investment.first.histories.length - 3]
