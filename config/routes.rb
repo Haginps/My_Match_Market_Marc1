@@ -18,10 +18,12 @@ Rails.application.routes.draw do
 
   resources :channels, only: [:index, :show, :new, :create, :destroy] do
     resources :posts, only: [:create] do
-      resources :comments, only: [:create, :destroy]
+      resources :comments, only: [:create]
     end
   end
+  resources :comments, only: [:destroy]
   resources :posts, only: [:destroy]
+
 
   resources :news, only: [:index, :show] do
     # post '/like', to: 'news#like'
