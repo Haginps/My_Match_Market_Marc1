@@ -6,7 +6,7 @@
         <section class="account-balance">
             <h2>ACCOUNT BALANCE</h2>
             <div class="balance-info">
-                <span class="balance-amount">£<%= current_user.tokens %></span>
+                <span class="balance-amount">£<%= @today_tokens %></span>
                 <div class="portfolio-change">
                 <%# <%= current_user.token_histories.last.total_token %>
                 </div>
@@ -24,9 +24,9 @@
         <div class="performance-container">
           <section class="performance">
             <h2>PERFORMANCE</h2>
+            <%= @today_performance %>
             <!-- Performance chart would be implemented here -->
             <div class="performance-chart">
-              <!-- Chart Placeholder -->
             </div>
 
         <!-- Holdings Chart Section -->
@@ -34,8 +34,8 @@
           <div class="chart-container">
             <canvas id="holding-chart"
                     data-holding-chart-target="myChart"
-                    data-labels="<%= @holdings_labels.to_json %>"
-                    data-purchased-price="<%= @holdings_prices.to_json %>">
+                    data-labels="<%= current_user.user_histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
+                    data-performance="<%= current_user.user_histories.map(&:performance).to_json %>" width="600" height="300">
             </canvas>
           </div>
         </div>

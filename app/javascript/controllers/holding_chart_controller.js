@@ -16,11 +16,11 @@ export default class extends Controller {
         labels: JSON.parse(this.myChartTarget.dataset.labels),
         datasets: [{
           label: 'Purchased History',
-          data: JSON.parse(this.myChartTarget.dataset.purchasedPrice),
-          borderColor: 'transparent',
-          borderWidth: 3,
+          data: JSON.parse(this.myChartTarget.dataset.performance),
+          borderColor: '#98F899',
+          borderWidth: 1,
           pointStyle: 'rectRot',
-          pointRadius: 10,
+          pointRadius: 8,
           pointBorderColor: 'rgb(0, 0, 0)'
         }]
       },
