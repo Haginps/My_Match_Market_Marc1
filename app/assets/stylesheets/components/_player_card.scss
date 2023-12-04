@@ -2,6 +2,8 @@
   background-color: #393939;
   color: rgb(255, 255, 255);
   border-radius: 25px;
+  transition: transform 0.2s ease;
+
   img {
     border-radius: 50%;
     width: 70px;
@@ -10,7 +12,12 @@
     object-fit: cover;
     object-position: 50% top;
   }
+
+  &:hover {
+    transform: scale(1.1);
+  }
 }
+
 
 .container-index {
   max-width: 1790px;
@@ -65,8 +72,6 @@
   color: azure;
   margin-bottom: 25px;
 }
-
-
 
 .h-100 {
   border-radius: 28px;

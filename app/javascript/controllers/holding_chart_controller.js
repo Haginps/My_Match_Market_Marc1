@@ -25,7 +25,7 @@ export default class extends Controller {
         }]
       },
       options: {
-        pointBackgroundColor: ["Red"],
+        pointBackgroundColor: ["Orange"],
         scales: {
           y: {
             beginAtZero: true,
