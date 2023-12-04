@@ -28,9 +28,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 558px;
 
   }
   button {
+    border: none;
     border-radius: 13px;
     display: flex;
     background: var(--third-colour, #E67447);
@@ -196,6 +198,18 @@
   }
 }
 
+.title_and_delete {
+  display: flex;
+  justify-content: space-between;
+  margin-right: -55px;
+  #delete-btn {
+    color: white;
+    &:hover {
+      color: red;
+    }
+  }
+}
+
 .name_and_delete {
   display: flex;
   justify-content: space-between;
@@ -244,4 +258,3 @@
   color: white;
   font-size: 20px;
 }
-
