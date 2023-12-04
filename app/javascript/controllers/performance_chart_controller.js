@@ -10,8 +10,6 @@ export default class extends Controller {
   }
 
   connect() {
-    // console.log(this.myChartTarget.dataset.prices)
-    // console.log(this.myChartTarget.dataset.purchasedPrice)
 
     const priceChart = new Chart(this.canvasContext(), {
       type: 'line',
@@ -25,7 +23,7 @@ export default class extends Controller {
           borderWidth: 3,
         },
         {
-          label: 'Purchased History',
+          label: 'Purchases',
           data: JSON.parse(this.myChartTarget.dataset.purchasedPrice),
           borderColor: 'transparent',
           borderWidth: 3,
@@ -36,22 +34,30 @@ export default class extends Controller {
       ]
       },
       options: {
-        pointBackgroundColor: ["Red"],
+        pointBackgroundColor: ["Orange"],
         scales: {
           y: {
             beginAtZero: true,
             title: {
               display: true,
-              text: 'Price'
+              text: 'Price',
+              color: 'white'
+            },
+            ticks: {
+              color: 'white'
             }
           },
           x: {
             title: {
               display: true,
-              text: 'Day'
+              text: 'Day',
+              color: 'white'
             },
             grid: {
               display: false
+            },
+            ticks: {
+              color: 'white'
             }
           }
         }
