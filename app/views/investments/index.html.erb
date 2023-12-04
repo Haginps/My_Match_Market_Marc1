@@ -33,7 +33,7 @@
                   <%= image_tag investment.image %>
                   <h5 class="card-title"><%= investment.name %></h5>
                   <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
-                  <p class="card-text">24hr Change: <%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %></p>
+                  <p class="card-text" >24hr Change: <%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %></p>
                 </div>
               <% end %>
             </div>

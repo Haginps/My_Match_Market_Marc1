@@ -19,11 +19,20 @@
 }
 
 .investment-name {
-  width: 200px;
+  width: 178px;
 }
-.investment-price {
+.investment-price, .investment-percentage {
   width: 150px;
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: rgb(171, 171, 171);
 }
 
 .dashboard-container {

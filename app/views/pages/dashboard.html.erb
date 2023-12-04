@@ -69,23 +69,31 @@
                     <p>Current Price</p>
                     </div>
 
+                    <div class="invetment-percentage">
+                    <p>Percentage Change</p>
+                    </div>
+
 
                   </div>
                   <% current_user.holdings.each do |holding|%>
                     <% if holding.sold_price.nil? %>
                       <div class="investments-card d-flex justify-content-between ">
                       <div class="investment-name">
-                        <p><%= holding.investment.name %></p>
+                        <%# <p><%= holding.investment.name %>
+                        <p><%= link_to holding.investment.name, investment_path(holding.investment), class: 'your-link-class' %></p>
                       </div>
                       <%# <hr> %>
                       <div class="investment-price">
-                      <p><%= holding.investment.histories.first.price %></p>
+                      <p><%= holding.purchased_price %></p>
                       </div>
                       <%# <hr> %>
                       <div class="investment-price">
                         <p><%= holding.investment.histories.last.price %></p>
                       </div>
                       <%# <hr> %>
+                      <div class="investment-percentage">
+                       <p> <%= percentage_change = ((holding.investment.histories.last.price - holding.purchased_price) / holding.purchased_price) * 100 %></p>
+                      </div>
                       </div>
                     <% end %>
                   <% end %>
