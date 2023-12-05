@@ -17,8 +17,8 @@ class PagesController < ApplicationController
     @today_tokens = current_user.user_histories.find_by(date: Date.today).tokens.round(2)
     @today_performance = current_user.user_histories.find_by(date: Date.today).performance.round(2)
 
-    @percentage_change = ((((@today_performance + @today_tokens) / 5000) * 100) - 100).round(2)
+    @account_percentage_change = ((((@today_performance + @today_tokens) / 5000) * 100) - 100).round(2)
 
-    @price_increase = (5000 * (@percentage_change / 100)).round(2)
+    @price_increase = (5000 * (@account_percentage_change / 100)).round(2)
   end
 end
