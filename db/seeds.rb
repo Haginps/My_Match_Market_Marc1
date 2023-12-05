@@ -9,7 +9,7 @@
 #   end
 
 puts "Cleaning Database"
-News.destroy_all
+# News.destroy_all
 Comment.destroy_all
 Post.destroy_all
 Channel.destroy_all

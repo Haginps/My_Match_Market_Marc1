@@ -1,16 +1,7 @@
 // Import Google fonts
-@import url('https://fonts.google.com/specimen/Inter?query=inter');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 // Define fonts for body and headers
 $body-font: "Inter", "sans-serif";
 $headers-font: "Inter", "bold";
-
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
