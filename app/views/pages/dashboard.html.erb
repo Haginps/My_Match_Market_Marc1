@@ -8,11 +8,10 @@
             <div class="balance-info">
                 <span class="balance-amount">£<%= @today_tokens %></span>
                 <div class="portfolio-change">
-                <%# <%= current_user.token_histories.last.total_token %>
+                  <span class="balance-change"><%= @percentage_change %>% (£<%= @price_increase %>)</span>
                 </div>
-
-                <%# <span class="balance-change">+37.0% (£3,456.23)</span> %>
             </div>
+
             </div>
             <%# <div class="balance-actions">
                 <button id="withdraw">Withdraw</button>
@@ -24,9 +23,9 @@
         <div class="performance-container">
           <section class="performance">
             <h2>PERFORMANCE</h2>
-            <%= @today_performance %>
+            <div class="performance-today">
+              <p>Investment Value: £<%= @today_performance %></p>
             <!-- Performance chart would be implemented here -->
-            <div class="performance-chart">
             </div>
 
         <!-- Holdings Chart Section -->
@@ -49,15 +48,7 @@
           <section class="investments">
               <h2>INVESTMENTS</h2>
               <table>
-                  <%# <thead>
-                      <tr>
-                          <th>Name</th>
-                          <th>Type</th>
-                          <th>Price/Amount</th>
-                          <th>Trade Time Frame</th>
-                          <th>Gain/Loss</th>
-                      </tr>
-                  </thead> %>
+
                   <div class="investment-titles d-flex justify-content-between ">
                     <div class="investment-name">
                     <p>Name</p>
