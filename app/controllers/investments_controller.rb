@@ -40,11 +40,13 @@ class InvestmentsController < ApplicationController
           @purchased_price[@current_holding.purchased_date.strftime('%d %b')] = @current_holding.purchased_price
         end
       end
+      @user_tokens = current_user.user_histories.find_by(date: Date.today).tokens
     end
 
     if @investment.category == 'player'
       @player = Player.find_by(investment: @investment)
     end
+
   end
 
   private
