@@ -190,7 +190,7 @@
               <h4 id="Depoth4">Holding in depot:</h4>
               <div class="d-flex justify-content-between">
                 <h4 id="Moneyy">£<%= ((@current_holding.shares_amount * @current_holding.purchased_price).round(2) + (@investment.histories.last.price - @current_holding.purchased_price)).round(2) %></h4>
-                <h4 id="Moneyy"><%= (@investment.histories.last.price - @current_holding.purchased_price) / @current_holding.purchased_price * 100 %>%</h4>
+                <h4 id="Moneyy"><%= ((@investment.histories.last.price - @current_holding.purchased_price) / @current_holding.purchased_price * 100).round(2) %>%</h4>
               </div>
               <hr>
               <div class="d-flex justify-content-between">
