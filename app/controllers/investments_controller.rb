@@ -22,21 +22,23 @@ class InvestmentsController < ApplicationController
     @on_hold = false
     @purchased_price = {}
 
-    current_user.holdings.each do |holding|
-      if holding.investment == @investment
-        @current_holding = holding
+    if user_signed_in?
+      current_user.holdings.each do |holding|
+        if holding.investment == @investment
+          @current_holding = holding
 
-        unless @current_holding.purchased_price.nil?
-          @on_hold = true
-          @sold = false
+          unless @current_holding.purchased_price.nil?
+            @on_hold = true
+            @sold = false
+          end
+
+          unless @current_holding.sold_price.nil?
+            @on_hold = false
+            @sold = true
+          end
+
+          @purchased_price[@current_holding.purchased_date.strftime('%d %b')] = @current_holding.purchased_price
         end
-
-        unless @current_holding.sold_price.nil?
-          @on_hold = false
-          @sold = true
-        end
-
-        @purchased_price[@current_holding.purchased_date.strftime('%d %b')] = @current_holding.purchased_price
       end
     end
 

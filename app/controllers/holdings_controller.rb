@@ -48,8 +48,17 @@ class HoldingsController < ApplicationController
     @holding = Holding.find(params[:id])
 
     new_shares_amount = params[:holding][:shares_amount].to_i
+    # trade_history_shares_amount = params[:holding][:shares_amount].to_i
 
-    @trade_history = TradeHistory.create(user: current_user, holding: @holding, date: Date.today, shares_amount: new_shares_amount)
+    if params[:holding][:trade] == 'buy'
+      trade_history_shares_amount = params[:holding][:shares_amount].to_i
+    else
+      trade_history_shares_amount = params[:holding][:shares_amount].to_i * -1
+    end
+
+    # raise
+
+    @trade_history = TradeHistory.create(user: current_user, holding: @holding, date: Date.today, shares_amount: trade_history_shares_amount)
 
     old_purchased_price = @holding.purchased_price
     old_shares_amount = @holding.shares_amount
@@ -92,8 +101,8 @@ class HoldingsController < ApplicationController
         @holding.save
 
         user_history = UserHistory.find_by(user: current_user, date: Date.today)
-        user_history.performance -= @investment.histories.last.price * @trade_history.shares_amount
-        user_history.tokens += @investment.histories.last.price * @trade_history.shares_amount
+        user_history.performance += @investment.histories.last.price * @trade_history.shares_amount
+        user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
 
         # current_user.tokens += @holding.sold_price * @holding.shares_amount
@@ -113,8 +122,8 @@ class HoldingsController < ApplicationController
         @holding.save
 
         user_history = UserHistory.find_by(user: current_user, date: Date.today)
-        user_history.performance -= @investment.histories.last.price * @trade_history.shares_amount
-        user_history.tokens += @investment.histories.last.price * @trade_history.shares_amount
+        user_history.performance += @investment.histories.last.price * @trade_history.shares_amount
+        user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
 
         # current_user.tokens += final_purchased_total_price

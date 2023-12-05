@@ -12,49 +12,51 @@
 
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body>
+    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
 
     <%= yield %>
     <% unless controller_name == 'registrations' && action_name == 'new' || controller_name == 'sessions' && action_name == 'new' ||
               (controller_name == 'sessions' && action_name == 'new') ||
               (controller_name == 'pages' && action_name == 'dashboard') %>
+      <%# <footer class="site-footer"> %>
       <footer class="site-footer">
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-6">
-            <h6>About</h6>
-            <p class="text-justify">Discover My Match Market, where football passion meets investment strategy. Our platform offers a unique blend of sports enthusiasm and insightful market opportunities, creating a vibrant community for football fans and investors alike. Join us in revolutionizing the way you engage with the beautiful game.</p>
-          </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About</h6>
+              <p class="text-justify">Discover My Match Market, where football passion meets investment strategy. Our platform offers a unique blend of sports enthusiasm and insightful market opportunities, creating a vibrant community for football fans and investors alike. Join us in revolutionizing the way you engage with the beautiful game.</p>
+            </div>
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Social Media</h6>
-            <ul class="footer-links">
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">X</a></li>
-            </ul>
-          </div>
+            <div class="col-xs-6 col-md-3">
+              <h6>Social Media</h6>
+              <ul class="footer-links">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">X</a></li>
+              </ul>
+            </div>
 
-          <div class="col-xs-6 col-md-3">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href="/investments">Markets</a></li>
-              <li><a href="/channels">Community</a></li>
-              <li><a href="#">News</a></li>
-            </ul>
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="/investments">Markets</a></li>
+                <li><a href="/channels">Community</a></li>
+                <li><a href="#">News</a></li>
+              </ul>
+            </div>
           </div>
+          <hr>
         </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by My Match Market
-            </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; 2023 All Rights Reserved by My Match Market
+              </p>
 
-</html>
-        <!-- Your footer content -->
+
+          <!-- Your footer content -->
       </footer>
     <% end %>
   </body>
+</html>
