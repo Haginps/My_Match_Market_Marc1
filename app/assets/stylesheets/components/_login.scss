@@ -28,7 +28,7 @@ body::before {
     #393939 100%     /* End color (dark grey) */
   );
   background-size: 200% 200%;
-  animation: gradientBackground 10s ease infinite;
+  animation: gradientBackground 12s ease infinite;
   filter: blur(900px); /* Significantly increased blur effect */
 }
 
@@ -43,6 +43,8 @@ body {
 body {
   position: relative; /* Needed for correct positioning of the pseudo-element */
 }
+
+
 .login {
   width: 500px !important;
   margin: auto;
@@ -55,6 +57,12 @@ body {
   align-items: center;
   z-index: 1; /* Ensures login box is above the animated background */
   box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
+  margin-top: 250px;
+
+
+
+
+
 
   .btn {
     background-color: #98F899;
