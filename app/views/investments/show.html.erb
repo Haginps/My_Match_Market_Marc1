@@ -143,7 +143,7 @@
 
     <div class="trade-column">
 
-      <h4 id="Today-price">Today's price: <%= @investment.histories.last.price %>£</h4>
+      <h4 id="Today-price">Today's price: £<%= @investment.histories.last.price %></h4>
 
       <!-- Buy Form -->
       <div class="trade-form">
@@ -189,7 +189,7 @@
             <div class="holding-info">
               <h4 id="Depoth4">Holding in depot:</h4>
               <div class="d-flex justify-content-between">
-                <h4 id="Moneyy"><%= (@current_holding.shares_amount * @current_holding.purchased_price).round(2) + (@investment.histories.last.price - @current_holding.purchased_price) %>£</h4>
+                <h4 id="Moneyy">£<%= ((@current_holding.shares_amount * @current_holding.purchased_price).round(2) + (@investment.histories.last.price - @current_holding.purchased_price)).round(2) %></h4>
                 <h4 id="Moneyy"><%= (@investment.histories.last.price - @current_holding.purchased_price) / @current_holding.purchased_price * 100 %>%</h4>
               </div>
               <hr>
@@ -210,12 +210,12 @@
               <hr>
               <div class="d-flex justify-content-between">
               <h6>Purchased Price:</h6>
-              <h6><%= @current_holding.purchased_price %> £</h6>
+              <h6>£<%= @current_holding.purchased_price %></h6>
               </div>
               <hr>
               <div class="d-flex justify-content-between">
               <h6>Change:</h6>
-              <h6><%= ((@investment.histories.last.price - @current_holding.purchased_price) * @current_holding.shares_amount).round(2) %> £</h6>
+              <h6>£<%= ((@investment.histories.last.price - @current_holding.purchased_price) * @current_holding.shares_amount).round(2) %></h6>
               </div>
             </div>
           <% end %>
