@@ -1,23 +1,8 @@
 <div class="index-container">
 
-    <strong><h1>Community</h1></strong>
+    <h1>Community</h1>
 
   <div class="headings-channels">
-
-
-    <%# <div id="new-channel-form" style="display: none;"> %>
-      <%# render 'new_channel_form', channel: @channel %>
-    <%# </div> %>
-
-    <%# <div data-controller="create-channel" class="form-and-button"> %>
-      <%# @channel.title</h1> %>
-      <%# <button data-action="click->create-channel#revealForm">Create Channel +</button> %>
-
-      <%# <div class="form-channel"> %>
-        <%# render "channels/new_channel_form", channel: @channel %>
-      <%# </div> %>
-    <%# </div> %>
-
 
     <!-- Button trigger modal -->
     <button type="button" class="form-and-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -29,22 +14,18 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <%# <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> %>
             <button type="button" class="x-channel-form btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <%= render "channels/new_channel_form", channel: @channel %>
           </div>
-          <%# <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div> %>
         </div>
       </div>
     </div>
   </div>
 
   <% @channels.reverse.each do |channel| %>
+  <div class="centerbox">
     <div class="channels-info">
       <div class="card-product">
         <% if channel.photo&.key.present? %>
@@ -63,16 +44,13 @@
           </div>
 
           <p><%= channel.description %></p>
-
-          <%# <button data-action="click->show-channel#revealForm">Chat</button> %>
           <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
-          <%# <%= button_to "Chat Now", channel_path(@channel), class: "btn btn-primary", data: { turbo: false } %>
-
-          <%# <%= button_to 'Delete', channel_path(channel), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: 'btn btn-default' %>
         </div>
       </div>
     </div>
   <% end %>
+  </div>
 
 
+  </div>
 </div>

@@ -1,3 +1,4 @@
+<div class="alignbox">
 <div class="show-container">
   <div class="post-heading">
     <h1><%= @channel.title %></h1>
@@ -20,7 +21,6 @@
       </div>
     </div>
   </div>
-
   <% @channel.posts.reverse.each do |post| %>
     <div class="posts-info">
       <div class="card-product">
@@ -29,6 +29,7 @@
         <% else %>
           <!-- Provide a fallback or placeholder image -->
         <% end %>
+
         <div class="post-product-infos">
         <div class="title_and_delete">
           <h2><%= post.title %></h2>
@@ -72,5 +73,5 @@
     </div>
   <% end %>
 
-
+</div>
 </div>
