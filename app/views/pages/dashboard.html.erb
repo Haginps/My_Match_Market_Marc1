@@ -7,9 +7,11 @@
             <h2>ACCOUNT BALANCE</h2>
             <div class="balance-info">
                 <span class="balance-amount">£<%= @today_tokens %></span>
-                <div class="portfolio-change">
-                  <span class="balance-change"><%= @percentage_change %>% (£<%= @price_increase %>)</span>
-                </div>
+                  <div class="portfolio-change">
+                    <span class="<%= @account_percentage_change.zero? ? 'zero' : (@account_percentage_change.positive? ? 'positive' : 'negative') %>">
+                      <%= @account_percentage_change.zero? ? '' : (@account_percentage_change.positive? ? '+' : '-') %><%= @account_percentage_change %>% (£<%= @price_increase %>)
+                    </span>
+                  </div>
             </div>
 
             </div>
@@ -60,7 +62,7 @@
                     <p>Current Price</p>
                     </div>
 
-                    <div class="invetment-percentage">
+                    <div class="investment-percentage">
                     <p>Percentage Change</p>
                     </div>
 
@@ -69,23 +71,26 @@
                   <% current_user.holdings.each do |holding|%>
                     <% if holding.sold_price.nil? %>
                       <div class="investments-card d-flex justify-content-between ">
-                      <div class="investment-name">
-                        <%# <p><%= holding.investment.name %>
-                        <p><%= link_to holding.investment.name, investment_path(holding.investment), class: 'your-link-class' %></p>
+                        <div class="investment-name">
+                          <%# <p><%= holding.investment.name %>
+                          <p><%= link_to holding.investment.name, investment_path(holding.investment), class: 'your-link-class' %></p>
 
-                      </div>
-                      <%# <hr> %>
-                      <div class="investment-price">
-                      <p><%= holding.purchased_price %></p>
-                      </div>
-                      <%# <hr> %>
-                      <div class="investment-price">
-                        <p><%= holding.investment.histories.last.price %></p>
-                      </div>
-                      <%# <hr> %>
-                      <div class="investment-percentage">
-                       <p> <%= percentage_change = ((holding.investment.histories.last.price - holding.purchased_price) / holding.purchased_price) * 100 %></p>
-                      </div>
+                        </div>
+                        <div class="investment-price">
+                          <p><%= (holding.purchased_price).round(2) %></p>
+                        </div>
+
+                        <div class="investment-price">
+                          <p><%= holding.investment.histories.last.price %></p>
+                        </div>
+
+                        <div class="investment-percentage">
+                          <% percentage_change = (((holding.investment.histories.last.price - holding.purchased_price) / holding.purchased_price) * 100).round(2) %>
+                          <p class="<%= percentage_change.zero? ? 'zero' : (percentage_change.positive? ? 'positive' : 'negative') %>">
+                            <%= percentage_change.zero? ? '' : (percentage_change.positive? ? '+' : '-') %><%= percentage_change %>%
+                          </p>
+                        </div>
+
                       </div>
                     <% end %>
                   <% end %>
