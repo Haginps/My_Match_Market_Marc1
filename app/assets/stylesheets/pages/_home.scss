@@ -1,8 +1,64 @@
+/* Base styles (applies to all screen sizes) */
+#hero img {
+  height: 700px; /* Default height */
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0%;
+  top: 35.3%;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #hero img {
+    height: 600px; /* Slightly smaller height for tablets */
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+  #hero img {
+    height: 500px; /* Smaller height for landscape phones */
+  }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575px) {
+  #hero img {
+    height: 400px; /* Even smaller height for portrait phones */
+    width: 100%; /* Full width */
+    position: static; /* Reset position */
+    top: auto;
+    right: auto;
+  }
+
+  #hero h1 {
+    font-size: 36px; /* Smaller font size for small screens */
+  }
+
+  #hero p {
+    font-size: 16px; /* Smaller font size for paragraphs */
+  }
+}
+
+
+
+.hero-content {
+  margin-left: 9%;
+  height: calc(100vh-82px);
+}
+
 #hero {
+  display: flex;
+  align-items: center;
   background-color: #2E2E2E;
   color: white;
-  padding: 200px ;
   background: linear-gradient(to bottom, #1E1E1E, #262626, #323232, #354935, #597659, #86C487, #98F899); /* Dark color at the top, lighter color at the bottom */
+  height: 100vh; /* Set the height as needed */
+  width: 100%;
+
 
   .navbar {
     background-color:#1E1E1E ;
@@ -34,11 +90,15 @@
 
   img {
     height: 700px;
-    margin-left: 522px;
-    margin-top: -510px;
     overflow: hidden;
     background-size: contain;
-    margin-bottom: -232px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0%;
+    top: 34.19%;
+
 
   }
 
