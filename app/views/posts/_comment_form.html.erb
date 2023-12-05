@@ -1,4 +1,4 @@
 <%= form_with(model: [post, @comment], url:   channel_post_comments_path(channel, post), method: 'post') do |form| %>
-  <%= form.text_area :content, placeholder: 'Add a comment...', class: "form-control" %>
-  <%= form.submit 'Add Comment', class: "btn btn-default" %>
+  <%= form.text_area :content, placeholder: 'Write your comment here...', class: "form-control" %>
+  <%= form.submit 'Comment', class: "btn btn-default" %>
 <% end %>
