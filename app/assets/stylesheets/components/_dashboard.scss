@@ -6,9 +6,6 @@
     font-size: 50px;
     margin-bottom: 50px;
     margin-top: 50px;
-    // padding-left: 60px;
-    // padding-right: 60px;
-    // padding-top: 60px;
     background-color: #393939;
     width: fit-content;
     margin-left: 45px;
@@ -36,17 +33,12 @@ a:hover {
 }
 
 .dashboard-container {
-
   padding-left: 60px;
   padding-right: 60px;
   padding-bottom: 60px;
   display: grid;
   grid-template-columns: 2fr 1fr;
   justify-content: space-between;
-  // background-color: #393939;
-  // box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
-  // border-radius: 28px;
-  // margin: 50px;
 
   .portfolio-change {
     font-size: 40px;
@@ -75,7 +67,6 @@ a:hover {
 
   .balance-change {
     color: #98F899;
-    // margin-top: 45px;
     font-size: 40px;
     font-weight: 700;
   }
@@ -84,24 +75,6 @@ a:hover {
     display: flex;
     flex-direction: column;
   }
-
-  // .balance-actions {
-  //   button {
-  //     border-radius: 50%;
-  //     padding-left: 35px;
-  //     padding-right: 34px;
-  //     padding-bottom: 5px;
-  //     padding-top: 0px;
-  //     background-color: transparent;
-  //   }
-
-  //   #refill {
-  //     border: 3px solid #C7C9CC;
-  //     font-size: 26px;
-  //     color: #C7C9CC;
-  //   }
-
-  // }
 
   .holdings-chart {
     margin-top: 50px;
@@ -144,5 +117,12 @@ a:hover {
     h2 {
       margin-bottom: 20px;
     }
+  }
+
+  .performance-today {
+    color: rgb(111, 111, 111);
+    font-size: 20px;
+    margin-top: 10px;
+    padding: 2px;
   }
 }
