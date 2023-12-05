@@ -1,11 +1,12 @@
-<h1>Latest News</h1>
 
-<div id="news-container">
+<h1>Football News</h1>
+
+<div class="news-container">
   <% @news.each do |article| %>
-    <div class="article">
-      <h2><%= article['title'] %></h2>
-      <p><%= article['description'] %></p>
-      <%= link_to 'Read More', news_path(id: article['title'].parameterize) %>
+    <div class="news-article">
+      <img src="<%= article[:image_url] %>" alt="<%= article[:title] %> Image">
+      <h2><%= article[:title] %></h2>
+      <p><%= article[:description] %></p>
     </div>
   <% end %>
 </div>

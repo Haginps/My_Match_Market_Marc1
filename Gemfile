@@ -7,6 +7,8 @@ gem "rails", "~> 7.1.2"
 
 gem "pg_search"
 
+gem "news-api"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
