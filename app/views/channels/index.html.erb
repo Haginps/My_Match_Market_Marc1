@@ -38,7 +38,7 @@
         <div class="card-product-infos">
           <div class="title_and_delete">
             <h2><%= channel.title %></h2>
-            <%= button_to channel_path(channel), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default channel-d btn-sm', id: 'delete-btn', remote: true do %>
+            <%= link_to channel_path(channel), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default channel-d btn-sm', id: 'delete-btn', remote: true do %>
             <i class="fas fa-trash-alt"></i>
             <% end %>
           </div>
