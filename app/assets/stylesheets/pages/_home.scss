@@ -1,6 +1,5 @@
-/* Base styles (applies to all screen sizes) */
 #hero img {
-  height: 700px; /* Default height */
+  height: 700px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -10,39 +9,36 @@
   top: 35.3%;
 }
 
+@media (min-width: 768px) {
+  #hero img {
+    height: 600px;
+  }
+}
+
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   #hero img {
-    height: 600px; /* Slightly smaller height for tablets */
+    height: 538px; /* Slightly smaller height for tablets */
+    top: 41.19%;
   }
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767px) {
+@media (max-width: 1600px) {
   #hero img {
-    height: 500px; /* Smaller height for landscape phones */
-  }
-}
-
-/* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575px) {
-  #hero img {
-    height: 400px; /* Even smaller height for portrait phones */
-    width: 100%; /* Full width */
-    position: static; /* Reset position */
-    top: auto;
+    height: 300px; /* Slightly smaller height for tablets */
+    top: 41.19%;
+    position: fixed;
     right: auto;
   }
 
   #hero h1 {
-    font-size: 36px; /* Smaller font size for small screens */
+    font-size: 36px;
   }
 
   #hero p {
-    font-size: 16px; /* Smaller font size for paragraphs */
+    font-size: 16px;
   }
 }
-
 
 
 .hero-content {
@@ -56,7 +52,7 @@
   background-color: #2E2E2E;
   color: white;
   background: linear-gradient(to bottom, #1E1E1E, #262626, #323232, #354935, #597659, #86C487, #98F899); /* Dark color at the top, lighter color at the bottom */
-  height: 100vh; /* Set the height as needed */
+  height: 100vh;
   width: 100%;
 
 
@@ -112,7 +108,7 @@
     padding: 12px 20px 12px 58px;
     width: 329px;
     height: 51.2px;
-    // margin-left: 67px;
+
 
     .form-control {
       background-color: white;
@@ -129,7 +125,7 @@
     top: 0;
     background-color: transparent;
     border: none;
-    // margin-left: 65px;
+
   }
 
   i {
@@ -163,8 +159,7 @@
   align-items: center;
 
   .text {
-    // margin-left: 950px;
-    // margin-bottom: 500px;
+
     margin-left: 80px;
   }
 
@@ -184,10 +179,10 @@
   }
 
   img {
-    // margin-top: 180px;
+
     width: 690px;
     height: 607px;
-    // margin-left: 80px;
+
   }
 }
 
@@ -228,39 +223,39 @@
 
 @media (max-width: 575px) {
   #hero img, #mobile-app img {
-    width: 100%; /* Full width on small screens */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0; /* Reset margins */
+    width: 100%;
+    height: auto;
+    margin: 0;
   }
 
   #hero h1, #mobile-app .text h2 {
-    font-size: 36px; /* Smaller font size for small screens */
+    font-size: 36px;
   }
 
   #hero p, #mobile-app .text p {
-    font-size: 16px; /* Smaller font size for small screens */
+    font-size: 16px;
   }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+
 @media (min-width: 576px) {
-  /* Similar adjustments as above, or specific changes for this range */
+
 }
 
-/* Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
   #mobile-app {
-    flex-direction: row; /* Side-by-side layout on larger screens */
+    flex-direction: row;
     justify-content: space-evenly;
   }
 }
 
-/* Large devices (desktops, 992px and up) */
+
 @media (min-width: 992px) {
-  /* Adjustments for larger screens */
+
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
+
 @media (min-width: 1200px) {
-  /* Adjustments for extra large screens */
+
 }
