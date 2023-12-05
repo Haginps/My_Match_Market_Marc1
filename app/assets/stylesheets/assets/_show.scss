@@ -34,6 +34,7 @@ body {
   // display: block;
   box-sizing: border-box;
   width: 22%;
+  min-height: 750px;
 }
 
 .trade-form {
@@ -45,6 +46,7 @@ body {
   color: #ffff;
   // margin-left: 20px;
   min-height: 125%;
+  max-width: 1508px;
 
   .form-control {
     width: 118px !important;
@@ -61,6 +63,7 @@ body {
     width: 100%;
     color: #C7C9CC;
     text-align: left;
+    min-height: 750px;
   }
 
   .player-attributes-container {
@@ -68,6 +71,7 @@ body {
     flex-flow: column;
     justify-content: space-between;
     width: 45%;
+    height: 80%;
   }
 
   .player-detail {
@@ -117,7 +121,7 @@ body {
   }
 
   #player-stats {
-    padding-bottom: 15px;
+    padding-bottom: 50px;
   }
 }
 
@@ -125,6 +129,8 @@ body {
 
 .form-column {
   margin: 10px;
+  margin: 20px;
+  width: 130px;
 }
 
 .btn-buy {
@@ -204,8 +210,10 @@ color: #C7C9CC;
 
 #Depoth4 {
   padding-bottom: 20px;
+  color: white;
 }
 
 #Moneyy {
   padding-bottom: 10px;
+  color: white;
 }
