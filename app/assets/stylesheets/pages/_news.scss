@@ -3,6 +3,9 @@ h1 {
   font-weight: 700;
   display: flex;
   justify-content: center;
+  font-size: 96px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .news-index-container {
   margin: 30px 100px;
@@ -34,7 +37,17 @@ h1 {
     flex-direction: column;
   }
 }
-
+.news-cnt {
+  margin: 30px 100px;
+  // margin-right: 50px;
+  color: white;
+  // margin-left: 109px;
+  font-weight: 700;
+  // margin-top: 50px;
+  // margin-bottom: 50px;
+  // display: flex;
+  // justify-content: center;
+}
 
 .news-show-container {
   margin: 30px 100px;
@@ -55,5 +68,8 @@ h1 {
   }
   h2 {
     margin-top: 5px;
+  }
+  p{
+    margin-top: 15px;
   }
 }
