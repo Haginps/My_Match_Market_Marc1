@@ -118,11 +118,18 @@
   padding: 12px 20px 12px 58px;
   width: 100%;
   margin-bottom: 50px;
-
-  i{
-    margin-top: 50px;
-  }
 }
+
+.fa-magnifying-glass::before {
+   content: "\f002";
+   display: flex;
+   width: 49.054px;
+   height: 46px;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   flex-shrink: 0;
+  }
 
 .search-button {
   position: absolute;
@@ -130,5 +137,4 @@
   top: 0;
   background-color: transparent;
   border: none;
-  margin-left: 65px;
 }

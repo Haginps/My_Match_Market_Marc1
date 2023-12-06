@@ -11,10 +11,10 @@
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
-                placeholder: "Search market here..."
+                placeholder: "Search asset here..."
             %>
-          <%= button_tag "Search", name: "", class: " search-button" do %>
-            <%# <i class="fa-solid fa-magnifying-glass"></i> %>
+          <%= button_tag "Search", name: "", class: "search-button" do %>
+          <i id="mg" class="fa-solid fa-magnifying-glass"></i>
           <% end %>
         </div>
       <% end %>
