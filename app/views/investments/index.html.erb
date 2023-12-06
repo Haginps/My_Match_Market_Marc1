@@ -21,82 +21,88 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <h1>Top Players</h1>
-      <div class="row">
-        <% @top_players.each do |investment| %>
-          <div class="col-md-3 mb-4">
-            <div class="card h-100">
-              <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
-                <div class="card-body">
-                  <%= image_tag investment.image %>
-                  <h5 class="card-title"><%= investment.name %></h5>
-                  <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
-                  <p class="card-text">
-                    <span style="color: white;">24hr:</span>
-                    <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;" data-controller="typed-js">
-                      <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
+  <% if !@top_players.empty? %>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Top Players</h1>
+        <div class="row">
+          <% @top_players.each do |investment| %>
+            <div class="col-md-3 mb-4">
+              <div class="card h-100">
+                <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
+                  <div class="card-body">
+                    <%= image_tag investment.image %>
+                    <h5 class="card-title"><%= investment.name %></h5>
+                    <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
+                    <p class="card-text">
+                      <span style="color: white;">24hr:</span>
+                      <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
+                    <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
                   </span>
-                </div>
-              <% end %>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
-  <div class="row my-4">
-    <div class="col-md-12">
-      <h1>Emerging Players</h1>
-      <div class="row">
-        <% @emerging_players.each do |investment| %>
-          <div class="col-md-3 mb-4">
-            <div class="card h-100">
-              <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
-                <div class="card-body">
-                  <%= image_tag investment.image %>
-                  <h5 class="card-title"><%= investment.name %></h5>
-                  <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
-                  <p class="card-text">
-                    <span style="color: white;">24hr:</span>
-                    <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
-                  <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
-                </span>
-                </div>
-              <% end %>
+  <% if !@emerging_players.empty? %>
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h1>Emerging Players</h1>
+        <div class="row">
+          <% @emerging_players.each do |investment| %>
+            <div class="col-md-3 mb-4">
+              <div class="card h-100">
+                <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
+                  <div class="card-body">
+                    <%= image_tag investment.image %>
+                    <h5 class="card-title"><%= investment.name %></h5>
+                    <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
+                    <p class="card-text">
+                      <span style="color: white;">24hr:</span>
+                      <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
+                    <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
+                  </span>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
-  <div class="row my-4">
-    <div class="col-md-12">
-      <h1>Trending Players</h1>
-      <div class="row">
-        <% @trending_players.each do |investment| %>
-          <div class="col-md-3 mb-4">
-            <div class="card h-100">
-              <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
-                <div class="card-body">
-                  <%= image_tag investment.image %>
-                  <h5 class="card-title"><%= investment.name %></h5>
-                  <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
-                  <p class="card-text">
-                    <span style="color: white;">24hr:</span>
-                    <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
-                  <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
-                </span>
-                </div>
-              <% end %>
+  <% if !@trending_players.empty? %>
+    <div class="row my-4">
+      <div class="col-md-12">
+        <h1>Trending Players</h1>
+        <div class="row">
+          <% @trending_players.each do |investment| %>
+            <div class="col-md-3 mb-4">
+              <div class="card h-100">
+                <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
+                  <div class="card-body">
+                    <%= image_tag investment.image %>
+                    <h5 class="card-title"><%= investment.name %></h5>
+                    <p class="card-text">Current Value: <%= investment.histories.last.price %></p>
+                    <p class="card-text">
+                      <span style="color: white;">24hr:</span>
+                      <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
+                    <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
+                  </span>
+                  </div>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 
 </div>
