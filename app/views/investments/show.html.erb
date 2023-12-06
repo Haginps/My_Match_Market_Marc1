@@ -1,4 +1,5 @@
 <div class="container transaction-actions">
+
   <h2 class="investment-header">
     <%= image_tag @investment.image, class: 'investment-image' %>
     <%= @investment.name %>
@@ -21,7 +22,7 @@
       <div class="player-info d-flex justify-content-between">
 
         <div class="player-detail">
-          <h3 id="player-stats"> <%= @investment.name%>'s Stats:</h3>
+          <h3 id="player-stats"> <%= @investment.name%>'s Profile:</h3>
             <div class="d-flex justify-content-between">
               <h5>POSITION:</h5>
               <h5><%= @player.position %></h5>
@@ -69,7 +70,7 @@
         </div>
 
         <div class="">
-          <h3 id="player-stats"> <%= @investment.name%>'s Attributes:</h3>
+          <h3 id="player-stats"> <%= @investment.name%>'s Stats:</h3>
           <div class="player-attributes-container">
           <div class="player-attributes">
               <%# <div class="attribute-bar d-flex align-items-center"> %>
@@ -77,7 +78,7 @@
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
             <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.pace %>%; border: 1px solid white"><p>Pace: <%= @player.pace %></p></div>
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.pace %>%; border: 1px solid white"><p>Pace: <%= @player.pace %>%</p></div>
               <%# </div> %>
             </div>
           </div>
@@ -88,7 +89,7 @@
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
             <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.shooting %>%; border: 1px solid white"><p>Shooting: <%= @player.shooting %></p></div>
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.shooting %>%; border: 1px solid white"><p>Shooting: <%= @player.shooting %>%</p></div>
               <%# </div> %>
             </div>
           </div>
@@ -99,7 +100,7 @@
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
             <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.passing %>%; border: 1px solid white"><p>Passing: <%= @player.passing %></p></div>
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.passing %>%; border: 1px solid white"><p>Passing: <%= @player.passing %>%</p></div>
               <%# </div> %>
             </div>
           </div>
@@ -110,7 +111,7 @@
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
             <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.dribbling %>%; border: 1px solid white"><p>Dribbling: <%= @player.dribbling %></p></div>
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.dribbling %>%; border: 1px solid white"><p>Dribbling: <%= @player.dribbling %>%</p></div>
               <%# </div> %>
             </div>
           </div>
@@ -121,7 +122,7 @@
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
             <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.defensive %>%; border: 1px solid white"><p>Defensive: <%= @player.defensive %></p></div>
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.defensive %>%; border: 1px solid white"><p>Defensive: <%= @player.defensive %>%</p></div>
               <%# </div> %>
             </div>
           </div>
@@ -132,7 +133,7 @@
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
             <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.physics %>%; border: 1px solid white"><p>Physical: <%= @player.physics %></p></div>
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.physics %>%; border: 1px solid white"><p>Physical: <%= @player.physics %>%</p></div>
               <%# </div> %>
             </div>
           </div>
@@ -210,7 +211,7 @@
               <hr>
               <div class="d-flex justify-content-between">
               <h6>Purchased Price:</h6>
-              <h6>£<%= @current_holding.purchased_price %></h6>
+              <h6>£<%= (@current_holding.purchased_price).round(2) %></h6>
               </div>
               <hr>
               <div class="d-flex justify-content-between">

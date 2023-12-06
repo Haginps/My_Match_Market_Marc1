@@ -60,6 +60,7 @@ class InvestmentsController < ApplicationController
       @player = Player.find_by(investment: @investment)
     end
   end
+
   private
 
   def filter_players_by_category(_category, _excluded_players)
