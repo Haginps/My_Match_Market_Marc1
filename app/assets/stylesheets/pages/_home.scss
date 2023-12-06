@@ -72,16 +72,44 @@
   }
 
   span {
+    // background-color: #4C4C4C;
+    // color: white ;
+    // padding: 16px;
+    // border-radius: 86px;
+    // margin-right: 10px;
+  }
+
+  .investment-span {
     background-color: #4C4C4C;
     color: white ;
-    padding: 16px;
+    padding: 10px 20px;
     border-radius: 86px;
     margin-right: 10px;
+
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgb(255, 255, 255);
+      object-fit: cover;
+      object-position: 50% top;
+    }
+
+    .investment-span-info {
+      display: flex;
+      flex-flow: column;
+      margin-left: 10px;
+    }
   }
 
   #stock-ticker {
     margin-top: 40px;
     margin-bottom: 45px;
+    margin-right: 20px;
+    display: flex;
   }
 
   img {

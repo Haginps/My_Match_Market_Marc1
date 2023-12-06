@@ -30,9 +30,20 @@
               <% end %>
             </div>
             <div id="stock-ticker">
-                <span>Willian +1.67%</span>
+                <%# <span>Willian</span>
                 <span>Nunez -2.41%</span>
-                <span>James +9.21%</span>
+                <span>James +9.21%</span> %>
+                <% @investments.each do |investment| %>
+                  <div class="d-flex align-items-center investment-span">
+                    <%= image_tag investment.image %>
+                    <div class="investment-span-info">
+                      <span><%= investment.name %></span>
+                      <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
+                        <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
+                      </span>
+                    </div>
+                  </div>
+                <% end %>
             </div>
           </div>
               <%= image_tag "jude-bellingham-41_cropped.png" %>
