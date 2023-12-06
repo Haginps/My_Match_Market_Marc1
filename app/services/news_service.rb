@@ -5,12 +5,13 @@ module NewsService
     [
       {
         title: 'Mauricio Pochettino Makes Reece James Feelings Clear as Chelsea Captaincy Questioned',
-        description: 'Reece James is set to miss Chelsea Premier League clash against Brighton this weekend after receiving a red card in the defeat against Newcastle',
+        description: 'Reece James is set to miss Chelsea Premier League clash against Brighton this weekend after receiving a red card in the defeat against Newcastle.',
         image_url: 'https://talksport.com/wp-content/uploads/sites/5/2023/08/reece-james-chelsea-premier-league-839524426.jpg',
         content: "Mauricio Pochettino has defended Reece James after the Chelsea captain came under criticism following his red card in the defeat against Newcastle last weekend. The Argentine made it clear that James is still building towards full fitness and blamed fatigue for his decision to haul down Anthony Gordon - resulting in his second yellow card against the Magpies.
         The 24-year-old apologised for being sent off against Newcastle with a message on Instagram. I take full responsibility for my red card today, two silly mistakes. Another lesson for me to learn, the Chelsea captain wrote in a post on Instagram.
         I would like to apologise to the fans and my teammates. The performance today was far below our standards but this game does not define us!
         We have made huge improvements this season against many top teams. We will be back next weekend.
+
         Speaking ahead of the clash against Brighton this weekend, Pochettino said: Yes, of course. It is part of the process also. Too many times he was injured but now step by step, he is building.
         I think he was a little bit tired in the moment when he got the second yellow card. And of course, he realises he is still far away from his best condition, to complete 90 minutes - he is working really hard."
       },
