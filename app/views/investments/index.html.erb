@@ -22,7 +22,6 @@
   </div>
 
 
-
   <% if !@top_players.empty? %>
     <div class="row">
       <div class="col-md-12">
@@ -40,6 +39,7 @@
                       <span style="color: white;">24hr:</span>
                       <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
                     <%= investment.calculate_24hr_change >= 0 ? "+" : "" %><%= number_to_percentage(investment.calculate_24hr_change, precision: 2) %>
+
                   </span>
                   </div>
                 <% end %>
@@ -50,6 +50,8 @@
       </div>
     </div>
   <% end %>
+
+
 
   <% if !@emerging_players.empty? %>
     <div class="row my-4">
@@ -78,6 +80,8 @@
       </div>
     </div>
   <% end %>
+
+
 
   <% if !@trending_players.empty? %>
     <div class="row my-4">

@@ -47,6 +47,7 @@ body {
   // margin-left: 20px;
   min-height: 125%;
   max-width: 1508px;
+  margin-top: 35px;
 
   .form-control {
     width: 118px !important;
@@ -123,12 +124,11 @@ body {
     object-position: 50% top;
   }
 
+
   #player-stats {
     padding-bottom: 50px;
   }
 }
-
-
 
 .form-column {
   margin: 10px;
@@ -150,7 +150,7 @@ body {
 }
 
 .btn-buy-disabled {
-  background-color: #737673;
+  background-color: #4c7c4d;
   color: #393939;
   width: 118px;
   height: 50px;
@@ -181,7 +181,7 @@ body {
 }
 
 .btn-sell-disabled {
-  background-color: #737673;
+  background-color: #882a2a;
   color: #393939;
   width: 118px;
   height: 50px;
