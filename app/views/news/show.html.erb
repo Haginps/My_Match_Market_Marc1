@@ -2,13 +2,14 @@
 <div class="centernews">
 <div class="news-cnt">
     <h2><%= @article[:title] %></h2>
+   Published: <%= Date.today %>
 </div>
 <div class="news-show-container">
   <div class="news-article-image">
     <img src="<%= @article[:image_url] %>" alt="<%= @article[:title] %> Image">
   </div>
   <div class="article-show-info">
-    <p><%= @article[:content] %></p>
+    <p><%= simple_format @article[:content] %></p>
   </div>
 </div>
 </div>
