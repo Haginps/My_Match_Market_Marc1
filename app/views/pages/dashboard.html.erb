@@ -87,7 +87,7 @@
                         <div class="investment-percentage">
                           <% percentage_change = (((holding.investment.histories.last.price - holding.purchased_price) / holding.purchased_price) * 100).round(2) %>
                           <p class="<%= percentage_change.zero? ? 'zero' : (percentage_change.positive? ? 'positive' : 'negative') %>">
-                            <%= percentage_change.zero? ? '' : (percentage_change.positive? ? '+' : '-') %><%= percentage_change %>%
+                            <%= percentage_change.zero? ? '' : (percentage_change.positive? ? '+' : '') %><%= percentage_change %>%
                           </p>
                         </div>
 

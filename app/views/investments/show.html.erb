@@ -4,15 +4,15 @@
     <%= @investment.name %>
   </h2>
 
-    <div class="chart-wrapper" data-controller="performance-chart">
-    <div class="chart-container">
-      <canvas id="bar-chart"
-              data-performance-chart-target="myChart"
-              data-labels="<%= @investment.histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
-              data-prices="<%= @investment.histories.map(&:price).to_json %>" width="4" height="1"
-              data-purchased-price="<%= @purchased_price.to_json %>">
-      </canvas>
-    </div>
+  <div class="chart-wrapper" data-controller="performance-chart">
+      <div class="chart-container">
+        <canvas id="bar-chart"
+                data-performance-chart-target="myChart"
+                data-labels="<%= @investment.histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
+                data-prices="<%= @investment.histories.map(&:price).to_json %>" width="4" height="1"
+                data-purchased-histories="<%= @purchased_histories.to_json %>">
+        </canvas>
+      </div>
     </div>
 
   <div class="d-flex justify-content-between mb-5">

@@ -43,7 +43,9 @@
 
 .hero-content {
   margin-left: 9%;
-  height: calc(100vh-82px);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #hero {
@@ -52,7 +54,7 @@
   background-color: #2E2E2E;
   color: white;
   background: linear-gradient(to bottom, #1E1E1E, #262626, #323232, #354935, #597659, #86C487, #98F899); /* Dark color at the top, lighter color at the bottom */
-  height: 100vh;
+  height: calc(100vh - 71px);
   width: 100%;
 
 
@@ -84,18 +86,26 @@
     margin-bottom: 45px;
   }
 
-  img {
-    height: 700px;
-    overflow: hidden;
-    background-size: contain;
-    background-size: cover;
-    background-position: center;
+  .hero-image {
+    background-image: url("jude-bellingham-41_cropped.png");
+    background-size: 65%;
     background-repeat: no-repeat;
-    position: absolute;
-    right: 0%;
-    top: 34.19%;
+    background-position: bottom 0px right 0px;
 
+    width: 100%;
+    height: 100%;
+    // position: absolute;
+    // right: 0%;
+    // bottom: 0%;
+  }
 
+  img {
+    height: 100%;
+    // overflow: hidden;
+    // background-size: contain;
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
   }
 
   .home-searchbar {
