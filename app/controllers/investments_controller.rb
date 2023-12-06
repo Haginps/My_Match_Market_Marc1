@@ -20,7 +20,7 @@ class InvestmentsController < ApplicationController
     @holding = Holding.new
 
     @on_hold = false
-    @purchased_price = {}
+    @purchased_histories = []
 
     if user_signed_in?
       current_user.holdings.each do |holding|
@@ -30,25 +30,36 @@ class InvestmentsController < ApplicationController
           unless @current_holding.purchased_price.nil?
             @on_hold = true
             @sold = false
+
+            current_user.trade_histories.each do |history|
+              @purchased_record = {}
+
+              @purchased_date = history.date.strftime("%d %b") if history.holding == holding
+              @purchased_price = holding.investment.histories.find_by(date: history.date).price if history.holding == holding
+
+              @purchased_record[@purchased_date] = @purchased_price
+
+              @purchased_histories.push(@purchased_record)
+            end
+
+            @purchased_histories = @purchased_histories.drop(1)
           end
 
           unless @current_holding.sold_price.nil?
             @on_hold = false
             @sold = true
-          end
 
-          @purchased_price[@current_holding.purchased_date.strftime('%d %b')] = @current_holding.purchased_price
+            @purchased_histories = []
+          end
         end
       end
       @user_tokens = current_user.user_histories.find_by(date: Date.today).tokens
     end
 
-    if @investment.category == 'player'
+    if @investment.category == "player"
       @player = Player.find_by(investment: @investment)
     end
-
   end
-
   private
 
   def filter_players_by_category(_category, _excluded_players)
