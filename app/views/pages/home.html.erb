@@ -19,9 +19,6 @@
               <% end %>
             </div>
             <div id="stock-ticker">
-                <%# <span>Willian</span>
-                <span>Nunez -2.41%</span>
-                <span>James +9.21%</span> %>
                <% @investments.each do |investment| %>
                 <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
                   <div class="d-flex align-items-center investment-span">
