@@ -1,11 +1,10 @@
-<%# <h1><%= @new.title %></h1>
-
-<%# <div class="article"> %>
-  <%# <p><%= @new.content %></p> %>
-<%# </div> %>
-
-<%# <%= link_to 'Back to News', news_index_path %> %> %>
-
 <!-- app/views/news/show.html.erb -->
-<h1><%= @article['title'] %></h1>
-<p><%= @article['content'] %></p>
+<div class="news-show-container">
+  <div class="news-article-image">
+    <img src="<%= @article[:image_url] %>" alt="<%= @article[:title] %> Image">
+  </div>
+  <div class="article-show-info">
+    <h2><%= @article[:title] %></h2>
+    <p><%= @article[:content] %></p>
+  </div>
+</div>

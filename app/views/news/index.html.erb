@@ -1,12 +1,15 @@
-
-<h1>Football News</h1>
-
-<div class="news-container">
-  <% @news.each do |article| %>
-    <div class="news-article">
-      <img src="<%= article[:image_url] %>" alt="<%= article[:title] %> Image">
-      <h2><%= article[:title] %></h2>
-      <p><%= article[:description] %></p>
-    </div>
-  <% end %>
+<div class="news-title">
+  <h1>News</h1>
 </div>
+
+<% @news.each_with_index do |article, index| %>
+  <div class="news-index-container">
+      <%= link_to news_path(id: index) do %>
+        <img src="<%= article[:image_url] %>" alt="<%= article[:title] %> Image">
+    <div class="news-article">
+        <h3><%= article[:title] %></h3>
+        <p><%= article[:description] %></p>
+      <% end %>
+    </div>
+  </div>
+<% end %>
