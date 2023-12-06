@@ -8,20 +8,18 @@
     <div class="col-sm-4 my-3">
       <%= form_with url: investments_path, method: :get, class: "d-flex w-100" do %>
         <div class="search-container position-relative w-100">
+          <%= button_tag "Search", name: "", class: "search-button" do %>
+            <i id="mg" class="fa-solid fa-magnifying-glass"></i>
+          <% end %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
                 placeholder: "Search asset here..."
             %>
-          <%= button_tag "Search", name: "", class: "search-button" do %>
-          <i id="mg" class="fa-solid fa-magnifying-glass"></i>
-          <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
-
 
 
   <% if !@top_players.empty? %>

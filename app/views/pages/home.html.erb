@@ -2,6 +2,9 @@
         <section id="hero">
           <div class="hero-image">
             <div class="hero-content">
+            <h1>Kick Off Investments</h1>
+            <p>Empowering Your Investment Journey</p>
+            <div class="home-searchbar-container">
             <h1>My Match Market</h1>
             <p>Kick off your investments now</p>
             <div id="home searchbar">
@@ -10,14 +13,15 @@
                   <%= text_field_tag :query,
                     params[:query],
                     class: "form-control",
-                     placeholder: "Search markets here..."
-                   %>
+                    placeholder: "Search markets here..."
+                  %>
                   <%= button_tag "Search", name: "", class: "home-search-button" do %>
-                   <i class="fa-solid fa-magnifying-glass"></i>
-                 <% end %>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  <% end %>
                 </div>
               <% end %>
             </div>
+
             <div id="stock-ticker">
                <% @investments.each do |investment| %>
                 <%= link_to investment_path(investment), class: 'text-decoration-none text-dark' do %>
