@@ -24,7 +24,7 @@ TokenHistory.destroy_all
 UserHistory.destroy_all
 User.destroy_all
 
-marc = User.new(email: "marchage1@gmail.com", first_name: "Marc", last_name: "Hage", password: "123456789", tokens: 5000)
+marc = User.new(email: "marchage1@gmail.com", first_name: "Jonas", last_name: "Hage", password: "123456789", tokens: 5000)
 marc.save
 
 marc.set_default_tokens
