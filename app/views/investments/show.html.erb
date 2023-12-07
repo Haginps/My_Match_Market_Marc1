@@ -158,11 +158,11 @@
           <%# This buy form is for the first purchase %>
           <% unless @on_hold %>
             <div class="buy form-column" data-controller="buying-investment" data-user-tokens="<%= @user_tokens %>" data-investment-price="<%= @investment.histories.last.price %>">
-              <%= simple_form_for [@investment, @holding] do |f| %>
-              <%= f.input :shares_amount, input_html: { data: { buying_investment_target: "buyPrice", action: "change->buying-investment#activeButton" } } %>
-              <%= f.hidden_field :trade, value: "buy" %>
-                <p data-buying-investment-target="totalAmount">Total Amount:</p>
-              <%= f.submit "Buy     +", class: 'btn-buy-disabled', disabled: 'true', data: { buying_investment_target: "btn" } %>
+              <%= simple_form_for [@investment, @holding], html: { data: { controller: "investments-alert", investments_alert_title_value: "Are your sure?", investments_alert_html_value: "Buying Shares", investments_alert_confirm_button_text_value: "Confirm!", investments_alert_show_cancel_button_value: true, investments_alert_cancel_button_text_value: "Cancel", action: "submit->investments-alert#initSweetalert", turbo: false } } do |f| %>
+                <%= f.input :shares_amount, input_html: { data: { buying_investment_target: "buyPrice", action: "change->buying-investment#activeButton" } } %>
+                <%= f.hidden_field :trade, value: "buy" %>
+                  <p data-buying-investment-target="totalAmount">Total Amount:</p>
+                <%= f.submit "Buy     +", class: 'btn-buy-disabled', disabled: 'true', data: { buying_investment_target: "btn" } %>
               <% end %>
             </div>
           <% end %>
@@ -171,7 +171,7 @@
             <%# This buy form is for the another purchase %>
             <% if @on_hold %>
               <div class="buy form-column" data-controller="buying-investment" data-user-tokens="<%= @user_tokens %>" data-investment-price="<%= @investment.histories.last.price %>">
-                <%= simple_form_for [@investment, @current_holding] do |f| %>
+                <%= simple_form_for [@investment, @current_holding], html: { data: { controller: "investments-alert", investments_alert_title_value: "Are your sure?", investments_alert_html_value: "Buying Shares", investments_alert_confirm_button_text_value: "Confirm!", investments_alert_show_cancel_button_value: true, investments_alert_cancel_button_text_value: "Cancel", action: "submit->investments-alert#initSweetalert", turbo: false } } do |f| %>
                 <%= f.input :shares_amount, input_html: { value: '', data: { buying_investment_target: "buyPrice", action: "change->buying-investment#activeButton" } } %>
                 <%= f.hidden_field :trade, value: "buy" %>
                 <p data-buying-investment-target="totalAmount">Total Amount:</p>
@@ -182,7 +182,7 @@
 
           <!-- Sell Form -->
             <div class="sell form-column" data-controller="buying-investment" data-shares-amount="<%= @current_holding.shares_amount%>" data-user-tokens="<%= @user_tokens %>" data-investment-price="<%= @investment.histories.last.price %>">
-              <%= simple_form_for [@investment, @current_holding] do |f| %>
+              <%= simple_form_for [@investment, @current_holding], html: { data: { controller: "investments-alert", investments_alert_title_value: "Are your sure?", investments_alert_html_value: "Selling Shares", investments_alert_confirm_button_text_value: "Confirm!", investments_alert_show_cancel_button_value: true, investments_alert_cancel_button_text_value: "Cancel", action: "submit->investments-alert#initSweetalert", turbo: false } } do |f| %>
                 <%= f.input :shares_amount, input_html: { value: '', data: { buying_investment_target: "sellPrice", action: "change->buying-investment#activeSellButton" } } %>
                 <%= f.hidden_field :trade, value: "sell" %>
                 <p data-buying-investment-target="totalAmount">Total Amount:</p>

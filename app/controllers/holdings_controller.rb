@@ -17,7 +17,7 @@ class HoldingsController < ApplicationController
     user_history.tokens -= @holding.purchased_price * @holding.shares_amount
     user_history.save
 
-    redirect_to investment_path(@investment)
+    redirect_to investment_path(@investment), notice: "You bought #{@holding.shares_amount} shares of #{@holding.investment.name} successfully"
   end
 
   def update
@@ -58,6 +58,8 @@ class HoldingsController < ApplicationController
       user_history.performance += @investment.histories.last.price * @trade_history.shares_amount
       user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
       user_history.save
+
+      redirect_to investment_path(@investment), notice: "You bought #{@holding.shares_amount} shares of #{@holding.investment.name} successfully"
     else
       new_sold_price = @investment.histories.last.price
       new_sold_total_price = new_shares_amount * new_sold_price
@@ -74,6 +76,7 @@ class HoldingsController < ApplicationController
         user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
 
+        redirect_to investment_path(@investment), notice: "You sold #{new_shares_amount} shares of #{@holding.investment.name} successfully"
       else
         # Selling some the shares
         final_purchased_total_price = old_purchased_total_price - new_sold_total_price
@@ -89,11 +92,9 @@ class HoldingsController < ApplicationController
         user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
 
+        redirect_to investment_path(@investment), notice: "You sold #{new_shares_amount} shares of #{@holding.investment.name} successfully"
       end
     end
-
-    redirect_to investment_path(@investment)
-
   end
 
   private
