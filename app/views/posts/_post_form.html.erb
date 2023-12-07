@@ -1,6 +1,6 @@
 
   <div class="formstyle">
-  <h2>Add Post</h2>
+  <h2>Your Post</h2>
   <%= simple_form_for [channel, post], html: {data:  {create_post_target: "form"}} do |f| %>
     <%= f.error_notification %>
 
@@ -12,6 +12,6 @@
     </div>
 
 
-    <%= f.submit "Add Post", class: "btn btn-default" %>
+    <%= f.submit "Publish", class: "btn btn-default" %>
   <% end %>
 </div>
