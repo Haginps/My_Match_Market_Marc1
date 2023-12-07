@@ -1,5 +1,5 @@
 <div data-create-channel-target="formDiv" class="channel-form <%='d-none' if channel.errors.any? %>">
-  <h2>Create a Channel</h2>
+  <h2>Add a Channel</h2>
   <%= simple_form_for [channel], html: {data:  {create_channel_target: "form"}} do |f| %>
     <%= f.error_notification %>
 
@@ -11,6 +11,6 @@
     </div>
 
 
-    <%= f.submit "Create Channel", class: "btn btn-primary" %>
+    <%= f.submit "Add Channel", class: "btn btn-primary" %>
   <% end %>
 </div>
