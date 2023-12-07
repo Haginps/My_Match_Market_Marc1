@@ -18,14 +18,14 @@
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   #hero img {
-    height: 538px; /* Slightly smaller height for tablets */
+    height: 538px;
     top: 41.19%;
   }
 }
 
 @media (max-width: 1600px) {
   #hero img {
-    height: 300px; /* Slightly smaller height for tablets */
+    height: 300px;
     top: 41.19%;
     position: fixed;
     right: auto;
@@ -73,14 +73,6 @@
     font-size: 26px;
   }
 
-  span {
-    // background-color: #4C4C4C;
-    // color: white ;
-    // padding: 16px;
-    // border-radius: 86px;
-    // margin-right: 10px;
-  }
-
   .investment-span {
     background-color: #4C4C4C;
     color: white ;
@@ -125,18 +117,10 @@
 
     width: 100%;
     height: 100%;
-    // position: absolute;
-    // right: 0%;
-    // bottom: 0%;
   }
 
   img {
     height: 100%;
-    // overflow: hidden;
-    // background-size: contain;
-    // background-size: cover;
-    // background-position: center;
-    // background-repeat: no-repeat;
   }
 
   .home-searchbar {

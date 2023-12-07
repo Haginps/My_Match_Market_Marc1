@@ -17,30 +17,7 @@ class HoldingsController < ApplicationController
     user_history.tokens -= @holding.purchased_price * @holding.shares_amount
     user_history.save
 
-    # current_user.tokens -= @holding.purchased_price * @holding.shares_amount
-    # current_user.save
-
-    # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
-    # user_today_token_history.total_token = current_user.tokens
-    # user_today_token_history.save
-
     redirect_to investment_path(@investment)
-
-    # total_cost = @holding.purchased_price * @holding.shares_amount
-
-    # if current_user.balance >= total_cost
-    #   if @holding.save
-    #     current_user.update(balance: current_user.balance - total_cost)
-    #     flash[:notice] = "Purchase successful! You have bought #{@holding.shares_amount} shares."
-    #     # redirect_to some_path # Replace with appropriate path
-    #   else
-    #     flash[:alert] = "Purchase failed. Please try again."
-    #     render :new # Or wherever you want to redirect in case of failure
-    #   end
-    # else
-    #   flash[:alert] = "Insufficient balance to complete the purchase."
-    #   # redirect_to another_path # Replace with appropriate path
-    # end
   end
 
   def update
@@ -64,7 +41,6 @@ class HoldingsController < ApplicationController
     old_shares_amount = @holding.shares_amount
     old_purchased_total_price = old_shares_amount * old_purchased_price
 
-    # When the user buy more shares
     if params[:holding][:trade] == 'buy'
       new_shares_amount = params[:holding][:shares_amount].to_i
       new_purchased_price = @investment.histories.last.price
@@ -76,19 +52,12 @@ class HoldingsController < ApplicationController
 
       @holding.shares_amount = final_shares_amount
       @holding.purchased_price = final_purchased_price
-      # @holding.purchased_date = Date.today
       @holding.save
 
       user_history = UserHistory.find_by(user: current_user, date: Date.today)
       user_history.performance += @investment.histories.last.price * @trade_history.shares_amount
       user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
       user_history.save
-
-      # current_user.tokens -= new_purchased_price * new_shares_amount
-
-      # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
-      # user_today_token_history.total_token = current_user.tokens
-      # user_today_token_history.save
     else
       new_sold_price = @investment.histories.last.price
       new_sold_total_price = new_shares_amount * new_sold_price
@@ -105,11 +74,6 @@ class HoldingsController < ApplicationController
         user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
 
-        # current_user.tokens += @holding.sold_price * @holding.shares_amount
-
-        # user_today_token_history = current_user.token_histories.find_by(date: @holding.sold_date)
-        # user_today_token_history.total_token = current_user.tokens
-        # user_today_token_history.save
       else
         # Selling some the shares
         final_purchased_total_price = old_purchased_total_price - new_sold_total_price
@@ -118,7 +82,6 @@ class HoldingsController < ApplicationController
 
         @holding.shares_amount = final_shares_amount
         @holding.purchased_price = final_purchased_price
-        # @holding.purchased_date = Date.today
         @holding.save
 
         user_history = UserHistory.find_by(user: current_user, date: Date.today)
@@ -126,24 +89,11 @@ class HoldingsController < ApplicationController
         user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
 
-        # current_user.tokens += final_purchased_total_price
-
-        # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
-        # user_today_token_history.total_token = current_user.tokens
-        # user_today_token_history.save
       end
     end
 
     redirect_to investment_path(@investment)
 
-    # if @holding.save
-    #   current_user.update(balance: current_user.balance + @holding.gain_loss)
-    #   flash[:notice] = "Sale successful! You have sold #{@holding.shares_amount} shares."
-    #   # redirect_to some_path # Replace with appropriate path
-    # else
-    #   flash[:alert] = "Sale failed. Please try again."
-    #   render :edit # Or wherever you want to redirect in case of failure
-    # end
   end
 
   private

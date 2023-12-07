@@ -8,17 +8,4 @@ class UsersController < ApplicationController
     @holdings_labels = @user.holdings.map { |holding| holding.purchased_date.strftime('%Y-%m-%d') }
     @holdings_prices = @user.holdings.map(&:purchased_price)
   end
-
-#   def buy
-#   end
-
-#   def sell
-#   end
-
-#   private
-
-#   def find_user
-#     @user = current_user
-#   end
-
 end

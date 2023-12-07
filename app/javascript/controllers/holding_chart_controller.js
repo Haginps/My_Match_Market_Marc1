@@ -37,7 +37,7 @@ export default class extends Controller {
           x: {
             title: {
               display: true,
-              text: 'Day'
+              text: 'Date'
             },
             grid: {
               display: false
