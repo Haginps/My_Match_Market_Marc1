@@ -4,7 +4,6 @@ class NewsController < ApplicationController
 
     @news = NewsService.fetch_football_news
 
-    # raise
   end
 
   def show
