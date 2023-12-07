@@ -24,7 +24,7 @@ class HoldingsController < ApplicationController
     # user_today_token_history.total_token = current_user.tokens
     # user_today_token_history.save
 
-    redirect_to investment_path(@investment)
+    redirect_to investment_path(@investment), notice: "You bought #{@holding.shares_amount} shares of #{@holding.investment.name} successfully"
 
     # total_cost = @holding.purchased_price * @holding.shares_amount
 
@@ -84,6 +84,8 @@ class HoldingsController < ApplicationController
       user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
       user_history.save
 
+      redirect_to investment_path(@investment), notice: "You bought #{@holding.shares_amount} shares of #{@holding.investment.name} successfully"
+
       # current_user.tokens -= new_purchased_price * new_shares_amount
 
       # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
@@ -104,6 +106,8 @@ class HoldingsController < ApplicationController
         user_history.performance += @investment.histories.last.price * @trade_history.shares_amount
         user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
+
+        redirect_to investment_path(@investment), notice: "You sold #{new_shares_amount} shares of #{@holding.investment.name} successfully"
 
         # current_user.tokens += @holding.sold_price * @holding.shares_amount
 
@@ -126,6 +130,8 @@ class HoldingsController < ApplicationController
         user_history.tokens -= @investment.histories.last.price * @trade_history.shares_amount
         user_history.save
 
+        redirect_to investment_path(@investment), notice: "You sold #{new_shares_amount} shares of #{@holding.investment.name} successfully"
+
         # current_user.tokens += final_purchased_total_price
 
         # user_today_token_history = current_user.token_histories.find_by(date: @holding.purchased_date)
@@ -133,8 +139,6 @@ class HoldingsController < ApplicationController
         # user_today_token_history.save
       end
     end
-
-    redirect_to investment_path(@investment)
 
     # if @holding.save
     #   current_user.update(balance: current_user.balance + @holding.gain_loss)
