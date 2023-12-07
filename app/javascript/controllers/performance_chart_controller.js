@@ -54,6 +54,7 @@ export default class extends Controller {
       options: {
         pointBackgroundColor: ["Orange"],
         responsive: true,
+        // padding: 20,
         scales: {
           y: {
             beginAtZero: true,
