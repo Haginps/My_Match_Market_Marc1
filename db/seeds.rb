@@ -8,6 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+require "open-uri"
+
 puts "Cleaning Database"
 # News.destroy_all
 Comment.destroy_all
@@ -31,11 +33,28 @@ leo.save
 leo.set_default_tokens
 
 # marc.set_default_tokens
-leo = User.new(email: "leokreutz@gmail.com", first_name: "Leonard", last_name: "Kreutzberg", password: "123456789", tokens: 15000)
-leo.save
+# leo = User.new(email: "leokreutz@gmail.com", first_name: "Leonard", last_name: "Kreutzberg", password: "123456789", tokens: 15000)
+# leo.save
 # leo.set_default_tokens
 
 puts "Users created"
+
+file = URI.open("https://e0.365dm.com/21/05/2048x1152/skysports-chelsea-champions-league-final_5399567.jpg?20210529221935")
+channel_1 = Channel.new(title: "The Blue Flag", description: "Welcome to the Chelsea FC Fan Channel – your ultimate destination for everything Blues! ⚽️ Get ready for exclusive content, match analyses, fan reactions, and behind-the-scenes glimpses into the world of Chelsea FC. Whether you bleed blue or just love the beautiful game, join us in celebrating the pride of London! :large_blue_circle: #CFC #KTBFFH", user: User.last)
+channel_1.photo.attach(io: file, filename: "chelseafc", content_type: "image/jpg")
+channel_1.save
+
+file = URI.open("https://media.newyorker.com/photos/5cf3e1df91fa13ce6cb2af72/master/w_2240,c_limit/Caesar-LiverpoolVictory-1.jpg")
+channel_2 = Channel.new(title: "The Reds", description: "Immerse yourself in the world of Liverpool FC with matchday euphoria, expert analyses, and a vibrant community of fellow Kopites. From iconic victories to the latest news, this channel is your front-row seat to the Anfield experience. Join us in celebrating the rich history and thrilling moments of Liverpool FC. Walk with us through the journey of YNWA - You'll Never Walk Alone. #LFC #YNWA", user: User.last)
+channel_2.photo.attach(io: file, filename: "liverpoolfc", content_type: "image/jpg")
+channel_2.save
+
+file = URI.open("https://pbs.twimg.com/media/ESAzI4RWkAELB-_?format=jpg&name=large")
+channel_3 = Channel.new(title: "The Gooners", description: "Dive into the heart of North London with matchday reactions, in-depth analyses, and passionate discussions about the Gunners. Join our community of devoted fans as we live and breathe Arsenal FC. From historic moments to the latest updates, this is your go-to destination for all things Arsenal. Get ready to chant loud and proud! #COYG #ArsenalFC", user: User.last)
+channel_3.photo.attach(io: file, filename: "arsenalfc", content_type: "image/jpg")
+channel_3.save
+
+
 
 james_investment = Investment.new(name: "Reece James", abbreviation: "REJS", rating: rand(0..10), category: "player", description: "The best RB in the premier league", image:"https://img.chelseafc.com/image/upload/f_auto,h_390,q_90/editorial/people/first-team/2023-24/Reece_James_profile_23-24_with_sponsor_headshot-removebg.png")
 james_investment.save
