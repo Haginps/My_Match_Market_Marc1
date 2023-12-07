@@ -224,11 +224,25 @@
   height: 100vh;
   display: flex;
   justify-content: space-evenly;
-  padding: 50px;
+  // padding: 50px;
   align-items: center;
 
+  .women-image {
+    background-image: url("alexia_putella.png");
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: bottom 0px right 6%;
+
+    width: 100%;
+    height: 100%;
+  }
+
   .text-women {
-    margin-left: 50px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    // margin: 0 auto;
+    margin-left: 6%;
     width: 58%;
   }
 
