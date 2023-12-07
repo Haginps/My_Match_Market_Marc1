@@ -42,8 +42,10 @@
               <p><%= channel.description %></p>
               <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
             </div>
-              <%= link_to channel_path(channel), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, id: 'delete-btn', remote: true do %>
-              <i class="fas fa-trash-alt"></i>
+              <% if user_signed_in? && channel.user == current_user %>
+                <%= link_to channel_path(channel), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, id: 'delete-btn', remote: true do %>
+                <i class="fas fa-trash-alt"></i>
+                <% end %>
               <% end %>
 
           </div>
