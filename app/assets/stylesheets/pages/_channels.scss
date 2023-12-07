@@ -7,8 +7,7 @@
 
 }
 
-.formstyle {
-
+.channel-form {
   .btn-default {
     background-color: #98F899;
     border-radius: 28px;
@@ -19,13 +18,25 @@
     color: black;
     border-radius: 28px;
   }
+}
 
-
+.formstyle {
   h2 {
     font-weight: 700;
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 50px;
+  }
+
+  .btn-default {
+    background-color: #98F899;
+    border-radius: 28px;
+  }
+
+  .btn-default:hover {
+    background-color: #538954;
+    color: black;
+    border-radius: 28px;
   }
 
 
