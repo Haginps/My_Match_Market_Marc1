@@ -35,12 +35,12 @@ export default class extends Controller {
       this.btnTarget.disabled = false
       this.btnTarget.classList.remove("btn-buy-disabled")
       this.btnTarget.classList.add("btn-buy")
-      this.totalAmountTarget.innerHTML = `Total Amount: ${(maxBuyShares * investmentPrice)}£`
+      this.totalAmountTarget.innerHTML = `Total Amount: £${(maxBuyShares * investmentPrice)}`
     } else {
       this.btnTarget.disabled = false
       this.btnTarget.classList.remove("btn-buy-disabled")
       this.btnTarget.classList.add("btn-buy")
-      this.totalAmountTarget.innerHTML = `Total Amount: ${(totalAmount)}£`
+      this.totalAmountTarget.innerHTML = `Total Amount: £${(totalAmount)}`
     }
   }
 
@@ -65,12 +65,12 @@ export default class extends Controller {
       this.btnSellTarget.disabled = false
       this.btnSellTarget.classList.remove("btn-sell-disabled")
       this.btnSellTarget.classList.add("btn-sell")
-      this.totalAmountTarget.innerHTML = `Total Amount: ${(sharesAmount * investmentPrice)}£`
+      this.totalAmountTarget.innerHTML = `Total Amount: £${(sharesAmount * investmentPrice)}`
     } else {
       this.btnSellTarget.disabled = false
       this.btnSellTarget.classList.remove("btn-sell-disabled")
       this.btnSellTarget.classList.add("btn-sell")
-      this.totalAmountTarget.innerHTML = `Total Amount: ${(totalAmount)}£`
+      this.totalAmountTarget.innerHTML = `Total Amount: £${(totalAmount)}`
     }
   }
 }
