@@ -54,6 +54,12 @@ channel_3 = Channel.new(title: "The Gooners", description: "Dive into the heart 
 channel_3.photo.attach(io: file, filename: "arsenalfc", content_type: "image/jpg")
 channel_3.save
 
+file = URI.open("https://www.talkchelsea.net/wp-content/uploads/2023/10/noni-madueke-chelsea.jpg")
+post_1 = Post.new(title: "Madueke Stock Report: Bearish Trends", description: "In the football market, Madueke’s stock is currently facing a bearish downturn. Despite initial promise, recent performances have seen a dip in form, raising concerns among investors. The lack of impactful contributions, missed opportunities, and subpar displays on the pitch have led to a decline in Madueke’s stock value. Market analysts suggest cautious monitoring as the player navigates this challenging period. #Madueke #StockDown", user: User.last)
+post_1.channel = channel_1
+post_1.photo.attach(io: file, filename: "noni", content_type: "image/jpg")
+post_1.save
+
 
 
 james_investment = Investment.new(name: "Reece James", abbreviation: "REJS", rating: rand(0..10), category: "player", description: "The best RB in the premier league", image:"https://img.chelseafc.com/image/upload/f_auto,h_390,q_90/editorial/people/first-team/2023-24/Reece_James_profile_23-24_with_sponsor_headshot-removebg.png")
