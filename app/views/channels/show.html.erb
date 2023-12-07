@@ -33,7 +33,7 @@
         <div class="post-product-infos">
         <div class="title_and_delete">
           <h2><%= post.title %></h2>
-             <%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm', id: 'delete-btn', remote: true do %>
+             <%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, id: 'delete-btn', remote: true do %>
               <i class="fas fa-trash-alt"></i>
             <% end %>
         </div>
