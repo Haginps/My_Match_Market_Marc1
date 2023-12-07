@@ -33,9 +33,13 @@
         <div class="post-product-infos">
         <div class="title_and_delete">
           <h2><%= post.title %></h2>
-             <%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, id: 'delete-btn', remote: true do %>
-              <i class="fas fa-trash-alt"></i>
+             <% if user_signed_in? && post.user == current_user %>
+              <%= link_to post_path(post), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, id: 'delete-btn', remote: true do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             <% end %>
+
+              <%# <% end %>
         </div>
 
           <p><%= post.description %></p>
