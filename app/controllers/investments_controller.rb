@@ -10,7 +10,7 @@ class InvestmentsController < ApplicationController
     @emerging_players = filter_players_by_category("Emerging Players", @top_players)
     @trending_players = filter_players_by_category("Trending Players", @top_players + @emerging_players)
 
-    assign_players_to_category(["Lionel Messi", "Erling Haaland", "Reece James", "Trent Alexander-Arnold"], @top_players)
+    assign_players_to_category(["Lionel Messi", "Erling Haaland", "Reece James", "Trent AA"], @top_players)
     assign_players_to_category(["Anthony Elanga", "Michael Olise", "Cole Palmer", "Anthony Gordon"], @emerging_players)
     assign_players_to_category(["Darwin Nunez", "Jarrod Bowen", "Matheus Cunha", "Willian"], @trending_players)
   end
