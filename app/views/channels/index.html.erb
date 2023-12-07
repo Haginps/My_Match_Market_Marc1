@@ -4,12 +4,12 @@
 
   <div class="headings-channels">
 
-    <!-- Button trigger modal -->
+    <%# Button trigger modal %>
     <button type="button" class="form-and-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Create channel +
+      Add channel +
     </button>
 
-    <!-- Modal -->
+     <%# Modal %>
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -42,7 +42,7 @@
               <p><%= channel.description %></p>
               <%= link_to "Chat now", channel_path(channel), class: 'btn btn-default'%>
             </div>
-              <%= link_to channel_path(channel), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-default channel-d btn-sm', id: 'delete-btn', remote: true do %>
+              <%= link_to channel_path(channel), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, id: 'delete-btn', remote: true do %>
               <i class="fas fa-trash-alt"></i>
               <% end %>
 

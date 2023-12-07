@@ -53,6 +53,7 @@ export default class extends Controller {
       },
       options: {
         pointBackgroundColor: ["Orange"],
+        responsive: true,
         scales: {
           y: {
             beginAtZero: true,
@@ -68,7 +69,7 @@ export default class extends Controller {
           x: {
             title: {
               display: true,
-              text: "Day",
+              text: "Date",
               color: "white",
             },
             grid: {

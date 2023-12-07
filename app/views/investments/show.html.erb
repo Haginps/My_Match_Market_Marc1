@@ -6,7 +6,7 @@
   </h2>
 
   <div class="chart-wrapper" data-controller="performance-chart">
-      <div class="chart-container">
+      <div class="chart-container" style="min-height:361px;">
         <canvas id="bar-chart"
                 data-performance-chart-target="myChart"
                 data-labels="<%= @investment.histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
@@ -77,8 +77,9 @@
             <%# <div class="attribute-icon"> %>
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
-            <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.pace %>%; border: 1px solid white"><p>Pace: <%= @player.pace %>%</p></div>
+            <p>Pace: <%= @player.pace %>%</p>
+            <div class="bar-border" style="border: 1px solid #C7C9CC">
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.pace %>%; border: 1px solid #C7C9CC"></div>
               <%# </div> %>
             </div>
           </div>
@@ -88,8 +89,9 @@
             <%# <div class="attribute-icon"> %>
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
-            <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.shooting %>%; border: 1px solid white"><p>Shooting: <%= @player.shooting %>%</p></div>
+            <p>Shooting: <%= @player.shooting %>%</p>
+            <div class="bar-border" style="border: 1px solid #C7C9CC">
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.shooting %>%; border: 1px solid #C7C9CC"></div>
               <%# </div> %>
             </div>
           </div>
@@ -99,8 +101,9 @@
             <%# <div class="attribute-icon"> %>
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
-            <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.passing %>%; border: 1px solid white"><p>Passing: <%= @player.passing %>%</p></div>
+            <p>Passing: <%= @player.passing %>%</p>
+            <div class="bar-border" style="border: 1px solid #C7C9CC">
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.passing %>%; border: 1px solid #C7C9CC"></div>
               <%# </div> %>
             </div>
           </div>
@@ -110,8 +113,9 @@
             <%# <div class="attribute-icon"> %>
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
-            <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.dribbling %>%; border: 1px solid white"><p>Dribbling: <%= @player.dribbling %>%</p></div>
+            <p>Dribbling: <%= @player.dribbling %>%</p>
+            <div class="bar-border" style="border: 1px solid #C7C9CC">
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.dribbling %>%; border: 1px solid #C7C9CC"></div>
               <%# </div> %>
             </div>
           </div>
@@ -121,8 +125,9 @@
             <%# <div class="attribute-icon"> %>
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
-            <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.defensive %>%; border: 1px solid white"><p>Defensive: <%= @player.defensive %>%</p></div>
+            <p>Defensive: <%= @player.defensive %>%</p>
+            <div class="bar-border" style="border: 1px solid #C7C9CC">
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.defensive %>%; border: 1px solid #C7C9CC"></div>
               <%# </div> %>
             </div>
           </div>
@@ -132,8 +137,9 @@
             <%# <div class="attribute-icon"> %>
               <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
             <%# </div> %>
-            <div class="bar-border" style="border: 1px solid white">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.physics %>%; border: 1px solid white"><p>Physical: <%= @player.physics %>%</p></div>
+            <p>Physical: <%= @player.physics %>%</p>
+            <div class="bar-border" style="border: 1px solid #C7C9CC">
+              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.physics %>%; border: 1px solid #C7C9CC"></div>
               <%# </div> %>
             </div>
           </div>
