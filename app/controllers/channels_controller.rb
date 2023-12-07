@@ -1,5 +1,7 @@
 class ChannelsController < ApplicationController
   def index
+    @today_tokens = current_user.user_histories.find_by(date: Date.today).tokens.round(2)
+
     @channels = Channel.all.order(created_at: :desc)
 
     @channel = Channel.new
@@ -7,6 +9,8 @@ class ChannelsController < ApplicationController
 
 
   def show
+    @today_tokens = current_user.user_histories.find_by(date: Date.today).tokens.round(2)
+
     # @channel = Channel.find(params[:id])
     # @comment = Comment.new
     @post = Post.new

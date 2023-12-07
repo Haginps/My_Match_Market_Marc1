@@ -24,33 +24,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+            <div class="navbar-balance">
+              <span class="balance-amount">£<%= @today_tokens %></span>
+            </div>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fa-solid fa-circle-user fa-2xl" style="color: #ffffff;"></i>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to "Dashboard", "/dashboard", class: "dropdown-item" %>
-              <%# else %>
-                <%# link_to 'Log In', new_user_session_path, class: 'dropdown-item' %>
-              <%# <%= link_to "Another action", "#", class: "dropdown-item" %>
-              <%#= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                <% unless user_signed_in? %>
+                  <div class="ml-auto">
+                    <%= link_to 'Log In', new_user_session_path, class: "dropdown-item" %>
+                  </div>
+                <% else %>
+                  <div class="ml-auto">
+                    <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?"}, class: "dropdown-item" %>
+                  </div>
+                <% end %>
             </div>
           </li>
         <% end %>
 
         <%# else %>
-        <% unless user_signed_in? %>
-          <%# <li class="nav-item"> %>
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <%# </li> %>
-          <div class="ml-auto">
-            <%= link_to 'Log In', new_user_session_path, class: 'btn btn-green' %>
-          </div>
-          <% else %>
-            <div class="ml-auto">
-            <%= link_to 'Log Out', destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to log out?"}, class: 'btn btn-orange' %>
-            </div>
-        <% end %>
+
       </ul>
     </div>
   </div>
