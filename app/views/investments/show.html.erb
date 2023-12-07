@@ -6,7 +6,7 @@
   </h2>
 
   <div class="chart-wrapper" data-controller="performance-chart">
-      <div class="chart-container">
+      <div class="chart-container" style="min-height:361px;">
         <canvas id="bar-chart"
                 data-performance-chart-target="myChart"
                 data-labels="<%= @investment.histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
