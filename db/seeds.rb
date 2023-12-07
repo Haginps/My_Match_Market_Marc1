@@ -62,7 +62,7 @@ post_1.save
 
 
 file = URI.open("https://cdn.vox-cdn.com/thumbor/YmJcbsDWhqLirKMvIGz-D8vkgNc=/0x0:2837x3716/1820x1213/filters:focal(1078x655:1530x1107):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/72824081/1769303492.0.jpg")
-post_2 = Post.new(title: "Badiashile Stock Update: Resilient Recovery", description: "Badiashile, the defensive powerhouse, has rebounded from injury with remarkable resilience, signaling a potential bullish turnaround. :ambulance::back: After a period of absence, this player is back on the field, showcasing strength, determination, and an unwavering commitment to the game. Analysts are closely monitoring this stock, anticipating a positive trajectory as Badiashile regains full form and contributes to the team’s defensive solidity. Investors, take note — this is a recovery story with the potential for substantial gains!", user: User.last)
+post_2 = Post.new(title: "Badiashile Stock Update: Resilient Recovery", description: "Badiashile, the defensive powerhouse, has rebounded from injury with remarkable resilience, signaling a potential bullish turnaround. After a period of absence, this player is back on the field, showcasing strength, determination, and an unwavering commitment to the game. Analysts are closely monitoring this stock, anticipating a positive trajectory as Badiashile regains full form and contributes to the team’s defensive solidity.", user: User.last)
 post_2.channel = channel_1
 post_2.photo.attach(io: file, filename: "benoit", content_type: "image/jpg")
 post_2.save
