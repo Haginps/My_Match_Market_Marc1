@@ -1,7 +1,5 @@
 class InvestmentsController < ApplicationController
   def index
-    @today_tokens = current_user.user_histories.find_by(date: Date.today).tokens.round(2)
-
     if params[:query].present?
       @investments = Investment.global_search(params[:query]).try(:includes, :histories)
     else
@@ -18,8 +16,6 @@ class InvestmentsController < ApplicationController
   end
 
   def show
-    @today_tokens = current_user.user_histories.find_by(date: Date.today).tokens.round(2)
-
     @investment = Investment.find(params[:id])
     @holding = Holding.new
 
