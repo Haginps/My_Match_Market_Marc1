@@ -53,8 +53,8 @@
                       <% post.comments.each do |comment| %>
                         <div class="comment">
                           <div class="name_and_delete">
-                            <p><strong><%= comment.user.first_name %>:</strong> <%= comment.content %></p>
-                            <%= link_to comment_path(comment), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-link btn-sm text-danger' do %>
+                              <p><strong><%= comment.user == current_user ? 'Me' : comment.user.first_name %></strong>: <%= comment.content %></p>
+                              <%= link_to comment_path(comment), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-link btn-sm text-danger' do %>
                               <i class="fa-solid fa-xmark"></i>
                             <% end %>
                           </div>
