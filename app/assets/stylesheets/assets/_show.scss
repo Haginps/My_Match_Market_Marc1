@@ -17,6 +17,8 @@
   width: 100% !important;
   // width: 1350px !important;
   border-radius: 28px;
+  height: 100% !important;
+  padding: 20px;
 }
 
 body {
@@ -46,7 +48,8 @@ body {
   color: #ffff;
   // margin-left: 20px;
   min-height: 125%;
-  max-width: 1508px;
+  // max-width: 1508px;
+  max-width: 90vw;
   margin-top: 35px;
 
   .form-control {
