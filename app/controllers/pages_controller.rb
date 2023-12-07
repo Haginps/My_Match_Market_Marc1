@@ -3,6 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @investments = Investment.all.sample(3)
+    @today_tokens = current_user.user_histories.find_by(date: Date.today).tokens.round(2)
   end
 
   def dashboard
