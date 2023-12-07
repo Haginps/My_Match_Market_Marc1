@@ -29,13 +29,15 @@ body {
   border-radius: 28px;
   background: #393939;
   box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
-  margin-top: 36px;
+  margin-top: 1%;
   padding: 10px;
   float: right;
+  padding-right: 10px;
+  padding-left: 10px;
   // margin-right: 181px;
   // display: block;
   box-sizing: border-box;
-  width: 22%;
+  width: 24%;
   min-height: 750px;
 }
 
@@ -47,7 +49,7 @@ body {
 .transaction-actions {
   color: #ffff;
   // margin-left: 20px;
-  min-height: 125%;
+  margin-bottom: 100px;
   // max-width: 1508px;
   max-width: 90vw;
   margin-top: 35px;
@@ -61,7 +63,7 @@ body {
     border-radius: 28px;
     background: #393939;
     box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
-    margin-top: 36px;
+    margin-top: 1.4%;
     padding: 35px;
     box-sizing: border-box;
     width: 100%;

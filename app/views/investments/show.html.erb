@@ -6,156 +6,119 @@
   </h2>
 
   <div class="chart-wrapper" data-controller="performance-chart">
-      <div class="chart-container" style="position: relative; height:150%; width:150%">
-        <canvas id="bar-chart"
-                data-performance-chart-target="myChart"
-                data-labels="<%= @investment.histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
-                data-prices="<%= @investment.histories.map(&:price).to_json %>" width="4" height="1"
-                data-purchased-histories="<%= @purchased_histories.to_json %>">
-        </canvas>
-      </div>
+    <div class="chart-container" style="position: relative; height:150%; width:150%">
+      <canvas id="bar-chart"
+              data-performance-chart-target="myChart"
+              data-labels="<%= @investment.histories.map { |history| history.date.strftime('%d %b') }.to_json %>"
+              data-prices="<%= @investment.histories.map(&:price).to_json %>" width="4" height="1"
+              data-purchased-histories="<%= @purchased_histories.to_json %>">
+      </canvas>
     </div>
+  </div>
 
   <div class="d-flex justify-content-between mb-5">
     <div class="player-column">
-
       <div class="player-info d-flex justify-content-between">
-
         <div class="player-detail">
           <h3 id="player-stats"> <%= @investment.name%>'s Profile:</h3>
-            <div class="d-flex justify-content-between">
-              <h5>POSITION:</h5>
-              <h5><%= @player.position %></h5>
-            </div>
-          <hr>
           <div class="d-flex justify-content-between">
-          <h5>CLUB:</h5>
-          <h5><%= @player.club %></h5>
+            <h5>POSITION:</h5>
+            <h5><%= @player.position %></h5>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <h5>HEIGHT: </h5>
-          <h5><%= @player.height %>cm</h5>
+            <h5>CLUB:</h5>
+            <h5><%= @player.club %></h5>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <h5>WEIGHT: </h5>
-          <h5><%= @player.weight %>kg</h5>
+            <h5>HEIGHT: </h5>
+            <h5><%= @player.height %>cm</h5>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <h5>DOB: </h5>
-          <h5><%= @player.dob %></h5>
+            <h5>WEIGHT: </h5>
+            <h5><%= @player.weight %>kg</h5>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <h5>NATIONALITY:</h5>
-          <h5><%= @player.nationality %></h5>
+            <h5>DOB: </h5>
+            <h5><%= @player.dob %></h5>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <h5>GAMES: </h5>
-          <h5><%= @player.games_played %></h5>
+            <h5>NATIONALITY:</h5>
+            <h5><%= @player.nationality %></h5>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <h5>GOALS: </h5>
-          <h5><%= @player.goals %></h5>
+            <h5>GAMES: </h5>
+            <h5><%= @player.games_played %></h5>
           </div>
           <hr>
           <div class="d-flex justify-content-between">
-          <h5>ASSISTS:</h5>
-          <h5><%= @player.assists %></h5>
+            <h5>GOALS: </h5>
+            <h5><%= @player.goals %></h5>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <h5>ASSISTS:</h5>
+            <h5><%= @player.assists %></h5>
           </div>
         </div>
-
-        <div class="">
+        <div>
           <h3 id="player-stats"> <%= @investment.name%>'s Stats:</h3>
           <div class="player-attributes-container">
-          <div class="player-attributes">
-              <%# <div class="attribute-bar d-flex align-items-center"> %>
-            <%# <div class="attribute-icon"> %>
-              <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
-            <%# </div> %>
-            <p>Pace: <%= @player.pace %>%</p>
-            <div class="bar-border" style="border: 1px solid #C7C9CC">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.pace %>%; border: 1px solid #C7C9CC"></div>
-              <%# </div> %>
+            <div class="player-attributes">
+              <p>Pace: <%= @player.pace %>%</p>
+              <div class="bar-border" style="border: 1px solid #C7C9CC">
+                <div class="bar-grid d-flex align-items-center" style="width: <%= @player.pace %>%; border: 1px solid #C7C9CC"></div>
+              </div>
+            </div>
+            <div class="player-attributes">
+              <p>Shooting: <%= @player.shooting %>%</p>
+              <div class="bar-border" style="border: 1px solid #C7C9CC">
+                <div class="bar-grid d-flex align-items-center" style="width: <%= @player.shooting %>%; border: 1px solid #C7C9CC"></div>
+              </div>
+            </div>
+
+            <div class="player-attributes">
+              <p>Passing: <%= @player.passing %>%</p>
+              <div class="bar-border" style="border: 1px solid #C7C9CC">
+                <div class="bar-grid d-flex align-items-center" style="width: <%= @player.passing %>%; border: 1px solid #C7C9CC"></div>
+              </div>
+            </div>
+
+            <div class="player-attributes">
+              <p>Dribbling: <%= @player.dribbling %>%</p>
+              <div class="bar-border" style="border: 1px solid #C7C9CC">
+                <div class="bar-grid d-flex align-items-center" style="width: <%= @player.dribbling %>%; border: 1px solid #C7C9CC"></div>
+              </div>
+            </div>
+
+            <div class="player-attributes">
+              <p>Defensive: <%= @player.defensive %>%</p>
+              <div class="bar-border" style="border: 1px solid #C7C9CC">
+                <div class="bar-grid d-flex align-items-center" style="width: <%= @player.defensive %>%; border: 1px solid #C7C9CC"></div>
+              </div>
+            </div>
+
+            <div class="player-attributes">
+              <p>Physical: <%= @player.physics %>%</p>
+              <div class="bar-border" style="border: 1px solid #C7C9CC">
+                <div class="bar-grid d-flex align-items-center" style="width: <%= @player.physics %>%; border: 1px solid #C7C9CC"></div>
+              </div>
             </div>
           </div>
 
-              <div class="player-attributes">
-              <%# <div class="attribute-bar d-flex align-items-center"> %>
-            <%# <div class="attribute-icon"> %>
-              <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
-            <%# </div> %>
-            <p>Shooting: <%= @player.shooting %>%</p>
-            <div class="bar-border" style="border: 1px solid #C7C9CC">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.shooting %>%; border: 1px solid #C7C9CC"></div>
-              <%# </div> %>
-            </div>
-          </div>
-
-              <div class="player-attributes">
-              <%# <div class="attribute-bar d-flex align-items-center"> %>
-            <%# <div class="attribute-icon"> %>
-              <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
-            <%# </div> %>
-            <p>Passing: <%= @player.passing %>%</p>
-            <div class="bar-border" style="border: 1px solid #C7C9CC">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.passing %>%; border: 1px solid #C7C9CC"></div>
-              <%# </div> %>
-            </div>
-          </div>
-
-              <div class="player-attributes">
-              <%# <div class="attribute-bar d-flex align-items-center"> %>
-            <%# <div class="attribute-icon"> %>
-              <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
-            <%# </div> %>
-            <p>Dribbling: <%= @player.dribbling %>%</p>
-            <div class="bar-border" style="border: 1px solid #C7C9CC">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.dribbling %>%; border: 1px solid #C7C9CC"></div>
-              <%# </div> %>
-            </div>
-          </div>
-
-              <div class="player-attributes">
-              <%# <div class="attribute-bar d-flex align-items-center"> %>
-            <%# <div class="attribute-icon"> %>
-              <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
-            <%# </div> %>
-            <p>Defensive: <%= @player.defensive %>%</p>
-            <div class="bar-border" style="border: 1px solid #C7C9CC">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.defensive %>%; border: 1px solid #C7C9CC"></div>
-              <%# </div> %>
-            </div>
-          </div>
-
-          <div class="player-attributes">
-              <%# <div class="attribute-bar d-flex align-items-center"> %>
-            <%# <div class="attribute-icon"> %>
-              <%# <img src="https://scalebranding.com/wp-content/uploads/2022/02/SB_Goat-01.jpg" alt="Pace" style="border-radius: 50%; height: 50px; width: 50px; float: left;"> %>
-            <%# </div> %>
-            <p>Physical: <%= @player.physics %>%</p>
-            <div class="bar-border" style="border: 1px solid #C7C9CC">
-              <div class="bar-grid d-flex align-items-center" style="width: <%= @player.physics %>%; border: 1px solid #C7C9CC"></div>
-              <%# </div> %>
-            </div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
-
     <div class="trade-column">
-
       <h4 id="Today-price">Today's price: £<%= @investment.histories.last.price %></h4>
-
       <!-- Buy Form -->
       <div class="trade-form">
         <% if user_signed_in? %>
-          <%# This buy form is for the first purchase %>
           <% unless @on_hold %>
             <div class="buy form-column" data-controller="buying-investment" data-user-tokens="<%= @user_tokens %>" data-investment-price="<%= @investment.histories.last.price %>">
               <%= simple_form_for [@investment, @holding], html: { data: { controller: "investments-alert", investments_alert_title_value: "Are your sure?", investments_alert_html_value: "Buying Shares", investments_alert_confirm_button_text_value: "Confirm!", investments_alert_show_cancel_button_value: true, investments_alert_cancel_button_text_value: "Cancel", action: "submit->investments-alert#initSweetalert", turbo: false } } do |f| %>
@@ -168,19 +131,15 @@
           <% end %>
 
           <% if @on_hold %>
-            <%# This buy form is for the another purchase %>
-            <% if @on_hold %>
-              <div class="buy form-column" data-controller="buying-investment" data-user-tokens="<%= @user_tokens %>" data-investment-price="<%= @investment.histories.last.price %>">
-                <%= simple_form_for [@investment, @current_holding], html: { data: { controller: "investments-alert", investments_alert_title_value: "Are your sure?", investments_alert_html_value: "Buying Shares", investments_alert_confirm_button_text_value: "Confirm!", investments_alert_show_cancel_button_value: true, investments_alert_cancel_button_text_value: "Cancel", action: "submit->investments-alert#initSweetalert", turbo: false } } do |f| %>
+            <div class="buy form-column" data-controller="buying-investment" data-user-tokens="<%= @user_tokens %>" data-investment-price="<%= @investment.histories.last.price %>">
+              <%= simple_form_for [@investment, @current_holding], html: { data: { controller: "investments-alert", investments_alert_title_value: "Are your sure?", investments_alert_html_value: "Buying Shares", investments_alert_confirm_button_text_value: "Confirm!", investments_alert_show_cancel_button_value: true, investments_alert_cancel_button_text_value: "Cancel", action: "submit->investments-alert#initSweetalert", turbo: false } } do |f| %>
                 <%= f.input :shares_amount, input_html: { value: '', data: { buying_investment_target: "buyPrice", action: "change->buying-investment#activeButton" } } %>
                 <%= f.hidden_field :trade, value: "buy" %>
                 <p data-buying-investment-target="totalAmount">Total Amount:</p>
                 <%= f.submit "Buy     +", class: 'btn-buy-disabled', disabled: 'true', data: { buying_investment_target: "btn" } %>
-                <% end %>
-              </div>
-            <% end %>
-
-          <!-- Sell Form -->
+              <% end %>
+            </div>
+            <!-- Sell Form -->
             <div class="sell form-column" data-controller="buying-investment" data-shares-amount="<%= @current_holding.shares_amount%>" data-user-tokens="<%= @user_tokens %>" data-investment-price="<%= @investment.histories.last.price %>">
               <%= simple_form_for [@investment, @current_holding], html: { data: { controller: "investments-alert", investments_alert_title_value: "Are your sure?", investments_alert_html_value: "Selling Shares", investments_alert_confirm_button_text_value: "Confirm!", investments_alert_show_cancel_button_value: true, investments_alert_cancel_button_text_value: "Cancel", action: "submit->investments-alert#initSweetalert", turbo: false } } do |f| %>
                 <%= f.input :shares_amount, input_html: { value: '', data: { buying_investment_target: "sellPrice", action: "change->buying-investment#activeSellButton" } } %>
@@ -189,47 +148,44 @@
                 <%= f.submit "Sell      -", class: 'btn-sell-disabled', disabled: 'true', data: { buying_investment_target: "btnSell" } %>
               <% end %>
             </div>
-      </div>
-
-          <% unless @sold %>
-            <hr>
-            <div class="holding-info">
-              <h4 id="Depoth4">Holding in depot:</h4>
-              <div class="d-flex justify-content-between">
-                <h4 id="Moneyy">£<%= ((@current_holding.shares_amount * @current_holding.purchased_price).round(2) + (@investment.histories.last.price - @current_holding.purchased_price)).round(2) %></h4>
-                <h4 id="Moneyy"><%= ((@investment.histories.last.price - @current_holding.purchased_price) / @current_holding.purchased_price * 100).round(2) %>%</h4>
-              </div>
-              <hr>
-              <div class="d-flex justify-content-between">
-                <h6>Inventory:</h6>
-                <h6><%= @current_holding.shares_amount %> Qty.</h6>
-              </div>
-              <hr>
-              <%# <div class="d-flex justify-content-between"> %>
-              <%# <h6>Purchase Value:</h6> %>
-              <%# <h6><%= (@current_holding.shares_amount * @current_holding.purchased_price).round(2) £</h6> %>
-              <%# </div> %>
-              <%# <hr> %>
-              <div class="d-flex justify-content-between">
-              <h6>Last transcation:</h6>
-              <h6><%= @current_holding.purchased_date %></h6>
-              </div>
-              <hr>
-              <div class="d-flex justify-content-between">
-              <h6>Purchased Price:</h6>
-              <h6>£<%= (@current_holding.purchased_price).round(2) %></h6>
-              </div>
-              <hr>
-              <div class="d-flex justify-content-between">
-              <h6>Change:</h6>
-              <h6>£<%= ((@investment.histories.last.price - @current_holding.purchased_price) * @current_holding.shares_amount).round(2) %></h6>
-              </div>
-            </div>
+            <% unless @sold %>
+              <hr/>
+            <% end %>
           <% end %>
-        <% end %>
         <% else %>
           <p>You have to sign in to trade</p>
         <% end %>
+      </div>
+      <% if @on_hold %>
+        <div class="holding-info">
+          <h4 id="Depoth4">Holding in depot:</h4>
+          <div class="d-flex justify-content-between">
+            <h4 id="Moneyy">£<%= ((@current_holding.shares_amount * @current_holding.purchased_price).round(2) + (@investment.histories.last.price - @current_holding.purchased_price)).round(2) %></h4>
+            <h4 id="Moneyy"><%= ((@investment.histories.last.price - @current_holding.purchased_price) / @current_holding.purchased_price * 100).round(2) %>%</h4>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <h6>Inventory:</h6>
+            <h6><%= @current_holding.shares_amount %> Qty.</h6>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <h6>Last transcation:</h6>
+            <h6><%= @current_holding.purchased_date %></h6>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <h6>Purchased Price:</h6>
+            <h6>£<%= (@current_holding.purchased_price).round(2) %></h6>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <h6>Change:</h6>
+            <h6>£<%= ((@investment.histories.last.price - @current_holding.purchased_price) * @current_holding.shares_amount).round(2) %></h6>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
+
 </div>
