@@ -115,7 +115,7 @@
       </div>
     </div>
     <div class="trade-column">
-      <h4 id="Today-price">Today's price: £<%= @investment.histories.last.price %></h4>
+      <h4 id="Today-price">Today's price: £<%= @investment.histories.last.price.round(2) %></h4>
       <!-- Buy Form -->
       <div class="trade-form">
         <% if user_signed_in? %>
