@@ -34,7 +34,7 @@
                   <div class="card-body">
                     <%= image_tag investment.image %>
                     <h5 class="card-title"><%= investment.name %></h5>
-                    <p class="card-text">Current Value: £<%= investment.histories.last.price %></p>
+                    <p class="card-text">Current Value: £<%= investment.histories.last.price.round(2) %></p>
                     <p class="card-text">
                       <span style="color: white;">24hr:</span>
                       <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
@@ -65,7 +65,7 @@
                   <div class="card-body">
                     <%= image_tag investment.image %>
                     <h5 class="card-title"><%= investment.name %></h5>
-                    <p class="card-text">Current Value: £<%= investment.histories.last.price %></p>
+                    <p class="card-text">Current Value: £<%= investment.histories.last.price.round(2) %></p>
                     <p class="card-text">
                       <span style="color: white;">24hr:</span>
                       <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">
@@ -95,7 +95,7 @@
                   <div class="card-body">
                     <%= image_tag investment.image %>
                     <h5 class="card-title"><%= investment.name %></h5>
-                    <p class="card-text">Current Value: £<%= investment.histories.last.price %></p>
+                    <p class="card-text">Current Value: £<%= investment.histories.last.price.round(2) %></p>
                     <p class="card-text">
                       <span style="color: white;">24hr:</span>
                       <span style="color: <%= investment.calculate_24hr_change >= 0 ? '#98F899' : '#E83838' %>;">

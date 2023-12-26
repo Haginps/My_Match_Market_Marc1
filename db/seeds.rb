@@ -171,6 +171,7 @@ momentum = {
   end
 end
 
+
 # number_of_days = 30
 # start_date = Date.today - number_of_days
 
@@ -220,7 +221,11 @@ end
 # james_history28 = History.create(date: Date.parse("2023-12-05"), price: 67.91, investment: james_investment)
 # james_history29 = History.create(date: Date.parse("2023-12-06"), price: 67.31, investment: james_investment)
 # james_history30 = History.create(date: Date.parse("2023-12-07"), price: 67.51, investment: james_investment)
+
 # james_history31 = History.create(date: Date.parse("2023-12-08"), price: 65.43, investment: james_investment)
+
+# james_history31 = History.create(date: Date.parse("2023-12-26"), price: 65.43, investment: james_investment)
+
 
 # trent_history1 = History.create(date: Date.parse("2023-11-08"), price: 33.6, investment: trent_investment)
 # trent_history2 = History.create(date: Date.parse("2023-11-09"), price: 27.6, investment: trent_investment)
@@ -252,7 +257,11 @@ end
 # trent_history28 = History.create(date: Date.parse("2023-12-05"), price: 55.21, investment: trent_investment)
 # trent_history29 = History.create(date: Date.parse("2023-12-06"), price: 56.88, investment: trent_investment)
 # trent_history30 = History.create(date: Date.parse("2023-12-07"), price: 56.44, investment: trent_investment)
+
 # trent_history31 = History.create(date: Date.parse("2023-12-08"), price: 60.70, investment: trent_investment)
+
+# trent_history31 = History.create(date: Date.parse("2023-12-26"), price: 60.70, investment: trent_investment)
+
 
 # palmer_history1 = History.create(date: Date.parse("2023-11-08"), price: 8.6, investment: palmer_investment)
 # palmer_history2 = History.create(date: Date.parse("2023-11-09"), price: 10.6, investment: palmer_investment)
@@ -284,7 +293,11 @@ end
 # palmer_history28 = History.create(date: Date.parse("2023-12-05"), price: 51.01, investment: palmer_investment)
 # palmer_history29 = History.create(date: Date.parse("2023-12-06"), price: 51.19, investment: palmer_investment)
 # palmer_history30 = History.create(date: Date.parse("2023-12-07"), price: 51.29, investment: palmer_investment)
+
 # palmer_history31 = History.create(date: Date.parse("2023-12-08"), price: 53.70, investment: palmer_investment)
+
+# palmer_history31 = History.create(date: Date.parse("2023-12-26"), price: 53.70, investment: palmer_investment)
+
 
 
 # messi_history1 = History.create(date: Date.parse("2023-11-08"), price: 200.4, investment: messi_investment)
@@ -317,7 +330,11 @@ end
 # messi_history28 = History.create(date: Date.parse("2023-12-05"), price: 256.24, investment: messi_investment)
 # messi_history29 = History.create(date: Date.parse("2023-12-06"), price: 254.69, investment: messi_investment)
 # messi_history30 = History.create(date: Date.parse("2023-12-07"), price: 255.69, investment: messi_investment)
+
 # messi_history31 = History.create(date: Date.parse("2023-12-08"), price: 256.74, investment: messi_investment)
+
+# messi_history31 = History.create(date: Date.parse("2023-12-26"), price: 256.74, investment: messi_investment)
+
 
 
 # gordon_history1 = History.create(date: Date.parse("2023-11-08"), price: 11.4, investment: gordon_investment)
@@ -350,7 +367,11 @@ end
 # gordon_history28 = History.create(date: Date.parse("2023-12-05"), price: 37.61, investment: gordon_investment)
 # gordon_history29 = History.create(date: Date.parse("2023-12-06"), price: 35.99, investment: gordon_investment)
 # gordon_history30 = History.create(date: Date.parse("2023-12-07"), price: 35.19, investment: gordon_investment)
+
 # gordon_history31 = History.create(date: Date.parse("2023-12-08"), price: 38.69, investment: gordon_investment)
+
+# gordon_history31 = History.create(date: Date.parse("2023-12-26"), price: 38.69, investment: gordon_investment)
+
 
 
 # bowen_history1 = History.create(date: Date.parse("2023-11-08"), price: 15.4, investment: bowen_investment)
@@ -383,7 +404,11 @@ end
 # bowen_history28 = History.create(date: Date.parse("2023-12-05"), price: 65.32, investment: bowen_investment)
 # bowen_history29 = History.create(date: Date.parse("2023-12-06"), price: 66.86, investment: bowen_investment)
 # bowen_history30 = History.create(date: Date.parse("2023-12-07"), price: 66.96, investment: bowen_investment)
+
 # bowen_history31 = History.create(date: Date.parse("2023-12-08"), price: 65.56, investment: bowen_investment)
+
+# bowen_history31 = History.create(date: Date.parse("2023-12-26"), price: 65.56, investment: bowen_investment)
+
 
 
 # cunha_history1 = History.create(date: Date.parse("2023-11-08"), price: 9.2, investment: cunha_investment)
@@ -416,7 +441,11 @@ end
 # cunha_history28 = History.create(date: Date.parse("2023-12-05"), price: 35.87, investment: cunha_investment)
 # cunha_history29 = History.create(date: Date.parse("2023-12-06"), price: 36.43, investment: cunha_investment)
 # cunha_history30 = History.create(date: Date.parse("2023-12-07"), price: 36.03, investment: cunha_investment)
+
 # cunha_history31 = History.create(date: Date.parse("2023-12-08"), price: 35.56, investment: cunha_investment)
+
+# cunha_history31 = History.create(date: Date.parse("2023-12-26"), price: 35.56, investment: cunha_investment)
+
 
 
 # olise_history1 = History.create(date: Date.parse("2023-11-08"), price: 21.2, investment: olise_investment)
@@ -449,7 +478,11 @@ end
 # olise_history28 = History.create(date: Date.parse("2023-12-05"), price: 43.11, investment: olise_investment)
 # olise_history29 = History.create(date: Date.parse("2023-12-06"), price: 43.19, investment: olise_investment)
 # olise_history30 = History.create(date: Date.parse("2023-12-07"), price: 43.94, investment: olise_investment)
+
 # olise_history31 = History.create(date: Date.parse("2023-12-08"), price: 41.55, investment: olise_investment)
+
+# olise_history31 = History.create(date: Date.parse("2023-12-26"), price: 41.55, investment: olise_investment)
+
 
 
 # willian_history1 = History.create(date: Date.parse("2023-11-08"), price: 22.2, investment: willian_investment)
@@ -482,7 +515,11 @@ end
 # willian_history28 = History.create(date: Date.parse("2023-12-05"), price: 20.63, investment: willian_investment)
 # willian_history29 = History.create(date: Date.parse("2023-12-06"), price: 23.45, investment: willian_investment)
 # willian_history30 = History.create(date: Date.parse("2023-12-07"), price: 23.52, investment: willian_investment)
+
 # willian_history31 = History.create(date: Date.parse("2023-12-08"), price: 25.24, investment: willian_investment)
+
+# willian_history31 = History.create(date: Date.parse("2023-12-26"), price: 25.24, investment: willian_investment)
+
 
 
 # elanga_history1 = History.create(date: Date.parse("2023-11-08"), price: 5.2, investment: elanga_investment)
@@ -515,7 +552,11 @@ end
 # elanga_history28 = History.create(date: Date.parse("2023-12-05"), price: 31.74, investment: elanga_investment)
 # elanga_history29 = History.create(date: Date.parse("2023-12-06"), price: 33.82, investment: elanga_investment)
 # elanga_history30 = History.create(date: Date.parse("2023-12-07"), price: 34.82, investment: elanga_investment)
+
 # elanga_history31 = History.create(date: Date.parse("2023-12-08"), price: 38.32, investment: elanga_investment)
+
+# elanga_history31 = History.create(date: Date.parse("2023-12-26"), price: 38.32, investment: elanga_investment)
+
 
 
 # nunez_history1 = History.create(date: Date.parse("2023-11-08"), price: 19.2, investment: nunez_investment)
@@ -548,7 +589,11 @@ end
 # nunez_history28 = History.create(date: Date.parse("2023-12-05"), price: 56.37, investment: nunez_investment)
 # nunez_history29 = History.create(date: Date.parse("2023-12-06"), price: 55.04, investment: nunez_investment)
 # nunez_history30 = History.create(date: Date.parse("2023-12-07"), price: 54.04, investment: nunez_investment)
+
 # nunez_history31 = History.create(date: Date.parse("2023-12-08"), price: 51.54, investment: nunez_investment)
+
+# nunez_history31 = History.create(date: Date.parse("2023-12-26"), price: 51.54, investment: nunez_investment)
+
 
 
 # haaland_history1 = History.create(date: Date.parse("2023-11-08"), price: 85.2, investment: haaland_investment)
@@ -581,7 +626,11 @@ end
 # haaland_history28 = History.create(date: Date.parse("2023-12-05"), price: 168.63, investment: haaland_investment)
 # haaland_history29 = History.create(date: Date.parse("2023-12-06"), price: 172.01, investment: haaland_investment)
 # haaland_history30 = History.create(date: Date.parse("2023-12-07"), price: 173.01, investment: haaland_investment)
+
 # haaland_history31 = History.create(date: Date.parse("2023-12-08"), price: 175.05, investment: haaland_investment)
+
+# haaland_history31 = History.create(date: Date.parse("2023-12-26"), price: 175.05, investment: haaland_investment)
+
 
 
 puts "Investments created"
