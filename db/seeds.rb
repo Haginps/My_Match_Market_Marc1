@@ -9,6 +9,7 @@
 #   end
 
 require "open-uri"
+require "date"
 
 puts "Cleaning Database"
 # News.destroy_all
@@ -104,6 +105,75 @@ nunez_investment.save
 
 haaland_investment = Investment.new(name: "Erling Haaland", abbreviation: "ERHL", rating: rand(0..10), category: "player", description: "The norweigian beast", image:"https://resources.premierleague.com/premierleague/photos/players/110x140/p223094.png")
 haaland_investment.save
+
+number_of_days = 30
+start_date = Date.today - number_of_days
+
+# Example investments
+investments = [
+  james_investment, trent_investment, palmer_investment, messi_investment,
+  haaland_investment, gordon_investment, olise_investment, elanga_investment,
+  bowen_investment, cunha_investment, willian_investment, nunez_investment
+]
+
+# Initialize starting prices and momentum for each investment
+starting_prices = {
+  james_investment => 25,
+  trent_investment => 30,
+  palmer_investment => 7,
+  messi_investment => 130,
+  haaland_investment => 90,
+  gordon_investment => 10,
+  olise_investment => 15,
+  elanga_investment => 7,
+  bowen_investment => 8,
+  cunha_investment => 9,
+  willian_investment => 40,
+  nunez_investment => 18
+}
+
+momentum = {
+  james_investment => 0.5,
+  trent_investment => -0.3,
+  palmer_investment => 0.2,
+  messi_investment => 2.3,
+  haaland_investment => 0.6,
+  gordon_investment => -0.2,
+  olise_investment => 0.1,
+  elanga_investment => 0.3,
+  bowen_investment => -0.1,
+  cunha_investment => 0.2,
+  willian_investment => -0.4,
+  nunez_investment => 0.5
+}
+
+# Loop through each day and create historical data
+(start_date..Date.today).each do |date|
+  investments.each do |investment|
+    # Get the last price or use the starting price
+    last_price = History.where(investment: investment).last&.price || starting_prices[investment]
+
+    # Ensure momentum for the investment is present, otherwise use a default value
+    investment_momentum = momentum[investment] || 0
+
+    # Calculate new price based on momentum and random fluctuation
+    fluctuation = rand(-1.0..1.0) # Random fluctuation
+    new_price = last_price + investment_momentum + fluctuation
+    new_price = [new_price, 0].max # Ensure price doesn't go below 0
+
+    # Create history record for this investment on this date
+    History.create(date: date, price: new_price, investment: investment)
+
+    # Occasionally change the momentum
+    if rand < 0.1 # 10% chance to change momentum
+      momentum[investment] = rand(-0.5..0.5)
+    end
+  end
+end
+
+
+
+
 
 james_history1 = History.create(date: Date.parse("2023-11-08"), price: 43.50, investment: james_investment)
 james_history2 = History.create(date: Date.parse("2023-11-09"), price: 40.32, investment: james_investment)
@@ -581,3 +651,5 @@ user_history_2.save
 user_history_1 = UserHistory.find_by(user: user_1, date: dec_02.date)
 user_history_1.performance += holding_1.purchased_price * holding_1.shares_amount
 user_history_1.save
+
+puts "Seeding completed"
