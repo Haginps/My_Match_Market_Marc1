@@ -9,7 +9,7 @@
                 <span class="balance-amount">£<%= @today_tokens %></span>
                   <div class="portfolio-change">
                     <span class="<%= @account_percentage_change.zero? ? 'zero' : (@account_percentage_change.positive? ? 'positive' : 'negative') %>">
-                      <%= @account_percentage_change.zero? ? '' : (@account_percentage_change.positive? ? '+' : '-') %><%= @account_percentage_change %>% (£<%= @price_increase %>)
+                      <%= @account_percentage_change.zero? ? '' : (@account_percentage_change.positive? ? '+' : '') %><%= @account_percentage_change %>% (£<%= @price_increase %>)
                     </span>
                   </div>
             </div>
@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="investment-price">
-                          <p><%= holding.investment.histories.last.price %></p>
+                          <p><%= (holding.investment.histories.last.price).round(2) %></p>
                         </div>
 
                         <div class="investment-percentage">
