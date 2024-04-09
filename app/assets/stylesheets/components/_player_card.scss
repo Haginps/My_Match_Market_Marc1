@@ -1,9 +1,13 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .card-body {
   background-color: #393939;
   color: rgb(255, 255, 255);
   border-radius: 25px;
   transition: transform 0.2s ease;
-  margin-top: 1%;
+  margin-top: 5%;
 
   img.player-photo {
     border-radius: 50%;
@@ -86,6 +90,7 @@
 }
 
 // card of player
+
 .h-100 {
   border-radius: 28px;
   background: #393939;
@@ -105,10 +110,6 @@
   p {
     font-size: 20px;
     font-weight: 200;
-  }
-
-  .card-text {
-
   }
 }
 
