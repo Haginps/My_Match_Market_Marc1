@@ -1,11 +1,15 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .card-body {
   background-color: #393939;
   color: rgb(255, 255, 255);
   border-radius: 25px;
   transition: transform 0.2s ease;
-  margin-top: 1%;
+  margin-top: 5%;
 
-  img {
+  img.player-photo {
     border-radius: 50%;
     width: 70px;
     height: 70px;
@@ -13,6 +17,22 @@
     object-fit: cover;
     object-position: 50% top;
     margin-bottom: 9px;
+  }
+
+  .team-logo {
+    width: auto;
+    height: 40px;
+    margin-right: 8%;
+    background: none; /* No background */
+    border: none; /* No border */
+    border-radius: 0; /* This ensures the image is not circular */
+  }
+
+  .country-flag {
+    width: auto;
+    height: 40px;
+    margin-left: 8%;
+    border-radius: 50%; /* Keep this if you want the country flags circular */
   }
 }
 
@@ -31,7 +51,6 @@
     justify-content: center;
   }
 }
-
 
 .card {
   margin: 0px auto;
@@ -70,20 +89,27 @@
   margin-bottom: 25px;
 }
 
+// card of player
+
 .h-100 {
   border-radius: 28px;
   background: #393939;
   box-shadow: 0px 2px 50.1px -5px rgba(0, 0, 0, 0.25);
   width: 85%;
-  min-height: 234px;
+  min-height: 269px;
   text-align: center;
 
   h5 {
-    font-size: 24px;
+    font-size: 32px;
+    font-weight: 700;
+    font-family: "Inter-Bold", Helvetica;
+    margin-bottom: 4%;
+    margin-top: 2%;
   }
 
   p {
     font-size: 20px;
+    font-weight: 200;
   }
 }
 
