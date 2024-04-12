@@ -1,9 +1,9 @@
 class InvestmentsController < ApplicationController
   def index
     if params[:query].present?
-      @investments = Investment.global_search(params[:query]).try(:includes, :histories)
+      @investments = Investment.global_search(params[:query]).includes(:histories)
     else
-      @investments = Investment.all.try(:includes, :histories)
+      @investments = Investment.includes(:histories).all
     end
 
     @top_players = filter_players_by_category("Top Players", [])
@@ -63,13 +63,12 @@ class InvestmentsController < ApplicationController
 
   private
 
-  def filter_players_by_category(_category, _excluded_players)
-    []
+  def filter_players_by_category(category, excluded_players)
+    Investment.joins(:player).where(category: "player").where.not(id: excluded_players).order(created_at: :desc).limit(10)
   end
 
   def assign_players_to_category(player_names, category_players)
-    players = @investments.where(name: player_names).where.not(id: category_players).limit(player_names.length)
-    category_players.concat(players)
+    players = Investment.where(name: player_names).where.not(id: category_players.pluck(:id)).limit(player_names.length)
+    category_players + players.to_a
   end
-
 end
